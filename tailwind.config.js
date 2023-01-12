@@ -27,22 +27,23 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['Inter', ...fontFamily.sans],
+        sans: ['Outfit', ...fontFamily.sans],
       },
       colors: {
-        primary: colors.teal,
-        gray: colors.neutral,
+        primary: colors.cyan,
+        secondary: colors.sky,
+        gray: colors.slate,
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: theme('colors.primary.500'),
+              color: theme('colors.secondary.700'),
               '&:hover': {
-                color: `${theme('colors.primary.600')} !important`,
+                color: `${theme('colors.secondary.800')} !important`,
               },
-              code: { color: theme('colors.primary.400') },
+              code: { color: theme('colors.secondary.800') },
             },
             h1: {
               fontWeight: '700',

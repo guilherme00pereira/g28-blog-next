@@ -1,16 +1,20 @@
 ---
-title: "Writing Logs for a Custom WordPress Plugin"
+title: "Writing Log Files for a Custom WordPress Plugin"
 date: "2022-09-21"
 tags: ['wordpress']
 draft: false
-summary: 'In this article I will show you how to record log files to record events when we are creating a plugin for WordPress and display them on a page in the Admin..'
+summary: 'In this article I will show you how to record log files to record events when we are creating a plugin for WordPress and display them on a page in the Admin.'
 ---
 
-When creating a plugin for WordPress, we often need to record events, actions and captured errors to analyze the functioning of our plugin and thus correct any failures. In this example,
-I'm going to create a class that will record log files separated by date and show how we can record a log and display the result on the screen.
+When developing a WordPress plugin, we frequently need to record events, actions, and caught errors in order to examine the plugin's functionality and thereby remedy any faults. In this example, I'll develop a class that will record log files split by date and demonstrate how to record a log and display the result on the screen.
 
-The first step will be to create the class that will represent the object that will register the logs. This class will follow the Singleton design pattern, containing the getInstance()
-method to have access to a single instance of the Logger object throughout the plugin.
+<TableOfContents toc={props.toc} asDisclosure={true} />
+
+## The plugin hierarchy
+
+The first step will be to create the class that will represent the object that will register the logs. This class will follow the `Singleton Design Pattern`, containing the getInstance() method to have access to a single instance of the Logger object throughout the plugin.
+
+## The Logger class
 
 ```php
 

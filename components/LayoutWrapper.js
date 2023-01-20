@@ -1,4 +1,4 @@
-import { Inter } from '@next/font/google'
+import { Outfit } from '@next/font/google'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
 import Logo from '@/data/logo.svg'
@@ -7,13 +7,13 @@ import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
-const inter = Inter({
+const outfit = Outfit({
   subsets: ['latin'],
 })
 const LayoutWrapper = ({ children }) => {
   return (
     <SectionContainer>
-      <div className={`${inter.className} flex h-screen flex-col justify-between font-sans`}>
+      <div className={`${outfit.className} flex h-screen flex-col justify-between font-sans`}>
         <header className="flex items-center justify-between py-10">
           <div>
             <Link href="/" aria-label={siteMetadata.headerTitle}>

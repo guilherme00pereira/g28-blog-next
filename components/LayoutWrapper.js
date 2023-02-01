@@ -18,20 +18,13 @@ const LayoutWrapper = ({ children }) => {
           <div>
             <Link href="/" aria-label={siteMetadata.headerTitle}>
               <div className="flex items-center justify-between">
-                <div className="mr-3">
-                  <Logo />
+                <div className="ml-5 mt-5 h-20 bg-gradient-to-r from-sky-600 to-cyan-400 bg-clip-text text-6xl font-semibold text-transparent">
+                  {siteMetadata.headerTitle}
                 </div>
-                {typeof siteMetadata.headerTitle === 'string' ? (
-                  <div className="hidden h-6 text-2xl font-semibold sm:block">
-                    {siteMetadata.headerTitle}
-                  </div>
-                ) : (
-                  siteMetadata.headerTitle
-                )}
               </div>
             </Link>
           </div>
-          <div className="flex items-center text-base leading-5">
+          <div className="flex items-center text-xl leading-5">
             <div className="hidden sm:block">
               {headerNavLinks.map((link) => (
                 <Link

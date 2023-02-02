@@ -1,5 +1,5 @@
-import Image from './Image'
-import ProfilePicture from '../public/static/images/perfil.webp'
+import Image from '../Image'
+import ProfilePicture from '../../public/static/images/perfil.webp'
 
 const Hero = () => {
   return (
@@ -11,11 +11,12 @@ const Hero = () => {
           width="200"
           height="200"
           className="w-42 outline-3 rounded-full outline outline-offset-4 outline-sky-400 saturate-50"
+          priority
         />
       </div>
       <div className="pt-6 font-semibold sm:w-2/3 sm:pt-0">
         <p className="text-gray-400">Hi everyone!</p>
-        <div className="bg-gradient-to-r from-sky-600 to-cyan-400 bg-clip-text text-transparent">
+        <div className="linear-blue">
           <div className="text-4xl">
             My name is <br className="sm:hidden" />
             Guilherme Pereira

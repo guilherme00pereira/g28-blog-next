@@ -22,8 +22,8 @@
   @apply my-5;
 }
 
-.linear-title {
-  
+.linear-blue {
+  @apply bg-gradient-to-r from-sky-600 to-cyan-400 bg-clip-text text-transparent;
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */

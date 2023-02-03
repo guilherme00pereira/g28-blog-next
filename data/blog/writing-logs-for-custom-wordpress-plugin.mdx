@@ -1,0 +1,60 @@
+---
+title: "Writing Log Files for a Custom WordPress Plugin"
+date: "2022-09-21"
+tags: ['wordpress']
+draft: false
+summary: 'In this article I will show you how to record log files to record events when we are creating a plugin for WordPress and display them on a page in the Admin.'
+---
+
+When developing a WordPress plugin, we frequently need to record events, actions, and caught errors in order to examine the plugin's functionality and thereby remedy any faults. In this example, I'll develop a class that will record log files split by date and demonstrate how to record a log and display the result on the screen.
+
+<TableOfContents toc={props.toc} asDisclosure={true} />
+
+## The plugin hierarchy
+
+The first step will be to create the class that will represent the object that will register the logs. This class will follow the `Singleton Design Pattern`, containing the getInstance() method to have access to a single instance of the Logger object throughout the plugin.
+
+## The Logger class
+
+```php
+
+<?php
+namespace G28\MyPlugin;
+class Logger
+{
+    protected static $_instance = null;
+    public function __construct()
+    {
+        $this->filename   = "log_" . date("Ymd") . ".txt";
+        $this->filepath   = Plugin::getDir() . 'logs/' . $this->actualFilename;
+    }
+    public static function getInstance(): ?Logger {
+        if ( is_null( self::$_instance ) ) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
+}
+
+```
+
+In the code above I have included 2 properties in this class: filename and filepath. In filename we will add a filename representing the day date.
+Thus, whenever we call the object of the class to save a record, it will be saved in the file that will identify the date on which it occurred.
+
+I'll also add the add() method, adding the message we want to write to the end of the file:
+
+```php
+
+public function add( string $origin, string $message ) {
+        date_default_timezone_set('America/Sao_Paulo');
+        $timestamp    = date('d/m/Y h:i:s A');
+        $output = "[ $timestamp ] $origin - $message" . PHP_EOL;
+        file_put_contents( $this->filepath, $output, FILE_APPEND);
+    }
+
+```
+
+In the first line, I define the timezone to which I want the registration time to be compatible with my location, in this case Brazil.
+In the second line I am formatting the date and time and, in the third line, I create the string that will be recorded in the file, with the time,
+the origin indicating which class/method called the Logger object for registration and the message received by the method, in addition to from a line break to the end.
+In the last line I call the file_put_contents method to write the data to the file.

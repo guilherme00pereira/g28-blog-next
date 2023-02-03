@@ -89,6 +89,9 @@ export const Blog = defineDocumentType(() => ({
     canonicalUrl: {
       type: 'string',
     },
+    banner: {
+      type: 'string',
+    },
   },
   computedFields,
 }))

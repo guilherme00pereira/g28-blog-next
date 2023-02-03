@@ -1,6 +1,6 @@
 import { TagSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
-import ListLayout from '@/layouts/ListLayout'
+import PostListLayout from '@/layouts/PostListLayout'
 import { kebabCase } from 'pliny/utils/kebabCase'
 import { getAllTags, allCoreContent } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
@@ -38,7 +38,7 @@ export default function Tag({ posts, tag }) {
         title={`${tag} - ${siteMetadata.title}`}
         description={`${tag} tags - ${siteMetadata.author}`}
       />
-      <ListLayout posts={posts} title={title} />
+      <PostListLayout posts={posts} title={title} />
     </>
   )
 }

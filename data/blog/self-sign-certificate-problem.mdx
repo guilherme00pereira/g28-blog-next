@@ -1,19 +1,9 @@
 ---
 title: "Self Signed Certificate"
 date: "2023-01-18"
+draft: false
 tags: ['certificate']
 ---
 
-#SELF CERTIFICATE
+## SELF CERTIFICATE
 
-git config --global http.sslVerify false
-
-set NODE_TLS_REJECT_UNAUTHORIZED=0
-npm config set strict-ssl false
-
-composer config --global disable-tls true
-composer config --global secure-http false
-composer config --global repo.packagist composer http://packagist.org
-composer clearcache
-
-pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org <package_name>

@@ -1,7 +1,6 @@
 import { Outfit } from '@next/font/google'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/logo.svg'
 import Link from './Link'
 import SectionContainer from './SectionContainer'
 import Footer from './Footer'
@@ -18,7 +17,7 @@ const LayoutWrapper = ({ children }) => {
           <div>
             <Link href="/" aria-label={siteMetadata.headerTitle}>
               <div className="flex items-center justify-between">
-                <div className="linear-blue ml-5 mt-5 h-20 text-6xl font-semibold">
+                <div className="linear-blue ml-5 mt-5 h-20 text-7xl font-semibold">
                   {siteMetadata.headerTitle}
                 </div>
               </div>
@@ -30,7 +29,7 @@ const LayoutWrapper = ({ children }) => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                  className="p-1 font-medium text-slate-700 dark:text-gray-100 sm:p-4"
                 >
                   {link.title}
                 </Link>

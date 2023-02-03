@@ -23,7 +23,15 @@
 }
 
 .linear-blue {
-  @apply bg-gradient-to-r from-sky-600 to-cyan-400 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent;
+}
+
+.page-title {
+  @apply text-3xl font-bold leading-9 tracking-tight text-slate-700 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-5xl md:leading-14
+}
+
+.hover-moveup {
+  @apply transition-all ease-in-out duration-700
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */

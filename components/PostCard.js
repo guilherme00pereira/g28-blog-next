@@ -1,4 +1,4 @@
-import Link from '@/components/Link'
+import Link from 'next/link'
 import Tag from '@/components/Tag'
 import { formatDate } from 'pliny/utils/formatDate'
 import siteMetadata from '@/data/siteMetadata'
@@ -10,8 +10,13 @@ const PostCard = ({ post }) => {
   return (
     <div key={slug} className="hover-moveup my-4 w-full hover:mt-2 md:w-[45%]">
       <div className="border-1 h-[400px] rounded-lg border border-slate-400 bg-slate-200 p-4 dark:border-gray-800 dark:bg-wrapper-dark">
-        <article>
-          <Link href={`/blog/${slug}`} className="text-slate-700 dark:text-gray-100">
+        <Link
+          href={`/blog/${slug}`}
+          passHref
+          className="text-slate-700 dark:text-gray-100"
+          legacyBehavior
+        >
+          <article>
             {images && (
               <div className="relative flex h-[220px] flex-row justify-center">
                 <Image className="rounded-lg" src={images[0]} alt={title} fill object-fit="cover" />
@@ -38,8 +43,8 @@ const PostCard = ({ post }) => {
                 </div>
               </div>
             </div>
-          </Link>
-        </article>
+          </article>
+        </Link>
       </div>
     </div>
   )

@@ -8,7 +8,7 @@ const PostCard = ({ post }) => {
   const { slug, date, title, summary, tags, images } = post
 
   return (
-    <div key={slug} className="hover-moveup my-4 w-full hover:mt-2 md:w-[45%]">
+    <div className="hover-moveup my-2 w-full hover:mt-1">
       <div className="border-1 h-[400px] rounded-lg border border-slate-400 bg-slate-200 p-4 dark:border-gray-800 dark:bg-wrapper-dark">
         <Link
           href={`/blog/${slug}`}
@@ -19,7 +19,13 @@ const PostCard = ({ post }) => {
           <article>
             {images && (
               <div className="relative flex h-[220px] flex-row justify-center">
-                <Image className="rounded-lg" src={images[0]} alt={title} fill object-fit="cover" />
+                <Image
+                  className="rounded-lg"
+                  src={images[0]}
+                  alt={title}
+                  fill
+                  object-fit="contain"
+                />
               </div>
             )}
             <div className="mt-2 space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">

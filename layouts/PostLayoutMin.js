@@ -8,9 +8,11 @@ import { BlogSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Tag from '@/components/Tag'
+import Image from '@/components/Image'
+
 export default function PostLayout({ content, next, prev, children }) {
   const [loadComments, setLoadComments] = useState(false)
-  const { path, slug, date, title, tags } = content
+  const { path, slug, date, title, tags, images } = content
   return (
     <SectionContainer>
       <BlogSEO url={`${siteMetadata.siteUrl}/${path}`} {...content} />
@@ -45,6 +47,17 @@ export default function PostLayout({ content, next, prev, children }) {
                 )}
               </div>
             </div>
+            {images && (
+            <div className="relative mt-10 flex h-[500px] flex-row justify-center">
+                <Image
+                  className="rounded-lg"
+                  src={images[0]}
+                  alt={title}
+                  fill
+                  object-fit="contain"
+                />
+            </div>
+            )}
           </header>
           <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0">
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
@@ -63,7 +76,7 @@ export default function PostLayout({ content, next, prev, children }) {
             <footer>
               <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
                 {prev && (
-                  <div className="pt-4 xl:pt-8">
+                  <div className="max-w-xs pt-4 xl:pt-8">
                     <Link
                       href={`/${prev.path}`}
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
@@ -74,7 +87,7 @@ export default function PostLayout({ content, next, prev, children }) {
                   </div>
                 )}
                 {next && (
-                  <div className="pt-4 xl:pt-8">
+                  <div className="max-w-xs pt-4 xl:pt-8">
                     <Link
                       href={`/${next.path}`}
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"

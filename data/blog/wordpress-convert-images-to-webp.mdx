@@ -3,14 +3,17 @@ title: "Convert WordPress Images into WebP"
 date: "2022-11-23"
 tags: ['wordpress']
 draft: false
+images: ['/static/images/wordpress-convert-images-to-webp/wordpress-webp.webp']
 summary: "convert"
 ---
-
-One improvement that we can do in WordPress is image quality, especially when it comes to performance, load times and user experience. WebP is a new image format that replaces JPEGs but uses up to 40% less data while retaining the same quality as JPEGs (and even better in some cases). The good news is that there are ways you can convert your existing images into WebP format. One of them i will show in this article.
 
 <TableOfContents toc={props.toc} asDisclosure={true} />
 
 ## Introduction
+
+One improvement that we can do in WordPress is image quality, especially when it comes to performance, load times and user experience. WebP is a new image format that replaces JPEGs but uses up to 40% less data while retaining the same quality as JPEGs (and even better in some cases). The good news is that there are ways you can convert your existing images into WebP format. One of them i will show in this article.
+
+## What Is WebP
 
 WebP is a new image format developed by Google. It's similar to JPEG and PNG, but it provides better compression than either of them. This means that your images will load faster and use less bandwidth, which can be especially important for mobile users on limited data plans or with slow Internet connections.
 
@@ -19,7 +22,85 @@ WebP also supports transparency in both 8-bit and 32-bit modes (the latter being
 
 ## Setting up the plugin
 
-As a first step, we need to create 
+The first step is to create the plugin directory and, inside it, a PHP file with the same name. For that, we will use the following commands
+
+```bash
+mkdir g28-convert-image-to-webp 
+cd g28-convert-image-to-webp 
+touch g28-convert-image-to-webp.php
+```
+
+Let's create a class to convert an image to webp format
+
+```php
+<?php
+
+namespace G28\ConvertImageToWebp;
+
+class ImageConverter
+{
+    public static function generetaWebpFile($image_url)
+    {
+        $imageSubPath = substr( $image_url, strpos($image_url, "uploads"));
+        $upload_dir = wp_upload_dir();
+        $imageFile = $upload_dir['basedir'] . str_replace('uploads', '', $imageSubPath) . ".webp";
+        if( file_exists( $imageFile ) ) 
+        {
+            return $image_url . '.webp';
+        }
+        else
+        {
+            $image_type = exif_imagetype($image_url);
+            $mime_type = image_type_to_mime_type($image_type);
+            if ($mime_type == 'image/jpeg' || $mime_type == 'image/png') {
+                $image = imagecreatefromstring(file_get_contents($image_url));
+                $saved = imagewebp($image, $imageFile);
+                imagedestroy($image);
+                if($saved) {
+                    return $image_url . '.webp';
+                } else {
+                    return "";
+                }
+                
+            }
+        }
+    }
+}
+```
+
+To perform this conversion through terminal, we will use a class to register a command.
+
+```php
+<?php
+
+namespace G28\ConvertImageToWebp;
+
+use WP_CLI;
+
+if( !function_exists( __NAMESPACE__ . 'runPlugin') )
+{
+    function runPlugin( $root )
+    {
+        add_action( 'plugins_loaded', function () use ( $root ) {
+            
+        } );
+        add_action( 'cli_init', function () {
+            WP_CLI::add_command('g28', 'G28\ConvertImageToWebp\CliRegistrator\EuCapCli');
+        } );
+    }
+}
+```
+
+```php
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+require "vendor/autoload.php";
+
+use function G28\ConvertImageToWebp\runPlugin;
+
+runPlugin( __FILE__ );
+```
+
 
 
 

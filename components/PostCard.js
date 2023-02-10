@@ -3,9 +3,10 @@ import Tag from '@/components/Tag'
 import { formatDate } from 'pliny/utils/formatDate'
 import siteMetadata from '@/data/siteMetadata'
 import Image from '@/components/Image'
+import readingTime from 'reading-time'
 
 const PostCard = ({ post }) => {
-  const { slug, date, title, summary, tags, images } = post
+  const { slug, date, title, summary, tags, images, readingTime } = post
 
   return (
     <div className="hover-moveup my-2 w-full hover:mt-1">
@@ -28,25 +29,33 @@ const PostCard = ({ post }) => {
                 />
               </div>
             )}
-            <div className="mt-2 space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-              <dl>
-                <dt className="sr-only">Published on</dt>
-                <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                  <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                </dd>
-              </dl>
+            <div className="mt-2 space-y-2">
+              <div className='flex flex-row justify-between w-full'>
+                <div className="flex flex-wrap">
+                  {tags.map((tag) => (
+                    <Tag key={tag} text={tag} />
+                  ))}
+                </div>
+                <div className='text-slate-800 dark:text-slate-400'>
+                  {readingTime.text}
+                </div>
+              </div>
               <div className="space-y-5 xl:col-span-3">
                 <div className="space-y-6">
                   <div>
                     <h2 className="text-2xl font-bold leading-8 tracking-tight">{title}</h2>
-                    <div className="flex flex-wrap">
-                      {tags.map((tag) => (
-                        <Tag key={tag} text={tag} />
-                      ))}
-                    </div>
+
                   </div>
                   {/* <div className="prose max-w-none text-gray-500 dark:text-gray-400">{summary}</div> */}
                 </div>
+              </div>
+              <div>
+                <dl>
+                  <dt className="sr-only">Published on</dt>
+                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                    <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                  </dd>
+                </dl>
               </div>
             </div>
           </article>

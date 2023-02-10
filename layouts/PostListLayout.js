@@ -1,47 +1,9 @@
 import { useState } from 'react'
-import { useRouter } from 'next/router'
-import Link from '@/components/Link'
 import PostCard from '@/components/PostCard'
+import Pagination from '@/components/Pagination'
 
-function Pagination({ totalPages, currentPage }) {
-  const router = useRouter()
-  const basePath = router.pathname.split('/')[1]
-  const prevPage = currentPage - 1 > 0
-  const nextPage = currentPage + 1 <= totalPages
-  return (
-    <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-      <nav className="flex justify-between">
-        {!prevPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
-            Previous
-          </button>
-        )}
-        {prevPage && (
-          <Link
-            href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
-            rel="prev"
-          >
-            Previous
-          </Link>
-        )}
-        <span>
-          {currentPage} of {totalPages}
-        </span>
-        {!nextPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            Next
-          </button>
-        )}
-        {nextPage && (
-          <Link href={`/${basePath}/page/${currentPage + 1}`} rel="next">
-            Next
-          </Link>
-        )}
-      </nav>
-    </div>
-  )
-}
-export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
+
+const PostListLayout = ({ posts, title, initialDisplayPosts = [], pagination }) => {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((post) => {
     const searchContent = post.title + post.summary + post.tags.join(' ')
@@ -98,3 +60,5 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
     </>
   )
 }
+
+export default PostListLayout;

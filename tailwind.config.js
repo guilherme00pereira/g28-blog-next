@@ -35,6 +35,9 @@ module.exports = {
         slate: colors.slate,
         'wrapper-dark': '#131C31',
       },
+      boxShadow: {
+        'neon': '0 3px 20px rgb(11,209,209,0.2)'
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {

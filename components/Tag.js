@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import { kebabCase } from 'pliny/utils/kebabCase'
-const Tag = ({ text }) => {
+const Tag = ({ text, total }) => {
   return (
     <Link
       href={`/tags/${kebabCase(text)}`}
-      className="hover-moveup mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+      className="mr-3 text-xs font-small uppercase text-slate-800 dark:text-slate-400"
     >
-      {text.split(' ').join('-')}
+      #{text.split(' ').join('-')}
     </Link>
   )
 }

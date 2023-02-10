@@ -23,7 +23,7 @@ export default function Home({ posts }) {
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <Hero />
-        <div className="flex flex-row flex-wrap justify-around">
+        <div className="grid grid-cols-1 gap-4 pt-4 md:grid-cols-2">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             return <PostCard post={post} key={post.id} />

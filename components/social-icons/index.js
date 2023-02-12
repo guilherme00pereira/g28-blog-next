@@ -4,6 +4,8 @@ import Facebook from './facebook.svg'
 import Youtube from './youtube.svg'
 import Linkedin from './linkedin.svg'
 import Twitter from './twitter.svg'
+import Discord from './discord.svg'
+import Whatsapp from './whatsapp.svg'
 
 // Icons taken from: https://simpleicons.org/
 
@@ -14,9 +16,11 @@ const components = {
   youtube: Youtube,
   linkedin: Linkedin,
   twitter: Twitter,
+  discord: Discord,
+  whatsapp: Whatsapp,
 }
 
-const SocialIcon = ({ kind, href, size = 8 }) => {
+const SocialIcon = ({ kind, href, size = 5 }) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 
@@ -31,7 +35,7 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
     >
       <span className="sr-only">{kind}</span>
       <SocialSvg
-        className={`fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 h-${size} w-${size}`}
+        className={`fill-current text-gray-700 hover:text-${kind} dark:text-gray-400 dark:hover:text-${kind} h-${size} w-${size}`}
       />
     </a>
   )

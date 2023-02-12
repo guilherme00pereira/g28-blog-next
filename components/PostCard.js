@@ -6,11 +6,11 @@ import Image from '@/components/Image'
 import readingTime from 'reading-time'
 
 const PostCard = ({ post }) => {
-  const { slug, date, title, summary, tags, images, readingTime } = post
+  const { slug, date, title, tags, images, readingTime } = post
 
   return (
     <div className="hover-moveup my-2 w-full hover:mt-1">
-      <div className="border-1 h-[400px] rounded-lg border border-slate-400 bg-slate-200 p-4 dark:border-gray-800 dark:bg-wrapper-dark">
+      <div className="border-1 h-[460px] rounded-lg border border-slate-400 bg-slate-200 p-4 dark:border-gray-800 dark:bg-wrapper-dark">
         <Link
           href={`/blog/${slug}`}
           passHref
@@ -19,7 +19,7 @@ const PostCard = ({ post }) => {
         >
           <article>
             {images && (
-              <div className="relative flex h-[220px] flex-row justify-center">
+              <div className="relative flex h-[200px] flex-row justify-center sm:h-[280px]">
                 <Image
                   className="rounded-lg"
                   src={images[0]}
@@ -44,9 +44,7 @@ const PostCard = ({ post }) => {
                 <div className="space-y-6">
                   <div>
                     <h2 className="text-2xl font-bold leading-8 tracking-tight">{title}</h2>
-
                   </div>
-                  {/* <div className="prose max-w-none text-gray-500 dark:text-gray-400">{summary}</div> */}
                 </div>
               </div>
               <div>

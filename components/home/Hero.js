@@ -1,10 +1,12 @@
 import Image from '../Image'
 import ProfilePicture from '../../public/static/images/perfil.webp'
+import SocialIcon from '@/components/social-icons'
+import siteMetadata from '@/data/siteMetadata'
 
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center py-16 sm:flex-row sm:justify-around">
-      <div className="">
+    <div className="flex flex-col items-center py-16 sm:flex-row sm:justify-center sm:space-x-20">
+      <div className="ml-24">
         <Image
           src={ProfilePicture}
           alt=""
@@ -22,6 +24,12 @@ const Hero = () => {
             Guilherme Pereira
           </div>
           <div className="text-3xl">I'm a full stack developer</div>
+          <div className="mt-6 flex flex-row space-x-4">
+            <SocialIcon kind="mail" href={siteMetadata.social.email} />
+            <SocialIcon kind="whatsapp" href={siteMetadata.social.whatsapp} />
+            <SocialIcon kind="github" href={siteMetadata.social.github} />
+            <SocialIcon kind="linkedin" href={siteMetadata.social.linkedin} />
+          </div>
         </div>
       </div>
     </div>

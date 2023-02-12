@@ -34,9 +34,11 @@ module.exports = {
         secondary: colors.sky,
         slate: colors.slate,
         'wrapper-dark': '#131C31',
+        whatsapp: '#25D366',
+        mail: '#EA4335',
       },
       boxShadow: {
-        'neon': '0 3px 20px rgb(11,209,209,0.2)'
+        neon: '0 3px 20px rgb(11,209,209,0.2)',
       },
       typography: (theme) => ({
         DEFAULT: {

@@ -14,12 +14,16 @@ const siteMetadata = {
   image: '/static/images/perfil.webp',
   socialBanner: '/static/images/twitter-card.png',
   email: 'guilherme00pereira@gmail.com',
-  github: 'https://github.com/guilherme00pereira',
-  twitter: '',
-  facebook: '',
-  youtube: '',
-  linkedin: 'https://www.linkedin.com/in/guilhermepereirasalves/',
   locale: 'en-US',
+  social: {
+    email: 'mailto:guilherme00pereira@gmail.com',
+    github: 'https://github.com/guilherme00pereira',
+    twitter: '',
+    youtube: '',
+    discord: '',
+    whatsapp: 'https://wa.me/5531990891617',
+    linkedin: 'https://www.linkedin.com/in/guilhermepereirasalves/',
+  },
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.

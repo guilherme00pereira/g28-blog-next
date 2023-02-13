@@ -17,7 +17,7 @@ const PostCard = ({ post }) => {
           className="text-slate-700 dark:text-gray-100"
           legacyBehavior
         >
-          <article>
+          <article className="h-full">
             {images && (
               <div className="relative flex h-[200px] flex-row justify-center sm:h-[280px]">
                 <Image
@@ -29,31 +29,31 @@ const PostCard = ({ post }) => {
                 />
               </div>
             )}
-            <div className="mt-2 space-y-2">
-              <div className='flex flex-row justify-between w-full'>
+            <div className="mt-2 flex flex-col">
+              <div className="flex w-full flex-row justify-between">
+                <dl>
+                  <dt className="sr-only">Published on</dt>
+                  <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
+                    <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                  </dd>
+                </dl>
+                <div className="text-slate-800 dark:text-slate-400">{readingTime.text}</div>
+              </div>
+              <div className="space-y-5 xl:col-span-3">
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-2xl font-bold leading-8 hover:text-slate-600 dark:text-cyan-100 hover:dark:text-cyan-500">
+                      {title}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <div>
                 <div className="flex flex-wrap">
                   {tags.map((tag) => (
                     <Tag key={tag} text={tag} />
                   ))}
                 </div>
-                <div className='text-slate-800 dark:text-slate-400'>
-                  {readingTime.text}
-                </div>
-              </div>
-              <div className="space-y-5 xl:col-span-3">
-                <div className="space-y-6">
-                  <div>
-                    <h2 className="text-2xl font-bold leading-8 tracking-tight">{title}</h2>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <dl>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                  </dd>
-                </dl>
               </div>
             </div>
           </article>

@@ -15,27 +15,27 @@ import { useRouter } from 'next/router'
 
 export default function PostLayout({ content, next, prev, children }) {
   const router = useRouter()
-  const [breadcrumbs, setBreadcrumbs] = useState()
+  const [breadcrumbs, setBreadcrumbs] = useState([])
   const [loadComments, setLoadComments] = useState(false)
   const { path, slug, date, title, tags, images, readingTime } = content
 
   useEffect(() => {
-    const pathWithoutQuery = router.asPath.split("?")[0];
-    let pathArray = pathWithoutQuery.split("/");
-    pathArray.shift();
+    const pathWithoutQuery = router.asPath.split('?')[0]
+    let pathArray = pathWithoutQuery.split('/')
+    pathArray.shift()
 
-    pathArray = pathArray.filter((path) => path !== "");
+    pathArray = pathArray.filter((path) => path !== '')
 
     const breadcrumbs = pathArray.map((path, index) => {
-      const href = "/" + pathArray.slice(0, index + 1).join("/");
+      const href = '/' + pathArray.slice(0, index + 1).join('/')
       return {
         href,
         label: path.charAt(0).toUpperCase() + path.slice(1),
-      };
-    });
+      }
+    })
 
-    setBreadcrumbs(breadcrumbs);
-  }, [router.asPath]);
+    setBreadcrumbs(breadcrumbs)
+  }, [router.asPath])
 
   return (
     <SectionContainer>
@@ -55,11 +55,11 @@ export default function PostLayout({ content, next, prev, children }) {
         </div>
         <header>
           <div className="border-t border-gray-200 py-10 text-center dark:border-gray-700">
-            <div className='pb-10'>
+            <div className="pb-10">
               <PageTitle>{title}</PageTitle>
             </div>
             {images && (
-              <div className="relative inline-block mt-18 h-[400px] w-[800px] overflow-hidden">
+              <div className="mt-18 relative inline-block h-[400px] w-[800px] overflow-hidden">
                 <Image
                   className="rounded-lg"
                   src={images[0]}
@@ -69,21 +69,17 @@ export default function PostLayout({ content, next, prev, children }) {
                 />
               </div>
             )}
-            <div className='flex flex-row justify-between pt-8'>
-              <div className='flex flex-row justify-between text-base leading-6 text-gray-500 dark:text-gray-400'>
+            <div className="flex flex-row justify-between pt-8">
+              <div className="flex flex-row justify-between text-base leading-6 text-gray-500 dark:text-gray-400">
                 <dl>
                   <dt className="sr-only">Published on</dt>
                   <dd>
                     <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                   </dd>
                 </dl>
-                <span className='ml-6'>
-                  {readingTime.text}
-                </span>
+                <span className="ml-6">{readingTime.text}</span>
               </div>
-              <div>
-                Share
-              </div>
+              <div>Share</div>
             </div>
           </div>
         </header>

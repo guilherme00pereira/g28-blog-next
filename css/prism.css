@@ -118,7 +118,8 @@
  .token.tag,
  .token.symbol,
  .token.deleted,
- .token.important {
+ .token.important,
+ .token.imports {
      color: hsl(355, 65%, 65%);
  }
  
@@ -135,12 +136,21 @@
  
  .token.variable,
  .token.operator,
- .token.function {
+ .token.function,
+ .token.property-access {
      color: hsl(207, 82%, 66%);
  }
  
  .token.url {
      color: hsl(187, 47%, 55%);
+ }
+
+ .token.dom.variable,
+ .token.maybe-class-name,
+ .token.parameter,
+ .token.scope,
+ .token.package {
+    color: hsl(50, 70%, 70%);
  }
  
  /* HTML overrides */
@@ -171,15 +181,27 @@
  .language-css .token.atrule .token.rule {
      color: hsl(286, 60%, 67%);
  }
+
+
+ /* PHP overrides */
+ .language-php .token.variable {
+    color: hsl(355, 65%, 65%);
+ }
  
  /* JS overrides */
- .language-javascript .token.operator {
+ .language-js .token.operator {
      color: hsl(286, 60%, 67%);
  }
  
- .language-javascript .token.template-string > .token.interpolation > .token.interpolation-punctuation.punctuation {
+ .language-js .token.template-string > .token.interpolation > .token.interpolation-punctuation.punctuation,
+ .language-js .token.imports {
      color: hsl(5, 48%, 51%);
  }
+
+ .token.punctuation:after {
+    color: hsl(5, 48%, 51%);
+ }
+
  
  /* JSON overrides */
  .language-json .token.operator {

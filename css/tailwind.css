@@ -23,7 +23,7 @@
 }
 
 .linear-blue {
-  @apply bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-sky-500 to-cyan-500 dark:to-cyan-400 bg-clip-text text-transparent;
 }
 
 .page-title {

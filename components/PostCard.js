@@ -11,15 +11,14 @@ const PostCard = ({ post }) => {
   return (
     <div className="hover-moveup my-2 w-full hover:mt-1">
       <div className="border-1 h-[460px] rounded-lg border border-slate-400 bg-slate-200 p-4 dark:border-gray-800 dark:bg-wrapper-dark">
-        <Link
-          href={`/blog/${slug}`}
-          passHref
-          className="text-slate-700 dark:text-gray-100"
-          legacyBehavior
-        >
-          <article className="h-full">
-            {images && (
-              <div className="relative flex h-[200px] flex-row justify-center sm:h-[280px]">
+        <article className="h-full">
+          {images && (
+            <Link
+              href={`/blog/${slug}`}
+              passHref
+              legacyBehavior
+            >
+              <div className="relative flex h-[200px] flex-row justify-center sm:h-[280px] cursor-pointer">
                 <Image
                   className="rounded-lg"
                   src={images[0]}
@@ -28,38 +27,44 @@ const PostCard = ({ post }) => {
                   object-fit="contain"
                 />
               </div>
-            )}
-            <div className="mt-2 flex flex-col">
-              <div className="flex w-full flex-row justify-between">
-                <dl>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                  </dd>
-                </dl>
-                <div className="text-slate-800 dark:text-slate-400">{readingTime.text}</div>
-              </div>
-              <div className="space-y-5 xl:col-span-3">
-                <div className="space-y-6">
-                  <div>
-                    <h2 className="text-2xl font-bold leading-8 hover:text-slate-600 dark:text-cyan-100 hover:dark:text-cyan-500">
+            </Link>
+          )}
+          <div className="mt-2 flex flex-col">
+            <div className="flex w-full flex-row justify-between">
+              <dl>
+                <dt className="sr-only">Published on</dt>
+                <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
+                  <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                </dd>
+              </dl>
+              <div className="text-slate-800 dark:text-slate-400">{readingTime.text}</div>
+            </div>
+            <div className="space-y-5 xl:col-span-3">
+              <div className="space-y-6">
+                <div>
+                  <Link
+                    href={`/blog/${slug}`}
+                    passHref
+                    legacyBehavior
+                  >
+                    <h3 className="text-2xl font-bold leading-8 hover:text-slate-600 dark:text-slate-300 hover:dark:text-cyan-500 cursor-pointer ">
                       {title}
-                    </h2>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="flex flex-wrap">
-                  {tags.map((tag) => (
-                    <Tag key={tag} text={tag} />
-                  ))}
+                    </h3>
+                  </Link>
                 </div>
               </div>
             </div>
-          </article>
-        </Link>
-      </div>
+            <div>
+              <div className="flex flex-wrap">
+                {tags.map((tag) => (
+                  <Tag key={tag} text={tag} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
     </div>
+    </div >
   )
 }
 

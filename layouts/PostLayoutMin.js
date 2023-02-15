@@ -10,7 +10,6 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Tag from '@/components/Tag'
 import Image from '@/components/Image'
 import Breadcrumb from '@/components/blog/Breadcrumb'
-import BreadcrumbItem from '@/components/blog/BreadcrumbItem'
 import { useRouter } from 'next/router'
 
 export default function PostLayout({ content, next, prev, children }) {
@@ -23,9 +22,7 @@ export default function PostLayout({ content, next, prev, children }) {
     const pathWithoutQuery = router.asPath.split('?')[0]
     let pathArray = pathWithoutQuery.split('/')
     pathArray.shift()
-
     pathArray = pathArray.filter((path) => path !== '')
-
     const breadcrumbs = pathArray.map((path, index) => {
       const href = '/' + pathArray.slice(0, index + 1).join('/')
       return {
@@ -33,7 +30,6 @@ export default function PostLayout({ content, next, prev, children }) {
         label: path.charAt(0).toUpperCase() + path.slice(1),
       }
     })
-
     setBreadcrumbs(breadcrumbs)
   }, [router.asPath])
 
@@ -42,17 +38,9 @@ export default function PostLayout({ content, next, prev, children }) {
       <BlogSEO url={`${siteMetadata.siteUrl}/${path}`} {...content} />
       <ScrollTopAndComment />
       <article>
-        <div>
-          <Breadcrumb>
-            <BreadcrumbItem href="/">Home</BreadcrumbItem>
-            {breadcrumbs &&
-              breadcrumbs.map((breadcrumb) => (
-                <BreadcrumbItem key={breadcrumb.href} href={breadcrumb.href}>
-                  {breadcrumb.label}
-                </BreadcrumbItem>
-              ))}
-          </Breadcrumb>
-        </div>
+          {breadcrumbs &&
+            <Breadcrumb items={breadcrumbs} pageTitle={title} />   
+          }
         <header>
           <div className="border-t border-gray-200 py-10 text-center dark:border-gray-700">
             <div className="pb-10">

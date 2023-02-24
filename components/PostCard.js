@@ -3,7 +3,6 @@ import Tag from '@/components/Tag'
 import { formatDate } from 'pliny/utils/formatDate'
 import siteMetadata from '@/data/siteMetadata'
 import Image from '@/components/Image'
-import readingTime from 'reading-time'
 
 const PostCard = ({ post }) => {
   const { slug, date, title, tags, images, readingTime } = post
@@ -13,12 +12,8 @@ const PostCard = ({ post }) => {
       <div className="border-1 h-[460px] rounded-lg border border-slate-400 bg-slate-200 p-4 dark:border-gray-800 dark:bg-wrapper-dark">
         <article className="h-full">
           {images && (
-            <Link
-              href={`/blog/${slug}`}
-              passHref
-              legacyBehavior
-            >
-              <div className="relative flex h-[200px] flex-row justify-center sm:h-[280px] cursor-pointer">
+            <Link href={`/blog/${slug}`} passHref legacyBehavior>
+              <div className="relative flex h-[200px] cursor-pointer flex-row justify-center sm:h-[225px]">
                 <Image
                   className="rounded-lg"
                   src={images[0]}
@@ -42,12 +37,8 @@ const PostCard = ({ post }) => {
             <div className="space-y-5 xl:col-span-3">
               <div className="space-y-6">
                 <div>
-                  <Link
-                    href={`/blog/${slug}`}
-                    passHref
-                    legacyBehavior
-                  >
-                    <h3 className="text-2xl font-bold leading-8 hover:text-slate-600 dark:text-slate-300 hover:dark:text-cyan-500 cursor-pointer ">
+                  <Link href={`/blog/${slug}`} passHref legacyBehavior>
+                    <h3 className="cursor-pointer text-2xl font-bold leading-8 hover:text-slate-600 dark:text-slate-300 hover:dark:text-cyan-500 ">
                       {title}
                     </h3>
                   </Link>
@@ -63,8 +54,8 @@ const PostCard = ({ post }) => {
             </div>
           </div>
         </article>
+      </div>
     </div>
-    </div >
   )
 }
 

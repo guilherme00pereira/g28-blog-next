@@ -1,0 +1,86 @@
+---
+title: "Javascript Call Function By String Stored In A Variable"
+date: "2022-09-08"
+tags: ['javascript']
+images: ['/static/images/common/javascript.webp']
+draft: false
+summary: 'javascript call function by string stored in a variable'
+---
+
+## Using the window variable
+
+One way to call a JavaScript function by string name, is using the global `window` object, which contains all the functions and variables defined in the current context, including the functions defined in the global scope.
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <div id="message"></div>
+  <script type="text/javascript">
+    function sayHello() {
+      document.getElementById('message').innerText = "Hello World!"
+    }
+
+    const functionName = "sayHello"
+
+    window.addEventListener('DOMContentLoaded', function () {
+      window[functionName]()
+    })
+  </script>
+</body>
+
+</html>
+
+```
+
+## Calling from a imported module
+
+If you're working with a JavaScript module and you want to call a function defined in that module using a string name, you need to export the function as part of the module's public interface:
+
+```js
+//file function.js
+export function sayHello() {
+      document.getElementById('message').innerText = "Hello World!"
+    }
+```
+
+and then import the module as an alias and call that function, as the example below:
+
+```js
+//file main.js
+import * as fnModule from "./function.js";
+
+const functionName = "sayHello";
+
+fnModule[functionName]();
+
+```
+
+## Calling from inside a module
+
+If you only have the name of the function as a string and need to call it within a module, you can use the bracket notation to access the function as a property of the exports object, which is a reference to the public interface of the module. Here is an example:
+
+```js
+
+function sayHello() {
+    document.getElementById('message').innerText = "Hello World!"
+}
+
+function mainFunction() {
+    const functionName = "sayHello";
+    this[functionName]()
+}
+
+export default {
+    sayHello,
+    mainFunction
+}
+
+```
+

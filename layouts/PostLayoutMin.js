@@ -7,9 +7,9 @@ import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import Tag from '@/components/Tag'
 import Image from '@/components/Image'
 import Breadcrumb from '@/components/blog/Breadcrumb'
+import { kebabCase } from 'pliny/utils/kebabCase'
 import { useRouter } from 'next/router'
 
 export default function PostLayout({ content, next, prev, children }) {
@@ -71,20 +71,28 @@ export default function PostLayout({ content, next, prev, children }) {
             </div>
           </div>
         </header>
-        <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0">
-          <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+        <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700">
+          <div className="xl:col-span-3 xl:row-span-2 xl:pb-0">
             <div className="prose max-w-none pt-10 pb-8 text-justify text-xl dark:prose-dark">
               {children}
             </div>
           </div>
-          <div>
+          <div className='pt-2 pb-6'>
             {tags && (
-              <div className="pt-4 xl:pt-8">
-                <div className="flex flex-wrap justify-center pt-2">
-                  {tags.map((tag) => (
-                    <Tag key={tag} text={tag} />
-                  ))}
+              <div className="flex flex-wrap justify-center pt-2">
+                {tags.map((tag) => (
+                  <div
+                  key={tag}
+                  className="mt-2 mb-2 mr-5 rounded-xl border border-slate-300 p-3 dark:border-slate-700 dark:shadow hover:dark:border-cyan-500 hover:dark:shadow-neon "
+                >
+                  <Link
+                    href={`/tags/${kebabCase(tag)}`}
+                    className="text-sm font-medium uppercase text-slate-800 dark:text-slate-300 hover:dark:text-cyan-500"
+                  >
+                    #{tag.split(' ').join('-')}
+                  </Link>
                 </div>
+                ))}
               </div>
             )}
           </div>

@@ -7,7 +7,7 @@ import { allBlogs } from 'contentlayer/generated'
 export const POSTS_PER_PAGE = 10
 export const getStaticProps = async () => {
   const posts = sortedBlogPost(allBlogs)
-  const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
+  const initialDisplayPosts = posts//.length > POSTS_PER_PAGE ? posts.slice(0, POSTS_PER_PAGE) : posts
   const pagination = {
     currentPage: 1,
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),

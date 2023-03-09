@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Comments } from 'pliny/comments'
 import { formatDate } from 'pliny/utils/formatDate'
 import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
+import SectionTitle from '@/components/SectionTitle'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
@@ -39,12 +39,12 @@ export default function PostLayout({ content, next, prev, children }) {
       <ScrollTopAndComment />
       <article>
           {breadcrumbs &&
-            <Breadcrumb items={breadcrumbs} pageTitle={title} />   
+            <Breadcrumb items={breadcrumbs} SectionTitle={title} />   
           }
         <header>
           <div className="border-t border-gray-200 py-10 text-center dark:border-gray-700">
             <div className="pb-10">
-              <PageTitle>{title}</PageTitle>
+              <SectionTitle title={title} />
             </div>
             {images && (
               <div className="mt-18 relative inline-block h-[400px] w-[800px] overflow-hidden">

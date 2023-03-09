@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import PostCard from '@/components/PostCard'
+import PostCard from '@/components/blog/PostCard'
 import Pagination from '@/components/Pagination'
-
+import SectionTitle from '@/components/SectionTitle'
 
 const PostListLayout = ({ posts, title, initialDisplayPosts = [], pagination }) => {
   const [searchValue, setSearchValue] = useState('')
@@ -17,9 +17,7 @@ const PostListLayout = ({ posts, title, initialDisplayPosts = [], pagination }) 
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-3xl font-bold leading-9 tracking-tight text-slate-700 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-5xl md:leading-14">
-            {title}
-          </h1>
+          <SectionTitle title={title} />
           <div className="relative max-w-lg">
             <label>
               <span className="sr-only">Search articles</span>

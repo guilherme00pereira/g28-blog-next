@@ -1,22 +1,22 @@
-// import { MDXLayoutRenderer } from '@/components/MDXComponents'
-import { allAuthors } from 'contentlayer/generated'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { MDXComponents } from '@/components/MDXComponents'
-const DEFAULT_LAYOUT = 'AuthorLayout'
-export const getStaticProps = async () => {
-  const author = allAuthors.find((p) => p.slug === 'default')
-  return {
-    props: {
-      author,
-    },
-  }
-}
-export default function About({ author }) {
+import { PageSEO } from '@/components/SEO'
+import SectionTitle from '@/components/SectionTitle'
+
+export default function About() {
+  
   return (
-    <MDXLayoutRenderer
-      layout={author.layout || DEFAULT_LAYOUT}
-      content={author}
-      MDXComponents={MDXComponents}
-    />
+    <>
+      <PageSEO title={'About - Guilherme Pereira'} description={'About me - Guilherme Pereira'} />
+      <div>
+        <SectionTitle title="About Me" subtitle />
+        <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">  
+          <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">fkljdaskljskdjas</div>
+        </div>
+        <SectionTitle title="My Services" subtitle />
+        <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">  
+          <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">fkljdaskljskdjas</div>
+        </div>
+        <SectionTitle title="Testimonials" subtitle />
+      </div>
+    </>
   )
 }

@@ -5,7 +5,7 @@ import { sortedBlogPost, allCoreContent } from 'pliny/utils/contentlayer'
 import { NewsletterForm } from 'pliny/ui/NewsletterForm'
 import { allBlogs } from 'contentlayer/generated'
 import Hero from '@/components/home/Hero'
-import PostCard from '@/components/PostCard'
+import PostCard from '@/components/blog/PostCard'
 
 const MAX_DISPLAY = 6
 export const getStaticProps = async () => {

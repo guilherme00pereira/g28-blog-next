@@ -1,5 +1,5 @@
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import PageTitle from '@/components/PageTitle'
+import PageTitle from '@/components/SectionTitle'
 import { MDXComponents } from '@/components/MDXComponents'
 import { sortedBlogPost, coreContent } from 'pliny/utils/contentlayer'
 import { allBlogs, allAuthors } from 'contentlayer/generated'

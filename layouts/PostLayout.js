@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Comments } from 'pliny/comments'
 import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
+import PageTitle from '@/components/SectionTitle'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
 import Image from '@/components/Image'

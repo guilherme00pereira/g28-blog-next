@@ -8,12 +8,12 @@ const headerNavLinks = [
     title: 'Tags',
   },
   {
-    href: '/projects',
-    title: 'Projects',
+    href: '/portfolio',
+    title: 'Portfolio',
   },
   {
     href: '/about',
-    title: 'About',
+    title: 'About Me',
   },
 ]
 export default headerNavLinks

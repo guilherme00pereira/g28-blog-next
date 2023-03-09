@@ -4,6 +4,8 @@ import siteMetadata from '@/data/siteMetadata'
 import { kebabCase } from 'pliny/utils/kebabCase'
 import { getAllTags } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
+import SectionTitle from '@/components/SectionTitle'
+
 export const getStaticProps = async () => {
   const tags = await getAllTags(allBlogs)
   return {
@@ -19,8 +21,8 @@ export default function Tags({ tags }) {
       <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I blog about" />
       <div className="flex flex-col items-start justify-start divide-y divide-slate-500 dark:divide-gray-500 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
         <div className="space-x-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="page-title border-gray-500 tracking-tight dark:border-gray-300 md:border-r-2 md:px-6">
-            Tags
+          <h1 className="border-gray-500 tracking-tight dark:border-gray-300 md:border-r-2 md:px-6">
+            <SectionTitle title="Tags" />
           </h1>
         </div>
         <div className="flex max-w-lg flex-row flex-wrap">

@@ -31,7 +31,6 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       post,
-      authorDetails,
       prev,
       next,
     },
@@ -55,9 +54,6 @@ export default function BlogPostPage({ post, authorDetails, prev, next }) {
           content={post}
           MDXComponents={MDXComponents}
           toc={post.toc}
-          authorDetails={authorDetails}
-          prev={prev}
-          next={next}
         />
       )}
     </>

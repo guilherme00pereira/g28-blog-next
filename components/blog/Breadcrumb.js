@@ -46,7 +46,7 @@ const Breadcrumb = ({ items, pageTitle }) => {
       )
     }
     return (
-      <BreadcrumbItem last>{pageTitle}</BreadcrumbItem>
+      <BreadcrumbItem key={index} last>{pageTitle}</BreadcrumbItem>
     )
   })
   return (

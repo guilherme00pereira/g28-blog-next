@@ -33,8 +33,14 @@ export const workData = [
     stack: ['php', 'woocommerce', 'wordpress', 'javascript']
   },
   {
-    title: 'WordPress JetEngine External Integration',
-    description: 'In this job, i made a plugin for integration between JetEngine and a real state CRM.',
+    title: 'Event Ticket Sales Platform',
+    description: "In this work I participated in both the frontend and the backend. On the frontend, development of components and screens using Vue.js. In the backend, creation of modules for queued processing of sending various notifications to the user. Integration with payment gateways.",
+    imgSrc: '/static/images/projects/jetengine.webp',
+    stack: ['php', 'laravel', 'vue.js', 'javascript', 'gitlab']
+  },
+  {
+    title: 'WordPress JetEngine Api Integration',
+    description: "This work involved the creation of different plugins for the integration of JetEngine with external api's, such as CRM's, real estate management system api, vehicle registration systems api's and lead management (eg WebMotors), etc... It also involved creating custom widgets for JetEngine.",
     imgSrc: '/static/images/projects/jetengine.webp',
     href: 'https://crocoblock.com/plugins/jetengine',
     stack: ['php', 'woocommerce', 'wordpress', 'javascript']

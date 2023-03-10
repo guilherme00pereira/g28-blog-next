@@ -10,7 +10,7 @@ export default function Projects() {
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
       <div>
         <div className="container py-12">
-          <SectionTitle title="Projects I Worked On" summary="These are some projects that I have been working on" subtitle />
+          <SectionTitle title="Projects I Worked On" summary="These are some projects that I have been working on as a freelancer" subtitle />
           <div className="-m-4 flex flex-wrap">
             {workData.map((d) => (
               <PortfolioCard

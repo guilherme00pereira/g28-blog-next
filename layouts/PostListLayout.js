@@ -48,7 +48,7 @@ const PostListLayout = ({ posts, title, initialDisplayPosts = [], pagination }) 
         <div className="grid grid-cols-1 gap-4 pt-4 md:grid-cols-2">
           {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((post) => {
-            return <PostCard post={post} key={post.id} />
+            return <PostCard post={post} key={post.slug} />
           })}
         </div>
       </div>

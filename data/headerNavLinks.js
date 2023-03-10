@@ -15,5 +15,9 @@ const headerNavLinks = [
     href: '/about',
     title: 'About Me',
   },
+  {
+    href: '/stack',
+    title: 'Stack',
+  },
 ]
 export default headerNavLinks

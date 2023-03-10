@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Comments } from 'pliny/comments'
 import { formatDate } from 'pliny/utils/formatDate'
 import Link from '@/components/Link'
 import SectionTitle from '@/components/SectionTitle'
@@ -12,11 +11,10 @@ import Breadcrumb from '@/components/blog/Breadcrumb'
 import { kebabCase } from 'pliny/utils/kebabCase'
 import { useRouter } from 'next/router'
 
-export default function PostLayout({ content, next, prev, children }) {
+export default function PostLayout({ content, children }) {
   const router = useRouter()
   const [breadcrumbs, setBreadcrumbs] = useState([])
-  const [loadComments, setLoadComments] = useState(false)
-  const { path, slug, date, title, tags, images, readingTime } = content
+  const { path, date, title, tags, images, readingTime } = content
 
   useEffect(() => {
     const pathWithoutQuery = router.asPath.split('?')[0]
@@ -38,9 +36,9 @@ export default function PostLayout({ content, next, prev, children }) {
       <BlogSEO url={`${siteMetadata.siteUrl}/${path}`} {...content} />
       <ScrollTopAndComment />
       <article>
-          {breadcrumbs &&
-            <Breadcrumb items={breadcrumbs} SectionTitle={title} />   
-          }
+        {breadcrumbs &&
+          <Breadcrumb items={breadcrumbs} pageTitle={title} />
+        }
         <header>
           <div className="border-t border-gray-200 py-10 text-center dark:border-gray-700">
             <div className="pb-10">
@@ -49,11 +47,13 @@ export default function PostLayout({ content, next, prev, children }) {
             {images && (
               <div className="mt-18 relative inline-block h-[400px] w-[800px] overflow-hidden">
                 <Image
-                  className="rounded-lg"
+                  className="rounded-lg w-auto h-auto"
                   src={images[0]}
                   alt={title}
                   fill
                   object-fit="contain"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority
                 />
               </div>
             )}
@@ -79,57 +79,23 @@ export default function PostLayout({ content, next, prev, children }) {
           </div>
           <div className='pt-2 pb-6'>
             {tags && (
-              <div className="flex flex-wrap justify-center pt-2">
+              <div className="flex flex-wrap justify-start pt-2">
                 {tags.map((tag) => (
                   <div
-                  key={tag}
-                  className="mt-2 mb-2 mr-5 rounded-xl border border-slate-300 p-3 dark:border-slate-700 dark:shadow hover:dark:border-cyan-500 hover:dark:shadow-neon "
-                >
-                  <Link
-                    href={`/tags/${kebabCase(tag)}`}
-                    className="text-sm font-medium uppercase text-slate-800 dark:text-slate-300 hover:dark:text-cyan-500"
+                    key={tag}
+                    className="mt-2 mb-2 mr-5 rounded-xl border border-slate-300 p-3 dark:border-slate-700 dark:shadow hover:dark:border-cyan-500 hover:dark:shadow-neon "
                   >
-                    #{tag.split(' ').join('-')}
-                  </Link>
-                </div>
+                    <Link
+                      href={`/tags/${kebabCase(tag)}`}
+                      className="text-sm font-medium uppercase text-slate-800 dark:text-slate-300 hover:dark:text-cyan-500"
+                    >
+                      #{tag.split(' ').join('-')}
+                    </Link>
+                  </div>
                 ))}
               </div>
             )}
           </div>
-          {siteMetadata.comments.provider && (
-            <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300" id="comment">
-              {!loadComments && (
-                <button onClick={() => setLoadComments(true)}>Load Comments</button>
-              )}
-              {loadComments && <Comments commentsConfig={siteMetadata.comments} slug={slug} />}
-            </div>
-          )}
-          <footer>
-            <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
-              {prev && (
-                <div className="max-w-xs pt-4 xl:pt-8">
-                  <Link
-                    href={`/${prev.path}`}
-                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                    aria-label={`Previous post: ${prev.title}`}
-                  >
-                    &larr; {prev.title}
-                  </Link>
-                </div>
-              )}
-              {next && (
-                <div className="max-w-xs pt-4 xl:pt-8">
-                  <Link
-                    href={`/${next.path}`}
-                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                    aria-label={`Next post: ${next.title}`}
-                  >
-                    {next.title} &rarr;
-                  </Link>
-                </div>
-              )}
-            </div>
-          </footer>
         </div>
       </article>
     </SectionContainer>

@@ -6,7 +6,7 @@ export default function About() {
   return (
     <>
       <PageSEO title={'About - Guilherme Pereira'} description={'About me - Guilherme Pereira'} />
-      <div>
+      <div className='flex flex-col items-center'>
         <SectionTitle title="About Me" subtitle />
         <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">  
           <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">fkljdaskljskdjas</div>

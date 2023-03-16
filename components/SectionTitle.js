@@ -1,7 +1,7 @@
 export default function PageTitle({ title, summary, subtitle = false }) {
   if(subtitle) {
     return (
-      <div className='pb-10 text-center'>
+      <div className='pb-10 text-center divide-y-2 divide-slate-700 w-3/5'>
         <h2 className="text-2xl font-bold leading-9 tracking-tight linear-blue sm:text-3xl sm:leading-10 md:text-4xl md:leading-14">
           {title}
         </h2>

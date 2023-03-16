@@ -15,13 +15,14 @@ const LayoutWrapper = ({ children }) => {
       <div className={`${outfit.className} flex h-screen flex-col justify-between font-sans`}>
         <header className="flex items-center justify-between py-10">
           <div>
-            <Link href="/" aria-label={siteMetadata.headerTitle}>
-              <div className="flex items-center justify-between">
-                <div className="linear-blue ml-5 mt-5 h-20 text-7xl font-semibold">
-                  {siteMetadata.headerTitle}
+              <div className="flex flex-col justify-start">
+                <div className="linear-blue mt-5 h-20 text-7xl font-semibold">
+                  <Link href="/" aria-label={siteMetadata.headerTitle}>
+                    {siteMetadata.headerTitle}
+                  </Link>
                 </div>
+                <div className='text-xs text-gray-300 ml-3 -mt-3'>by Guilherme Pereira</div>
               </div>
-            </Link>
           </div>
           <div className="flex items-center text-xl leading-5">
             <div className="hidden sm:block">
@@ -35,7 +36,7 @@ const LayoutWrapper = ({ children }) => {
                 </Link>
               ))}
             </div>
-            <ThemeSwitch />
+            {/* <ThemeSwitch /> */}
             <MobileNav />
           </div>
         </header>

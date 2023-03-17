@@ -7,7 +7,7 @@ import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 const outfit = Outfit({
-  subsets: ['latin'],
+  subsets: ['latin']
 })
 const LayoutWrapper = ({ children }) => {
   return (
@@ -21,7 +21,7 @@ const LayoutWrapper = ({ children }) => {
                   {siteMetadata.headerTitle}
                 </Link>
               </div>
-              <div className="ml-3 -mt-3 text-xs text-gray-300">by Guilherme Pereira</div>
+              <div className="ml-3 -mt-3 text-xs text-slate-800 dark:text-gray-300 ">by Guilherme Pereira</div>
             </div>
           </div>
           <div className="flex items-center text-xl leading-5">
@@ -36,7 +36,7 @@ const LayoutWrapper = ({ children }) => {
                 </Link>
               ))}
             </div>
-            {/* <ThemeSwitch /> */}
+            <ThemeSwitch />
             <MobileNav />
           </div>
         </header>

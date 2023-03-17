@@ -29,7 +29,7 @@ import StackSection from '@/components/stack/StackSection'
 
 const Stack = () => {
   return (
-    <div className="w-full">
+    <div className="flex flex-col justify-center items-center">
       <StackSection title="Languages">
         <Brand title="PHP" url="https://www.php.net/" progress="90">
           <SiPhp color="default" size={64} />

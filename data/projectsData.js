@@ -19,19 +19,12 @@ export const projectsData = [
 
 export const workData = [
   {
-    title: 'Engineer by Hustle',
-    description: 'React components for web and a Chrome extension',
-    imgSrc: '/static/images/projects/jetengine.webp',
-    href: 'https://www.engineerbyhustle.com/',
-    stack: ['react.js', 'typescript', 'firebase', 'tailwind', 'jira'],
-  },
-  {
     title: 'Eu Capacito',
     description:
       'In this project I participated halfway through the development phase of the first version. I worked with the creation of React.js components containing specific functionalities to consume data from an API and LMS resources, implementation of layouts created in Figma. Later, I added Next.js to improve SEO compatibility. Creation of plugins and endpoints for WordPress as a backend.',
     imgSrc: '/static/images/projects/eucapacito.webp',
     href: 'https://www.eucapacito.com.br',
-    stack: ['react.js', 'typescript', 'next', 'wordpress', 'aws', 'github'],
+    stack: ['react.js', 'typescript', 'next', 'wordpress', 'aws', 'github', 'figma'],
   },
   {
     title: 'Zoop Plugin for WordPress',
@@ -40,6 +33,13 @@ export const workData = [
     imgSrc: '/static/images/projects/zoop.webp',
     href: 'https://www.zoop.com.br',
     stack: ['php', 'woocommerce', 'wordpress', 'javascript'],
+  },
+  {
+    title: 'Engineer by Hustle',
+    description: 'In this project, I participated in the development of components using React.js and Typescript for both the web version and the Google Chrome extension, adapting layouts produced in Figma.',
+    imgSrc: '/static/images/projects/ebh.webp',
+    href: 'https://www.engineerbyhustle.com/',
+    stack: ['react.js', 'typescript', 'firebase', 'tailwind', 'jira', 'figma'],
   },
   {
     title: 'Event Ticket Sales Platform',

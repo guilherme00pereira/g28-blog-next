@@ -3,7 +3,7 @@ import Progress from './Progress';
 
 const Brand = ({title, url, progress, children}) => {
     return (
-        <div className='flex flex-col items-center mx-8'>
+        <div className='flex flex-col items-center mx-8 card-wrapper'>
             <div>
             {url ? (
                 <a href={url} target="_blank">

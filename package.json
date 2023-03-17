@@ -1,9 +1,9 @@
 {
   "name": "g28-blog",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "private": true,
   "scripts": {
-    "start": "next dev -p 3001",
+    "start": "next dev",
     "dev": "INIT_CWD=$PWD next dev",
     "build": "INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node -r esbuild-register ./scripts/postbuild.mjs",
     "serve": "next start",

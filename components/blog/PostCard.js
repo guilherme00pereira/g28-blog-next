@@ -9,7 +9,7 @@ const PostCard = ({ post }) => {
 
   return (
     <div className="hover-moveup my-2 w-full hover:mt-1">
-      <div className="border-1 h-[460px] rounded-lg border border-slate-400 bg-slate-200 p-4 dark:border-gray-800 dark:bg-wrapper-dark">
+      <div className="h-[460px] rounded-lg card-wrapper">
         <article className="h-full">
           {images && (
             <Link href={`/blog/${slug}`} passHref legacyBehavior>
@@ -39,7 +39,7 @@ const PostCard = ({ post }) => {
               <div className="space-y-6">
                 <div>
                   <Link href={`/blog/${slug}`} passHref legacyBehavior>
-                    <h3 className="cursor-pointer text-2xl font-bold leading-8 hover:text-slate-600 dark:text-slate-300 hover:dark:text-cyan-500 ">
+                    <h3 className="cursor-pointer text-2xl font-semibold leading-8 tracking-wide hover:text-slate-600 dark:text-slate-300 hover:dark:text-cyan-500 ">
                       {title}
                     </h3>
                   </Link>

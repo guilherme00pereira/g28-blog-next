@@ -1,5 +1,7 @@
 import { PageSEO } from '@/components/SEO'
 import SectionTitle from '@/components/SectionTitle'
+import Testimonials from '@/components/about/Testimonials'
+import Services from '@/components/about/Services'
 
 export default function About() {
   
@@ -12,10 +14,9 @@ export default function About() {
           <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">fkljdaskljskdjas</div>
         </div>
         <SectionTitle title="My Services" subtitle />
-        <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">  
-          <div className="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">fkljdaskljskdjas</div>
-        </div>
+        <Services />
         <SectionTitle title="Testimonials" subtitle />
+        <Testimonials />
       </div>
     </>
   )

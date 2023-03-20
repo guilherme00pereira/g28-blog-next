@@ -49,7 +49,7 @@ const Stack = () => {
             <SiPython color="default" size={64} />
           </Brand>
           <Brand title="C#" progress="50">
-            <SiCsharp color="default" size={64} />
+            <SiCsharp color="#793481" size={64} />
           </Brand>
           <Brand title="Go" url="https://go.dev/" progress="40">
             <SiGo color="default" size={64} />

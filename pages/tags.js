@@ -31,7 +31,7 @@ export default function Tags({ tags }) {
             return (
               <div
                 key={t}
-                className="mt-2 mb-2 mr-5 rounded-xl border border-slate-300 p-3 dark:border-slate-700 dark:shadow hover:dark:border-cyan-500 hover:dark:shadow-neon "
+                className="card-wrapper my-2 mr-5 rounded-xl dark:shadow hover:dark:border-cyan-500 hover:dark:shadow-neon "
               >
                 <Link
                   href={`/tags/${kebabCase(t)}`}

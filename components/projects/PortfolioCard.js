@@ -2,10 +2,7 @@ import Image from '../Image'
 import Link from '../Link'
 const Card = ({ title, description, imgSrc, href, stack }) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
-    <div
-      className={`${imgSrc && 'h-full'
-        }  overflow-hidden rounded-md card-wrapper`}
-    >
+    <div className={`${imgSrc && 'h-full'}  card-wrapper overflow-hidden rounded-md`}>
       {imgSrc &&
         (href ? (
           <Link href={href} aria-label={`Link to ${title}`}>
@@ -37,16 +34,19 @@ const Card = ({ title, description, imgSrc, href, stack }) => (
           )}
         </h2>
         <div className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</div>
-        {stack &&
+        {stack && (
           <div>
             <h4>Worked with:</h4>
             {stack.map((item, index) => (
-              <span key={index} className="inline-block py-1 px-2 rounded-full text-xs font-semibold text-gray-500 dark:text-gray-400">
+              <span
+                key={index}
+                className="inline-block rounded-full py-1 px-2 text-xs font-semibold text-gray-500 dark:text-gray-400"
+              >
                 {item}
               </span>
             ))}
           </div>
-        }
+        )}
         {/* {href && (
           <Link
             href={href}

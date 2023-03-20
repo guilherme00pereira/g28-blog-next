@@ -7,7 +7,7 @@ import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 const outfit = Outfit({
-  subsets: ['latin']
+  subsets: ['latin'],
 })
 const LayoutWrapper = ({ children }) => {
   return (

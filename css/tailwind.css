@@ -39,7 +39,7 @@
 }
 
 .card-wrapper {
-  @apply border border-slate-400 bg-slate-200 p-4 dark:border-gray-800 dark:bg-wrapper-dark;
+  @apply border border-slate-400 bg-slate-200 dark:border-gray-800 dark:bg-wrapper-dark;
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */

@@ -5,7 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center py-16 sm:flex-row sm:justify-center sm:space-x-20">
+    <div className="flex flex-col items-center w-full py-16 sm:flex-row sm:justify-center sm:space-x-20 dark:bg-cyan-900">
       <div className="ml-24">
         <Image
           src={ProfilePicture}

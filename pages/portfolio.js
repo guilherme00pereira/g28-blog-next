@@ -24,7 +24,7 @@ export default function Projects() {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center py-12">
+        {/* <div className="flex flex-col items-center py-12">
           <SectionTitle title="Personal Projects" summary="some of my personal projects" subtitle />
           <div className="-m-4 flex flex-wrap">
             {projectsData.map((d) => (
@@ -38,7 +38,7 @@ export default function Projects() {
               />
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   )

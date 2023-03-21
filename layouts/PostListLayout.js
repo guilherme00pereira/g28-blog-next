@@ -16,9 +16,9 @@ const PostListLayout = ({ posts, title, initialDisplayPosts = [], pagination }) 
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+        <div className="flex w-full justify-between space-y-2 pt-6 pb-8 md:space-y-5">
           <SectionTitle title={title} />
-          <div className="relative max-w-lg">
+          <div className="relative">
             <label>
               <span className="sr-only">Search articles</span>
               <input

@@ -1,13 +1,5 @@
 export const projectsData = [
   {
-    title: 'Lucky Numbers',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
-    stack: ['php', 'laravel', 'orchid', 'mysql', 'javascript'],
-  },
-  {
     title: 'Pix for WooCommerce',
     description: `Imagine being able to travel back in time or to the future. Simple turn the knob
     to the desired date and press "Go". No more worrying about lost keys or
@@ -18,6 +10,13 @@ export const projectsData = [
 ]
 
 export const workData = [
+  {
+    title: 'Engineer by Hustle',
+    description: 'In this project, I participated in the development of components using React.js and Typescript for both the web version and the Google Chrome extension, adapting layouts produced in Figma.',
+    imgSrc: '/static/images/projects/ebh.webp',
+    href: 'https://www.engineerbyhustle.com/',
+    stack: ['react.js', 'typescript', 'firebase', 'tailwind', 'jira', 'figma'],
+  },
   {
     title: 'Eu Capacito',
     description:
@@ -35,13 +34,6 @@ export const workData = [
     stack: ['php', 'woocommerce', 'wordpress', 'javascript'],
   },
   {
-    title: 'Engineer by Hustle',
-    description: 'In this project, I participated in the development of components using React.js and Typescript for both the web version and the Google Chrome extension, adapting layouts produced in Figma.',
-    imgSrc: '/static/images/projects/ebh.webp',
-    href: 'https://www.engineerbyhustle.com/',
-    stack: ['react.js', 'typescript', 'firebase', 'tailwind', 'jira', 'figma'],
-  },
-  {
     title: 'Event Ticket Sales Platform',
     description:
       'In this work I participated in both the frontend and the backend. On the frontend, development of components and screens using Vue.js. In the backend, creation of modules for queued processing of sending various notifications to the user. Integration with payment gateways.',
@@ -55,5 +47,13 @@ export const workData = [
     imgSrc: '/static/images/projects/jetengine.webp',
     href: 'https://crocoblock.com/plugins/jetengine',
     stack: ['php', 'woocommerce', 'wordpress', 'javascript'],
+  },
+  {
+    title: 'Lucky Numbers',
+    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
+    to the desired date and press "Go". No more worrying about lost keys or
+    forgotten headphones with this simple yet affordable solution.`,
+    imgSrc: '/static/images/time-machine.jpg',
+    stack: ['php', 'laravel', 'orchid', 'mysql', 'javascript'],
   },
 ]

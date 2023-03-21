@@ -1,32 +1,22 @@
 export const servicesData = [
     {
-        title: 'Motion & Web Graphy',
-        thumb: '',
-        text: 'NetTracking" is a very powerful Web 2.0 site search engine allows you to find email allerts',
+        title: 'Web Development',
+        thumb: 'web',
+        text: 'Development of plugins and custom themes for WordPress.',
     },
     {
-        title: '',
-        thumb: '',
-        text: '',
+        title: 'API integration',
+        thumb: 'api',
+        text: 'Api integration',
     },
     {
-        title: '',
-        thumb: '',
-        text: '',
+        title: 'WordPress Plugins and Themes',
+        thumb: 'wp',
+        text: 'Development of plugins and custom themes for WordPress.',
     },
     {
-        title: '',
-        thumb: '',
-        text: '',
-    },
-    {
-        title: '',
-        thumb: '',
-        text: '',
-    },
-    {
-        title: '',
-        thumb: '',
-        text: '',
+        title: 'Legacy Code Maintenance',
+        thumb: 'mtn',
+        text: 'dasdadas',
     }
 ]

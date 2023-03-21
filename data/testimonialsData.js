@@ -16,7 +16,7 @@ export const testimonialsData = [
     },
     {
         customer: 'Thiago. L.',
-        thumb: '/static/images/testimonials/zoop.png',
+        thumb: '/static/images/testimonials/thiago.png',
         text: 'Excellent professional, very technical and proved to be deeply knowledgeable of the technologies required in the project. Very quickly, he dedicated himself to being able to deliver the project before the deadline that was requested! I recommend!'
     },
     

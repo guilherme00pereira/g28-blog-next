@@ -38,7 +38,7 @@ export default function Tag({ posts, tag }) {
         title={`${tag} - ${siteMetadata.title}`}
         description={`${tag} tags - ${siteMetadata.author}`}
       />
-      <PostListLayout posts={posts} title={title} />
+      <PostListLayout posts={posts} title={"#" + title} />
     </>
   )
 }

@@ -6,10 +6,18 @@ import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
+import { useRouter } from 'next/router'
+
 const outfit = Outfit({
   subsets: ['latin'],
 })
+
+
 const LayoutWrapper = ({ children }) => {
+  const router = useRouter()
+
+  const activeStyle = "text-sky-400 border-b-2 border-sky-400"
+
   return (
     <SectionContainer>
       <div className={`${outfit.className} flex h-screen flex-col justify-between font-sans`}>
@@ -32,7 +40,7 @@ const LayoutWrapper = ({ children }) => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-1 font-medium text-slate-700 dark:text-gray-100 sm:p-4"
+                  className={`font-medium py-2 px-4 ${router.pathname === link.href ? activeStyle : 'text-slate-700 dark:text-gray-100'}`}
                 >
                   {link.title}
                 </Link>

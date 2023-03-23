@@ -34,7 +34,10 @@ const Stack = () => {
   const color = theme === 'light' ? 'black' : 'white'
 
   return (
-    <div className="container flex w-full justify-center">
+    <div className="container flex flex-col w-full justify-center">
+      <div className='pt-8 text-center text-xl leading-7 text-gray-500 dark:text-gray-400'>
+        <h3>Here is the tech stack that i am currently working or have been working with</h3>
+      </div>
       <div className="flex flex-col items-center justify-center">
         <StackSection title="Languages">
           <Brand title="PHP" url="https://www.php.net/" progress="90">

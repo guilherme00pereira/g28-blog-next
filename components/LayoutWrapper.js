@@ -21,7 +21,9 @@ const LayoutWrapper = ({ children }) => {
                   {siteMetadata.headerTitle}
                 </Link>
               </div>
-              <div className="ml-3 -mt-3 text-xs text-slate-800 dark:text-gray-300 ">by Guilherme Pereira</div>
+              <div className="ml-3 -mt-3 text-xs text-slate-800 dark:text-gray-300 ">
+                by Guilherme Pereira
+              </div>
             </div>
           </div>
           <div className="flex items-center text-xl leading-5">

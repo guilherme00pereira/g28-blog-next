@@ -17,26 +17,15 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ params }) => {
   const slug = params.slug.join('/')
   const sortedPosts = sortedBlogPost(allBlogs)
-  const postIndex = sortedPosts.findIndex((p) => p.slug === slug)
-  const prevContent = sortedPosts[postIndex + 1] || null
-  const prev = prevContent ? coreContent(prevContent) : null
-  const nextContent = sortedPosts[postIndex - 1] || null
-  const next = nextContent ? coreContent(nextContent) : null
   const post = sortedPosts.find((p) => p.slug === slug)
-  const authorList = post.authors || ['default']
-  const authorDetails = authorList.map((author) => {
-    const authorResults = allAuthors.find((p) => p.slug === author)
-    return coreContent(authorResults)
-  })
+
   return {
     props: {
       post,
-      prev,
-      next,
     },
   }
 }
-export default function BlogPostPage({ post, authorDetails, prev, next }) {
+export default function BlogPostPage({ post }) {
   return (
     <>
       {'draft' in post && post.draft === true ? (

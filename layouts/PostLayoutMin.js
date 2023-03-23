@@ -36,18 +36,16 @@ export default function PostLayout({ content, children }) {
       <BlogSEO url={`${siteMetadata.siteUrl}/${path}`} {...content} />
       <ScrollTopAndComment />
       <article>
-        {breadcrumbs &&
-          <Breadcrumb items={breadcrumbs} pageTitle={title} />
-        }
+        {breadcrumbs && <Breadcrumb items={breadcrumbs} pageTitle={title} />}
         <header>
-          <div className="border-t border-gray-200 py-10 text-center dark:border-gray-700">
-            <div className="pb-10">
+          <div className="flex flex-col items-center border-t border-gray-200 py-10 text-center dark:border-gray-700">
+            <div className="w-4/5 pb-10">
               <SectionTitle title={title} />
             </div>
             {images && (
               <div className="mt-18 relative inline-block h-[400px] w-[800px] overflow-hidden">
                 <Image
-                  className="rounded-lg w-auto h-auto"
+                  className="h-auto w-auto rounded-lg"
                   src={images[0]}
                   alt={title}
                   fill
@@ -57,7 +55,7 @@ export default function PostLayout({ content, children }) {
                 />
               </div>
             )}
-            <div className="flex flex-row justify-between pt-8">
+            <div className="flex w-3/4 flex-row justify-between pt-8">
               <div className="flex flex-row justify-between text-base leading-6 text-gray-500 dark:text-gray-400">
                 <dl>
                   <dt className="sr-only">Published on</dt>
@@ -77,7 +75,7 @@ export default function PostLayout({ content, children }) {
               {children}
             </div>
           </div>
-          <div className='pt-2 pb-6'>
+          <div className="pt-2 pb-6">
             {tags && (
               <div className="flex flex-wrap justify-start pt-2">
                 {tags.map((tag) => (

@@ -23,11 +23,16 @@ import {
   SiTypescript,
   SiGitlab,
   SiDigitalocean,
+  SiGooglecloud,
 } from '@icons-pack/react-simple-icons'
 import Brand from '@/components/stack/Brand'
 import StackSection from '@/components/stack/StackSection'
+import { useTheme } from 'next-themes'
 
 const Stack = () => {
+  const { theme } = useTheme()
+  const color = theme === 'light' ? 'black' : 'white'
+
   return (
     <div className="container flex w-full justify-center">
       <div className="flex flex-col items-center justify-center">
@@ -55,7 +60,7 @@ const Stack = () => {
             <SiGo color="default" size={64} />
           </Brand>
           <Brand title="Rust" url="https://www.rust-lang.org/" progress="30">
-            <SiRust color="white" size={64} />
+            <SiRust color={color} size={64} />
           </Brand>
         </StackSection>
         <StackSection title="Frameworks">
@@ -85,7 +90,7 @@ const Stack = () => {
         </StackSection>
         <StackSection title="Tools">
           <Brand title="Github">
-            <SiGithub color="#FFF" size={64} />
+            <SiGithub color={color} size={64} />
           </Brand>
           <Brand title="Gitlab">
             <SiGitlab color="default" size={64} />
@@ -100,6 +105,9 @@ const Stack = () => {
           </Brand>
           <Brand title="Digital Ocean">
             <SiDigitalocean color="default" size={64} />
+          </Brand>
+          <Brand title="Google Cloud">
+            <SiGooglecloud color="default" size={64} />
           </Brand>
         </StackSection>
         <StackSection title="IDE's">

@@ -30,6 +30,10 @@
   @apply bg-gradient-to-r from-green-600 to-lime-600;
 }
 
+.linear-button {
+  @apply bg-gradient-to-r from-sky-500 to-cyan-500 dark:to-cyan-400;
+}
+
 .page-title {
   @apply text-3xl font-bold leading-9 tracking-tight text-slate-700 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-5xl md:leading-14;
 }
@@ -39,7 +43,7 @@
 }
 
 .card-wrapper {
-  @apply border border-slate-400 bg-slate-200 dark:border-gray-800 dark:bg-wrapper-dark;
+  @apply border border-slate-300 bg-light-card-bg dark:border-gray-800 dark:bg-wrapper-dark;
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */

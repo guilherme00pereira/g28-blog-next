@@ -34,6 +34,7 @@ module.exports = {
         secondary: colors.sky,
         slate: colors.slate,
         'wrapper-dark': '#131C31',
+        'light-card-bg': '#E8EDF6',
         whatsapp: '#25D366',
         mail: '#EA4335',
       },
@@ -89,7 +90,7 @@ module.exports = {
               content: 'none',
             },
             details: {
-              backgroundColor: theme('colors.slate.100'),
+              backgroundColor: theme('colors.light-card-bg'),
               paddingLeft: '4px',
               paddingRight: '4px',
               paddingTop: '2px',

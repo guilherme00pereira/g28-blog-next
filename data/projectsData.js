@@ -34,13 +34,6 @@ export const workData = [
     stack: ['php', 'woocommerce', 'wordpress', 'javascript'],
   },
   {
-    title: 'Event Ticket Sales Platform',
-    description:
-      'In this work I participated in both the frontend and the backend. On the frontend, development of components and screens using Vue.js. In the backend, creation of modules for queued processing of sending various notifications to the user. Integration with payment gateways.',
-    imgSrc: '/static/images/projects/jetengine.webp',
-    stack: ['php', 'laravel', 'vue.js', 'javascript', 'gitlab'],
-  },
-  {
     title: 'WordPress JetEngine Api Integration',
     description:
       "This work involved the creation of different plugins for the integration of JetEngine with external api's, such as CRM's, real estate management system api, vehicle registration systems api's and lead management (eg WebMotors), etc... It also involved creating custom widgets for JetEngine.",
@@ -49,11 +42,16 @@ export const workData = [
     stack: ['php', 'woocommerce', 'wordpress', 'javascript'],
   },
   {
-    title: 'Lucky Numbers',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
+    title: 'Lucky Numbers - Raffle Web Platform',
+    description: `Web raffle management system for managing numbers assigned to customers according to the quantity and value of their supermarket purchases. Used Laravel and Orchid to create the Dashboard and create logic for the raffle system with PHP and OOP.`,
+    imgSrc: '/static/images/projects/orchid.webp',
     stack: ['php', 'laravel', 'orchid', 'mysql', 'javascript'],
+  },  
+  {
+    title: 'Event Ticket Sales Platform',
+    description:
+      'In this work I participated in both the frontend and the backend. On the frontend, development of components and screens using Vue.js. In the backend, creation of modules for queued processing of sending various notifications to the user. Integration with payment gateways.',
+    imgSrc: '/static/images/projects/passaportedigital.webp',
+    stack: ['php', 'laravel', 'vue.js', 'javascript', 'gitlab'],
   },
 ]

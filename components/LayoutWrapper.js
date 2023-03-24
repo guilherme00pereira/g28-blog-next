@@ -34,7 +34,7 @@ const LayoutWrapper = ({ children }) => {
               </div>
             </div>
           </div>
-          <div className="flex items-center text-xl leading-5">
+          <div className="flex items-center text-xl leading-5 tracking-wide">
             <div className="hidden sm:block">
               {headerNavLinks.map((link) => (
                 <Link

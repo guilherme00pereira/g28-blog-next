@@ -6,6 +6,7 @@ import { allBlogs } from 'contentlayer/generated'
 import Hero from '@/components/home/Hero'
 import RecentPosts from '@/components/home/RecentPosts'
 import StackBox from '@/components/home/StackBox'
+import TagsBox from '@/components/home/TagsBox'
 
 export const getStaticProps = async () => {
   const sortedPosts = sortedBlogPost(allBlogs)
@@ -22,9 +23,12 @@ export default function Home({ posts }) {
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div>
         <Hero />
-        <RecentPosts posts={posts} />        
+        <div className="flex justify-between">
+          <RecentPosts posts={posts} />
+          <TagsBox />
+        </div>
       </div>
-      <div className='flex justify-evenly'>
+      <div className="flex justify-evenly">
         <StackBox />
       </div>
       {siteMetadata.newsletter.provider && (

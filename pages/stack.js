@@ -24,6 +24,8 @@ import {
   SiGitlab,
   SiDigitalocean,
   SiGooglecloud,
+  SiPlesk,
+  SiBootstrap,
 } from '@icons-pack/react-simple-icons'
 import Brand from '@/components/stack/Brand'
 import StackSection from '@/components/stack/StackSection'
@@ -34,11 +36,11 @@ const Stack = () => {
   const color = theme === 'light' ? 'black' : 'white'
 
   return (
-    <div className="container flex flex-col w-full justify-center">
-      <div className='pt-8 text-center text-xl leading-7 text-gray-500 dark:text-gray-400'>
+    <div className="container flex w-full flex-col justify-center">
+      <div className="pt-8 text-center text-xl leading-7 text-gray-500 dark:text-gray-400">
         <h3>Here is the tech stack that i am currently working or have been working with</h3>
       </div>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex w-full flex-col items-center justify-center">
         <StackSection title="Languages">
           <Brand title="PHP" url="https://www.php.net/" progress="90">
             <SiPhp color="default" size={64} />
@@ -90,6 +92,9 @@ const Stack = () => {
           <Brand title="Tailwind" progress="90">
             <SiTailwindcss color="default" size={64} />
           </Brand>
+          <Brand title="Bootstrap">
+            <SiBootstrap color="default" size={64} />
+          </Brand>
         </StackSection>
         <StackSection title="Tools">
           <Brand title="Github">
@@ -111,6 +116,9 @@ const Stack = () => {
           </Brand>
           <Brand title="Google Cloud">
             <SiGooglecloud color="default" size={64} />
+          </Brand>
+          <Brand title="Plesk">
+            <SiPlesk color="default" size={64} />
           </Brand>
         </StackSection>
         <StackSection title="IDE's">

@@ -1,11 +1,22 @@
-import React from 'react';
+import React from 'react'
+import CardBox from '@/components/home/CardBox'
+import Tag from '@/components/Tag'
+import { getAllTags } from 'pliny/utils/contentlayer'
+import { allBlogs } from 'contentlayer/generated'
 
 const TagsBox = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+  const tags = getAllTags(allBlogs)
+  const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
 
-export default TagsBox;
+  return (
+    <CardBox>
+      <div className="flex flex-wrap">
+        {sortedTags.map((tag) => (
+          <Tag key={tag} text={tag} />
+        ))}
+      </div>
+    </CardBox>
+  )
+}
+
+export default TagsBox

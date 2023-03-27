@@ -15,7 +15,7 @@ const PostListLayout = ({ posts, title, initialDisplayPosts = [], pagination }) 
     initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
   return (
     <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      <div>
         <div className="flex w-full justify-between space-y-2 pt-6 pb-8 md:space-y-5">
           <SectionTitle title={title} />
           <div className="relative">
@@ -45,7 +45,7 @@ const PostListLayout = ({ posts, title, initialDisplayPosts = [], pagination }) 
             </svg>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-4 pt-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 pt-4 md:grid-cols-3">
           {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((post) => {
             return <PostCard post={post} key={post.slug} />

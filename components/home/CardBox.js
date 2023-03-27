@@ -3,7 +3,7 @@ import Link from '@/components/Link'
 
 const CardBox = ({ title, buttonText, linkText, children }) => {
   return (
-    <div className="card-wrapper flex flex-col justify-center rounded-xl p-8">
+    <div className="card-wrapper flex flex-col justify-center rounded-xl p-4">
       <div className="linear-blue text-2xl">{title}</div>
       {children}
       <div className="flex justify-center">

@@ -9,7 +9,7 @@ export default function About() {
     <>
       <PageSEO title={'About - Guilherme Pereira'} description={'About me - Guilherme Pereira'} />
       <div className="flex flex-col items-center">
-        <SectionTitle title="About Me" subtitle />
+        <SectionTitle title="About Me" />
         <div className="mb-8 flex justify-center">
           <div className="prose pt-8 pb-8 text-justify text-xl dark:prose-dark">
             <p>

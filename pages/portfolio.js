@@ -9,7 +9,8 @@ export default function Projects() {
   return (
     <>
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <div className="">
+      <div className="flex flex-col items-center">
+        <SectionTitle title="Portfolio" />
         <div className="flex flex-col items-center py-12">
           <SectionTitle
             title="Projects I Worked On"

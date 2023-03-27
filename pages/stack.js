@@ -1,4 +1,4 @@
-import React from 'react'
+import SectionTitle from '@/components/SectionTitle'
 import {
   SiPhp,
   SiJavascript,
@@ -26,6 +26,7 @@ import {
   SiGooglecloud,
   SiPlesk,
   SiBootstrap,
+  SiNodedotjs,
 } from '@icons-pack/react-simple-icons'
 import Brand from '@/components/stack/Brand'
 import StackSection from '@/components/stack/StackSection'
@@ -36,103 +37,107 @@ const Stack = () => {
   const color = theme === 'light' ? 'black' : 'white'
 
   return (
-    <div className="container flex w-full flex-col justify-center">
+    <div className="container flex w-full flex-col justify-center items-center">
+      <SectionTitle title="Stack" />
       <div className="pt-8 text-center text-xl leading-7 text-gray-500 dark:text-gray-400">
         <h3>Here is the tech stack that i am currently working or have been working with</h3>
       </div>
       <div className="flex w-full flex-col items-center justify-center">
         <StackSection title="Languages">
           <Brand title="PHP" url="https://www.php.net/" progress="90">
-            <SiPhp color="default" size={64} />
+            <SiPhp color="default" size={48} />
           </Brand>
           <Brand
             title="Javascript"
             url="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
             progress="90"
           >
-            <SiJavascript color="default" size={64} />
+            <SiJavascript color="default" size={48} />
           </Brand>
           <Brand title="Typescript" url="" progress="80">
-            <SiTypescript color="default" size={64} />
+            <SiTypescript color="default" size={48} />
           </Brand>
           <Brand title="Python" url="https://www.python.org/" progress="70">
-            <SiPython color="default" size={64} />
+            <SiPython color="default" size={48} />
           </Brand>
           <Brand title="C#" progress="50">
-            <SiCsharp color="#793481" size={64} />
+            <SiCsharp color="#793481" size={48} />
           </Brand>
           <Brand title="Go" url="https://go.dev/" progress="40">
-            <SiGo color="default" size={64} />
+            <SiGo color="default" size={48} />
           </Brand>
           <Brand title="Rust" url="https://www.rust-lang.org/" progress="30">
-            <SiRust color={color} size={64} />
+            <SiRust color={color} size={48} />
           </Brand>
         </StackSection>
         <StackSection title="Frameworks">
           <Brand title="Laravel" progress="80">
-            <SiLaravel color="default" size={64} />
+            <SiLaravel color="default" size={48} />
           </Brand>
           <Brand title="React.js" progress="90">
-            <SiReact color="default" size={64} />
+            <SiReact color="default" size={48} />
           </Brand>
           <Brand title="Vue.js" progress="90">
-            <SiVuedotjs color="default" size={64} />
+            <SiVuedotjs color="default" size={48} />
+          </Brand>
+          <Brand title="Node.js" progress="70">
+            <SiNodedotjs color="default" size={48} />
           </Brand>
           <Brand title=".NET" progress="50">
-            <SiDotnet color="default" size={64} />
+            <SiDotnet color="default" size={48} />
           </Brand>
         </StackSection>
         <StackSection title="Web and Styling">
           <Brand title="HTML5" progress="90">
-            <SiHtml5 color="default" size={64} />
+            <SiHtml5 color="default" size={48} />
           </Brand>
           <Brand title="CSS3" progress="90">
-            <SiCss3 color="default" size={64} />
+            <SiCss3 color="default" size={48} />
           </Brand>
           <Brand title="Tailwind" progress="90">
-            <SiTailwindcss color="default" size={64} />
+            <SiTailwindcss color="default" size={48} />
           </Brand>
           <Brand title="Bootstrap">
-            <SiBootstrap color="default" size={64} />
+            <SiBootstrap color="default" size={48} />
           </Brand>
         </StackSection>
         <StackSection title="Tools">
           <Brand title="Github">
-            <SiGithub color={color} size={64} />
+            <SiGithub color={color} size={48} />
           </Brand>
           <Brand title="Gitlab">
-            <SiGitlab color="default" size={64} />
+            <SiGitlab color="default" size={48} />
           </Brand>
           <Brand title="Jira">
-            <SiJira color="default" size={64} />
+            <SiJira color="default" size={48} />
           </Brand>
         </StackSection>
         <StackSection title="Hosting">
           <Brand title="Amazon AWS">
-            <SiAmazonaws color="#EC7211" size={64} />
+            <SiAmazonaws color="#EC7211" size={48} />
           </Brand>
           <Brand title="Digital Ocean">
-            <SiDigitalocean color="default" size={64} />
+            <SiDigitalocean color="default" size={48} />
           </Brand>
           <Brand title="Google Cloud">
-            <SiGooglecloud color="default" size={64} />
+            <SiGooglecloud color="default" size={48} />
           </Brand>
           <Brand title="Plesk">
-            <SiPlesk color="default" size={64} />
+            <SiPlesk color="default" size={48} />
           </Brand>
         </StackSection>
         <StackSection title="IDE's">
           <Brand title="WebStorm">
-            <SiWebstorm color="#5DE4A4" size={64} />
+            <SiWebstorm color="#5DE4A4" size={48} />
           </Brand>
           <Brand title="PHPStorm">
-            <SiPhpstorm color="#B345F1" size={64} />
+            <SiPhpstorm color="#B345F1" size={48} />
           </Brand>
           <Brand title="VSCode">
-            <SiVisualstudiocode color="default" size={64} />
+            <SiVisualstudiocode color="default" size={48} />
           </Brand>
           <Brand title="Visual Studio">
-            <SiVisualstudio color="default" size={64} />
+            <SiVisualstudio color="default" size={48} />
           </Brand>
         </StackSection>
       </div>

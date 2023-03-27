@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Testimonials = () => {
   return (
-    <div className="flex w-full flex-wrap justify-evenly dark:text-slate-400">
+    <div id="#testimonials" className="flex w-full flex-wrap justify-evenly dark:text-slate-400">
       {testimonialsData.map((testimonial, index) => {
         return (
           <div key={index} className="card-wrapper m-4 flex w-[300px] flex-col rounded-xl p-4">

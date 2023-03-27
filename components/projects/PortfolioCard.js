@@ -36,7 +36,6 @@ const Card = ({ title, description, imgSrc, href, stack }) => (
         <div className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</div>
         {stack && (
           <div>
-            <h4>Worked with:</h4>
             {stack.map((item, index) => (
               <span
                 key={index}

@@ -12,7 +12,7 @@ export const testimonialsData = [
   {
     customer: '5 Era',
     thumb: '/static/images/testimonials/5era.png',
-    text: '"Guilherme is extremely attentive, punctual and qualified. He solves the demands within the proposed deadline. Excellent programmer. Very skilled professional. Excellent delivery!',
+    text: 'Guilherme is extremely attentive, punctual and qualified. He solves the demands within the proposed deadline. Excellent programmer. Very skilled professional. Excellent delivery!',
   },
   {
     customer: 'Thiago. L.',
@@ -26,8 +26,23 @@ export const testimonialsData = [
     text: 'Work performed with excellent communication and professionalism. We recommend it to everyone.',
   },
   {
+    customer: 'Daniel.W.',
+    thumb: '/static/images/testimonials/daniel-weber-2.jpg',
+    text: 'I recommend his work and I am very satisfied with the delivery. Thanks for the contribution. Excellent knowledge of Javascript, React, CSS, Tailwind, Firebase.',
+  },
+  {
     customer: 'Vanesa J',
     thumb: '/static/images/testimonials/vanesa.png',
     text: 'Guilherme was very professional, understood my request and gave me a quick and effective solution. I highly recommend working with him.',
+  },
+  {
+    customer: 'Mauricio B.',
+    thumb: '/static/images/testimonials/mauricio.png',
+    text: 'Excellent professional, very technical and proved to be deeply knowledgeable of the technologies required in the project. Very quickly, he dedicated himself to being able to deliver the project before the deadline that was requested! I recommend!',
+  },
+  {
+    customer: '5 Era',
+    thumb: '/static/images/testimonials/5era.png',
+    text: 'Guilherme is a top 10 programmer! patient, professional and excellent communication, I believe we will make a good partnership.',
   },
 ]

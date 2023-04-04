@@ -5,7 +5,7 @@ import { SiJavascript, SiPhp, SiTypescript } from '@icons-pack/react-simple-icon
 const StackBox = () => {
   return (
     <CardBox title="My Stack" buttonText="See all" linkText="/stack">
-      <div className="flex">
+      <div className="flex flex-col grow justify-center items-center min-w-[140px]">
         <SiPhp color="default" size={48} />
         <SiJavascript color="default" size={48} />
         <SiTypescript color="default" size={48} />

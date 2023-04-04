@@ -1,6 +1,6 @@
 export const servicesData = [
   {
-    title: 'Web Development',
+    title: 'Web & App Development',
     thumb: 'web',
     topics: [
       'Custom website development services tailored to your specific needs and goals',
@@ -29,10 +29,5 @@ export const servicesData = [
       'Assistance with plugin and theme installation, configuration, and troubleshooting',
       'Development of custom WordPress solutions tailored to your specific needs and requirements',
     ],
-  },
-  {
-    title: 'Legacy Code Maintenance',
-    thumb: 'mtn',
-    topics: ['dasdadas'],
   },
 ]

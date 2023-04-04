@@ -12,14 +12,15 @@ const RecentPosts = ({ posts }) => {
         return <PostBox post={post} key={post.slug} />
       })}
       {posts.length > MAX_DISPLAY && (
-        <div className="flex justify-end text-base font-medium leading-6">
+        <div className="flex justify-start text-base font-medium leading-6">
+          <div className="linear-button rounded-lg py-2 px-4 text-white">
           <Link
             href="/blog"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label="All posts"
+            aria-label="See all posts"
           >
-            All Posts &rarr;
+            See all Posts &rarr;
           </Link>
+          </div>
         </div>
       )}
     </div>

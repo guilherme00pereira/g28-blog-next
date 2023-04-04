@@ -24,16 +24,14 @@ export default function Home({ posts }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div>
-        <Hero />
-        <MyServicesBox />
-        <Contact />
-        <div className="flex justify-between">
-          <RecentPosts posts={posts} />
-        </div>
-      </div>
-      <div className="flex justify-evenly">
+      <Hero />
+      <MyServicesBox />
+      <Contact />
+      <div className="flex justify-between mb-24">
+        <RecentPosts posts={posts} />
         <TagsBox />
+      </div>
+      <div className="flex justify-evenly space-x-24">
         <TestimonialsBox />
         <StackBox />
       </div>

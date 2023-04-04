@@ -9,7 +9,7 @@ const MyServicesBox = () => {
       <div className='flex'>
         {servicesData.map((service, index) => {
           return (
-            <div className="m-2">
+            <div key={index} className="m-2">
               <h6 className="my-2 text-3xl font-bold">{service.title}</h6>
             </div>
           )

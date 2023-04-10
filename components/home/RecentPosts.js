@@ -7,19 +7,18 @@ const RecentPosts = ({ posts }) => {
   return (
     <div className="flex basis-4/5 flex-col">
       <h2 className="linear-blue text-3xl font-bold">Recent Posts</h2>
-      {!posts.length && 'No posts found.'}
-      {posts.slice(0, MAX_DISPLAY).map((post) => {
-        return <PostBox post={post} key={post.slug} />
-      })}
+      <div className=" divide-y-2 divide-solid divide-slate-300 dark:divide-slate-700">
+        {!posts.length && 'No posts found.'}
+        {posts.slice(0, MAX_DISPLAY).map((post) => {
+          return <PostBox post={post} key={post.slug} />
+        })}
+      </div>
       {posts.length > MAX_DISPLAY && (
         <div className="flex justify-start text-base font-medium leading-6">
           <div className="linear-button rounded-lg py-2 px-4 text-white">
-          <Link
-            href="/blog"
-            aria-label="See all posts"
-          >
-            See all Posts &rarr;
-          </Link>
+            <Link href="/blog" aria-label="See all posts">
+              See all Posts &rarr;
+            </Link>
           </div>
         </div>
       )}

@@ -33,6 +33,9 @@ module.exports = {
         primary: colors.cyan,
         secondary: colors.sky,
         slate: colors.slate,
+        green: colors.green,
+        rose: colors.rose,
+        blue: colors.blue,
         'wrapper-dark': '#18233E', //131C31
         'light-card-bg': '#E8EDF6',
         whatsapp: '#25D366',

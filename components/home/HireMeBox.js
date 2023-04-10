@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Freela99 from '../../public/static/images/logos/99.png'
 import Upwork from '../../public/static/images/logos/upwork.png'
-import Workana from '../../public/static/images/logos/workana.jfif'
+import Workana from '../../public/static/images/logos/workana.png'
 
 const HireMeBox = () => {
   return (

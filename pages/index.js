@@ -8,8 +8,9 @@ import RecentPosts from '@/components/home/RecentPosts'
 import StackBox from '@/components/home/StackBox'
 import TagsBox from '@/components/home/TagsBox'
 import MyServicesBox from '@/components/home/MyServicesBox'
-import Contact from '@/components/Contact'
+import ContactBox from '@/components/home/ContactBox'
 import TestimonialsBox from '@/components/home/TestimonialsBox'
+import HireMeBox from '@/components/home/HireMeBox'
 
 export const getStaticProps = async () => {
   const sortedPosts = sortedBlogPost(allBlogs)
@@ -26,7 +27,10 @@ export default function Home({ posts }) {
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <Hero />
       <MyServicesBox />
-      <Contact />
+      <div className="mb-24 flex justify-between">
+        <ContactBox />
+        <HireMeBox />
+      </div>
       <div className="mb-24 flex justify-between">
         <RecentPosts posts={posts} />
         <TagsBox />

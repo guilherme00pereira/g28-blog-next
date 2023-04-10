@@ -9,6 +9,7 @@ export const servicesData = [
       'Assistance with website hosting, domain registration, and website maintenance',
       'Delivery of high-quality work on time and within budget',
     ],
+    summary: 'Web and app development using the latest technologies and frameworks. Solutions for front-end and backend development',
   },
   {
     title: 'API Development and Integration',
@@ -19,6 +20,7 @@ export const servicesData = [
       'Third-party APIs for software systems integration',
       'Custom APIs for unique software needs',
     ],
+    summary: 'Web and app development services',
   },
   {
     title: 'WordPress Plugins and Themes',
@@ -29,5 +31,6 @@ export const servicesData = [
       'Assistance with plugin and theme installation, configuration, and troubleshooting',
       'Development of custom WordPress solutions tailored to your specific needs and requirements',
     ],
+    summary: 'Web and app development services',
   },
 ]

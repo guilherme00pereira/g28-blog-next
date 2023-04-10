@@ -27,6 +27,9 @@ import {
   SiPlesk,
   SiBootstrap,
   SiNodedotjs,
+  SiWoocommerce,
+  SiWordpress,
+  SiShopify, SiTrello, SiNextdotjs,
 } from '@icons-pack/react-simple-icons'
 import Brand from '@/components/stack/Brand'
 import StackSection from '@/components/stack/StackSection'
@@ -37,10 +40,10 @@ const Stack = () => {
   const color = theme === 'light' ? 'black' : 'white'
 
   return (
-    <div className="container flex w-full flex-col justify-center items-center">
+    <div className="container flex w-full flex-col items-center justify-center">
       <SectionTitle title="Stack" />
       <div className="pt-8 text-center text-xl leading-7 text-gray-500 dark:text-gray-400">
-        <h3>Here is the tech stack that i am currently working or have been working with</h3>
+        <h3>Here is the tech stack that i am currently working on or have been working with</h3>
       </div>
       <div className="flex w-full flex-col items-center justify-center">
         <StackSection title="Languages">
@@ -77,6 +80,9 @@ const Stack = () => {
           <Brand title="React.js" progress="90">
             <SiReact color="default" size={48} />
           </Brand>
+          <Brand title="Next.js" progress="80">
+            <SiNextdotjs color={color} size={48} />
+          </Brand>
           <Brand title="Vue.js" progress="90">
             <SiVuedotjs color="default" size={48} />
           </Brand>
@@ -87,7 +93,7 @@ const Stack = () => {
             <SiDotnet color="default" size={48} />
           </Brand>
         </StackSection>
-        <StackSection title="Web and Styling">
+        <StackSection title="Web Development">
           <Brand title="HTML5" progress="90">
             <SiHtml5 color="default" size={48} />
           </Brand>
@@ -97,8 +103,17 @@ const Stack = () => {
           <Brand title="Tailwind" progress="90">
             <SiTailwindcss color="default" size={48} />
           </Brand>
-          <Brand title="Bootstrap">
+          <Brand title="Bootstrap" progress="90">
             <SiBootstrap color="default" size={48} />
+          </Brand>
+          <Brand title="Woocommerce" progress="90">
+            <SiWoocommerce color="default" size={48} />
+          </Brand>
+          <Brand title="WordPress" progress="100">
+            <SiWordpress color="default" size={48} />
+          </Brand>
+          <Brand title="Shopify" progress="70">
+            <SiShopify color="default" size={48} />
           </Brand>
         </StackSection>
         <StackSection title="Tools">
@@ -110,6 +125,9 @@ const Stack = () => {
           </Brand>
           <Brand title="Jira">
             <SiJira color="default" size={48} />
+          </Brand>
+          <Brand title="Trello">
+            <SiTrello color="default" size={48} />
           </Brand>
         </StackSection>
         <StackSection title="Hosting">

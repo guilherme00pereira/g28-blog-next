@@ -6,7 +6,7 @@ const MyServicesBox = () => {
       <div>
         <h2 className="linear-blue text-3xl font-bold">What Do I Do</h2>
       </div>
-      <div className='flex'>
+      <div className="flex">
         {servicesData.map((service, index) => {
           return (
             <div key={index} className="m-2">

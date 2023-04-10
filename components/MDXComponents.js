@@ -6,6 +6,8 @@ import TableOfContents from './TableOfContents'
 import Image from './Image'
 import CustomLink from './Link'
 import ImageCard from './blog/ImageCard'
+import Alert from './Alert'
+
 export const Wrapper = ({ layout, content, ...rest }) => {
   const Layout = require(`../layouts/${layout}`).default
   return <Layout content={content} {...rest} />
@@ -18,4 +20,5 @@ export const MDXComponents = {
   pre: Pre,
   wrapper: Wrapper,
   BlogNewsletterForm,
+  Alert,
 }

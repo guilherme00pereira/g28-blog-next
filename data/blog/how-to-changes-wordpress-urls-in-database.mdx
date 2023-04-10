@@ -1,0 +1,48 @@
+---
+title: "How to Change WordPress URL's in the Database"
+date: "2022-08-19"
+tags: ['wordpress', 'database']
+draft: false
+images: ['/static/images/common/wordpress.webp']
+summary: "Changing WordPress URLs in the database can be a daunting task for those who are not familiar with the inner workings of WordPress. However, it is necessary if you are moving your website from one domain to another."
+---
+
+Changing WordPress URLs in the database can be a daunting task for those who are not familiar with the inner workings of WordPress. However, it is necessary if you are facing the following situations:
+- moving your website from one domain to another;
+- copying it to a local environment;
+- changing your site's URL structure.
+
+The process involves making changes to the site's database, and if done incorrectly, it can lead to errors and broken links.
+
+To change WordPress URLs in the database, you need to follow a few simple steps. But first of all, you should create a backup of your site's database to ensure that you can restore your site if something goes wrong. Once you have a backup, you can use 3 different ways to achieve this task:
+
+## 1) Using the Command Line
+
+If you are familiar using command line, the [WP-CLI](https://wp-cli.org/) command line interface is a handy way to replace the URLs in the database. It has the function [search-replace](https://developer.wordpress.org/cli/commands/search-replace/) which searches through all rows in a selection of tables and replaces appearances of the first string with the second string. Run this command at the root of the WordPress directory:
+
+```bash
+wp search-replace oldurl.com newurl.com --dry-run
+```
+
+The `--dry-run` parameter run the entire search/replace operation and show report, but don’t save changes to the database.
+
+Running again without the `--dry-run` parameter, it executes the entire search/replace operation.
+
+## 2) With SQL Query
+
+Next, you need to run SQL queries to update the URLs in your site's database. You will need to update the "siteurl" and "home" values in the "wp_options" table, as well as any references to your old URL in other tables such as "wp_posts" and "wp_postmeta":
+
+```sql
+UPDATE wp_options SET option_value = replace(option_value, 'oldurl.com', 'newurl.com')
+WHERE option_name = 'home' OR option_name = 'siteurl';
+
+UPDATE wp_posts SET guid = replace(guid, 'oldurl.com','newurl.com');
+
+UPDATE wp_posts SET post_content = replace(post_content, 'oldurl.com', 'newurl.com');
+
+UPDATE wp_postmeta SET meta_value = replace(meta_value,'oldurl.com','newurl.com');
+```
+
+It is important to note that you should not change URLs directly in the database unless you are confident in what you are doing. Alternatively, you can use a plugin such as "Better Search Replace" to update your URLs automatically.
+
+In conclusion, changing WordPress URLs in the database requires a bit of technical knowledge, but it is essential if you want to keep your site running smoothly after a domain or URL change. By following the steps outlined above, you can ensure that your site's URLs are updated correctly and avoid any errors or broken links.

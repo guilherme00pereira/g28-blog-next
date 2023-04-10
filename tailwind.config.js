@@ -33,7 +33,7 @@ module.exports = {
         primary: colors.cyan,
         secondary: colors.sky,
         slate: colors.slate,
-        'wrapper-dark': '#131C31',
+        'wrapper-dark': '#18233E', //131C31
         'light-card-bg': '#E8EDF6',
         whatsapp: '#25D366',
         mail: '#EA4335',
@@ -57,19 +57,19 @@ module.exports = {
             h1: {
               fontWeight: '700',
               letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.slate.900'),
+              color: theme('colors.slate.800'),
             },
             h2: {
               fontWeight: '700',
               letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.slate.900'),
+              color: theme('colors.slate.800'),
             },
             h3: {
               fontWeight: '600',
-              color: theme('colors.slate.900'),
+              color: theme('colors.slate.800'),
             },
             'h4,h5,h6': {
-              color: theme('colors.slate.900'),
+              color: theme('colors.slate.800'),
             },
             pre: {
               backgroundColor: theme('colors.slate.800'),

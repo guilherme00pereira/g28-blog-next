@@ -27,11 +27,11 @@ export default function Home({ posts }) {
       <Hero />
       <MyServicesBox />
       <Contact />
-      <div className="flex justify-between mb-24">
+      <div className="mb-24 flex justify-between">
         <RecentPosts posts={posts} />
         <TagsBox />
       </div>
-      <div className="flex justify-evenly space-x-24">
+      <div className="flex justify-evenly space-x-12">
         <TestimonialsBox />
         <StackBox />
       </div>

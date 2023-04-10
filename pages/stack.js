@@ -29,7 +29,9 @@ import {
   SiNodedotjs,
   SiWoocommerce,
   SiWordpress,
-  SiShopify, SiTrello, SiNextdotjs,
+  SiShopify,
+  SiTrello,
+  SiNextdotjs,
 } from '@icons-pack/react-simple-icons'
 import Brand from '@/components/stack/Brand'
 import StackSection from '@/components/stack/StackSection'

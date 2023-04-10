@@ -9,7 +9,7 @@ import {
   SiNextdotjs,
   SiDotnet,
   SiVuedotjs,
-  SiLaravel
+  SiLaravel,
 } from '@icons-pack/react-simple-icons'
 import { useTheme } from 'next-themes'
 

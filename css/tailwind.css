@@ -58,6 +58,15 @@
   @apply border border-slate-300 bg-light-card-bg dark:border-slate-700 dark:bg-wrapper-dark;
 }
 
+.line-bottom::before {
+  height: 3px;
+  content: "";
+  background-color: #0ea5ea;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+}
+
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {

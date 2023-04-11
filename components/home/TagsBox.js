@@ -14,13 +14,13 @@ const TagsBox = () => {
   }, [])
 
   return (
-    <CardBox title="Tags" buttonText="See all tags" linkText="/tags">
-      <div className="flex flex-col justify-center grow flex-wrap">
+    <CardBox buttonText="See all tags" linkText="/tags">
+      <div className="linear-blue line-bottom relative text-2xl font-bold before:w-[36px]">
+        Tags
+      </div>
+      <div className="flex grow flex-col flex-wrap justify-center">
         {sortedTags.map((t) => (
-          <div
-            key={t}
-            className="my-2 mr-5 rounded-xl hover:dark:border-cyan-500 "
-          >
+          <div key={t} className="my-2 mr-5 rounded-xl hover:dark:border-cyan-500 ">
             <Link
               href={`/tags/${kebabCase(t)}`}
               className="mr-3 text-sm uppercase text-slate-800 dark:text-slate-300 hover:dark:text-cyan-500"

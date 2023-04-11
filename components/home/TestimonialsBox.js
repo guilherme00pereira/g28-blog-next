@@ -4,7 +4,10 @@ import CardBox from '@/components/home/CardBox'
 
 const TestimonialsBox = () => {
   return (
-    <CardBox title="Testimonials" buttonText="See all testimonials" linkText="/about#testimonials">
+    <CardBox buttonText="See all testimonials" linkText="/about#testimonials">
+      <div className="linear-blue line-bottom relative mb-8 text-2xl font-bold before:w-[96px]">
+        Testimonials
+      </div>
       <div className="flex grow flex-wrap justify-center">
         {testimonialsData.slice(0, 4).map((testimonial, index) => {
           return (
@@ -26,7 +29,10 @@ const TestimonialsBox = () => {
                   )}
                   <h6 className="ml-6 font-bold">{testimonial.customer}</h6>
                 </div>
-                <p className="mt-5">"{testimonial.text.substring(0, 100)}  {testimonial.text.length > 100 ? "..." : ""}"</p>
+                <p className="mt-5">
+                  "{testimonial.text.substring(0, 100)} {testimonial.text.length > 100 ? '...' : ''}
+                  "
+                </p>
               </a>
             </div>
           )

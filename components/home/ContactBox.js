@@ -4,7 +4,9 @@ const Contact = () => {
   return (
     <div className="mt-16 mb-32 flex w-10/12 flex-col justify-evenly">
       <div>
-        <h2 className="linear-blue text-3xl font-bold">Get in Touch</h2>
+        <h2 className="linear-blue line-bottom relative mb-8 text-3xl font-bold before:w-[120px]">
+          Get in Touch
+        </h2>
       </div>
       <div className="flex justify-evenly">
         <div>hwatsapp</div>

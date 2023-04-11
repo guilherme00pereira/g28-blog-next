@@ -13,7 +13,9 @@ const MyServicesBox = () => {
   return (
     <div className="my-16 flex flex-col">
       <div>
-        <h2 className="linear-blue text-3xl font-bold">What Do I Do</h2>
+        <h2 className="linear-blue line-bottom relative text-3xl font-bold before:w-[120px]">
+          What Do I Do
+        </h2>
       </div>
       <div className="mt-6 flex">
         <ServiceWrapper service={webAppService} />

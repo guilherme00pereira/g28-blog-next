@@ -22,8 +22,11 @@ const StackBox = () => {
   const color = theme === 'light' ? 'black' : 'white'
 
   return (
-    <CardBox title="My Stack" buttonText="See all" linkText="/stack">
-      <div className="flex h-[360px] w-[240px] flex-wrap items-center justify-center">
+    <CardBox buttonText="See all" linkText="/stack">
+      <div className="linear-blue line-bottom relative text-2xl font-bold before:w-[84px]">
+        My Stack
+      </div>
+      <div className="flex h-[360px] w-[280px] flex-wrap items-center justify-center">
         <StackWrapper>
           <SiPhp color="default" size={48} />
         </StackWrapper>

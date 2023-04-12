@@ -17,7 +17,7 @@ const MyServicesBox = () => {
           What Do I Do
         </h2>
       </div>
-      <div className="mt-6 flex">
+      <div className="mt-6 flex flex-col md:flex-row">
         <ServiceWrapper service={webAppService} />
         <ServiceWrapper service={apiService} />
         <ServiceWrapper service={wordpressService} />

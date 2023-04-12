@@ -27,15 +27,15 @@ export default function Home({ posts }) {
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <Hero />
       <MyServicesBox />
-      <div className="my-24 flex justify-between">
-        <RecentPosts posts={posts} />
-        <TagsBox />
-      </div>
-      <div className="flex justify-evenly space-x-12">
+      <div className="flex flex-col justify-evenly space-y-16 xl:flex-row xl:space-x-4 xl:space-y-0">
         <TestimonialsBox />
         <StackBox />
       </div>
-      <div className="my-24 flex justify-between">
+      <div className="my-24 flex flex-col justify-between space-y-16 xl:flex-row xl:space-x-4 xl:space-y-0">
+        <RecentPosts posts={posts} />
+        <TagsBox />
+      </div>
+      <div className="my-24 flex flex-col justify-between xl:flex-row">
         <ContactBox />
         <HireMeBox />
       </div>

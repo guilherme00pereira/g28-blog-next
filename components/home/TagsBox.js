@@ -18,7 +18,7 @@ const TagsBox = () => {
       <div className="linear-blue line-bottom relative text-2xl font-bold before:w-[36px]">
         Tags
       </div>
-      <div className="flex grow flex-col flex-wrap justify-center">
+      <div className="my-8 flex grow flex-wrap items-center justify-center xl:flex-col">
         {sortedTags.map((t) => (
           <div key={t} className="my-2 mr-5 rounded-xl hover:dark:border-cyan-500 ">
             <Link

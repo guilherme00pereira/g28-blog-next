@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="mb-3 flex space-x-4">
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} />
           <SocialIcon kind="whatsapp" href={siteMetadata.social.whatsapp} />
-            <SocialIcon kind="github" href={siteMetadata.social.github} />
-            <SocialIcon kind="linkedin" href={siteMetadata.social.linkedin} />
+          <SocialIcon kind="github" href={siteMetadata.social.github} />
+          <SocialIcon kind="linkedin" href={siteMetadata.social.linkedin} />
         </div>
         <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <div>{`© ${new Date().getFullYear()}`}</div>

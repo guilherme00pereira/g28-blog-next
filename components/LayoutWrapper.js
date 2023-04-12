@@ -12,11 +12,10 @@ const outfit = Outfit({
   subsets: ['latin'],
 })
 
-
 const LayoutWrapper = ({ children }) => {
   const router = useRouter()
 
-  const activeStyle = "text-sky-400 border-b-2 border-sky-400"
+  const activeStyle = 'text-sky-400 border-b-2 border-sky-400'
 
   return (
     <SectionContainer>
@@ -40,7 +39,11 @@ const LayoutWrapper = ({ children }) => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className={`font-medium py-2 px-4 ${router.pathname === link.href ? activeStyle : 'text-slate-700 dark:text-gray-100'}`}
+                  className={`py-2 px-4 font-medium ${
+                    router.pathname === link.href
+                      ? activeStyle
+                      : 'text-slate-700 dark:text-gray-100'
+                  }`}
                 >
                   {link.title}
                 </Link>

@@ -2,7 +2,8 @@
 title: "Composer Error with Curl - Certificate Problem"
 date: "2022-08-14"
 tags: ['curl', 'certificate']
-draft: true
+images: ['/static/images/common/composer.webp']
+draft: false
 summary: "When using composer to install a package, an error message cURL error 60: SSL certificate: unable to get local issuer certificate appears. As we will see in this post, this is due to a certificate issue"
 ---
 
@@ -12,7 +13,8 @@ Recently, when trying to install a package through composer on MacOS, I came acr
 
 ```bash
 Composer\Downloader\TransportException
-curl error 60 while downloading https://getcomposer.org/versions: SSL certificate problem: unable to get local issuer certificate
+curl error 60 while downloading https://getcomposer.org/versions: 
+SSL certificate problem: unable to get local issuer certificate
 ```
 
 I tested the curl command to make any call, such as https://google.com. The error message that appeared told me that the certificate file used by curl was expired:
@@ -26,9 +28,9 @@ After searching forums across the web for the solution, I found myself with diff
 
 The solution found and that most directly solved this certificate problem was to do the following step by step:
 
-- locate the cert.pem file in /etc/ssl/
-- rename it with the command mv cert.pem old_cert.pem
-- download the updated file at https://curl.se/docs/caextract.html
-- save it in the /etc/ssl folder with the name cert.pem
+1. locate the cert.pem file in /etc/ssl/
+2. rename it with the command mv cert.pem old_cert.pem
+3. download the updated file at https://curl.se/docs/caextract.html
+4. save it in the /etc/ssl folder with the name cert.pem
 
 After this procedure, the composer command ran normally, installing the desired package.

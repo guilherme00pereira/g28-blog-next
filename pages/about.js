@@ -11,7 +11,7 @@ export default function About() {
       <div className="flex flex-col items-center">
         <SectionTitle title="About Me" />
         <div className="mb-8 flex justify-center">
-          <div className="prose pt-8 pb-8 text-justify text-xl dark:prose-dark">
+          <div className="prose mx-4 py-8 text-justify text-xl dark:prose-dark">
             <p>
               I am a Full Stack Developer with 10+ years of experience in the field, having a
               software development expertise in both frontend and backend development, working with

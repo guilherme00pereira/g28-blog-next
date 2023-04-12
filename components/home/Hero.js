@@ -3,8 +3,8 @@ import ProfilePicture from '../../public/static/images/perfil.webp'
 
 const Hero = () => {
   return (
-    <div className="flex w-full flex-col items-center py-16 sm:flex-row sm:justify-center sm:space-x-20">
-      <div className="ml-24">
+    <div className="flex w-full flex-col items-center py-16 xl:flex-row xl:justify-center xl:space-x-20">
+      <div className="xl:ml-24">
         <Image
           src={ProfilePicture}
           alt=""

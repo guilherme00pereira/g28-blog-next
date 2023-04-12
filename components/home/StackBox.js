@@ -26,7 +26,7 @@ const StackBox = () => {
       <div className="linear-blue line-bottom relative text-2xl font-bold before:w-[84px]">
         My Stack
       </div>
-      <div className="flex h-[360px] w-[280px] flex-wrap items-center justify-center">
+      <div className="flex h-[360px] flex-wrap items-center justify-center xl:w-[240px]">
         <StackWrapper>
           <SiPhp color="default" size={48} />
         </StackWrapper>

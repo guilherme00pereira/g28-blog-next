@@ -7,7 +7,7 @@ const PostBox = ({ post }) => {
 
   return (
     <div className="my-2 w-full">
-      <div className="flex items-center justify-between rounded-lg p-4">
+      <div className="flex flex-col items-center justify-between rounded-lg p-4 md:flex-row">
         {images && (
           <div className="relative mr-4 flex h-[140px] min-w-[280px] cursor-pointer justify-center">
             <Image
@@ -20,7 +20,7 @@ const PostBox = ({ post }) => {
             />
           </div>
         )}
-        <div className="mt-2 flex flex-col">
+        <div className="my-6 flex flex-col xl:my-2">
           <div>
             <Link href={`/blog/${slug}`} passHref legacyBehavior>
               <h3 className="cursor-pointer text-2xl font-semibold leading-8 tracking-wide hover:text-slate-600 dark:text-slate-300 hover:dark:text-cyan-500 ">

@@ -35,7 +35,7 @@ const ThemeSwitch = () => {
 
   return (
     <button
-      className="flex h-6 w-10 items-center rounded-full bg-gray-200 shadow transition duration-300 focus:outline-none"
+      className="mr-12 flex h-6 w-10 items-center rounded-full bg-gray-200 shadow transition duration-300 focus:outline-none xl:mr-0"
       onClick={toggleTheme}
     >
       <div

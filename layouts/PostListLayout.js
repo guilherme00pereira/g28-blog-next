@@ -59,4 +59,4 @@ const PostListLayout = ({ posts, title, initialDisplayPosts = [], pagination }) 
   )
 }
 
-export default PostListLayout;
+export default PostListLayout

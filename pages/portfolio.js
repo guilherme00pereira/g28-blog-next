@@ -1,5 +1,5 @@
 import siteMetadata from '@/data/siteMetadata'
-import { projectsData, workData } from '@/data/projectsData'
+import { workData } from '@/data/projectsData'
 import SectionTitle from '@/components/SectionTitle'
 import PortfolioCard from '@/components/projects/PortfolioCard'
 import { PageSEO } from '@/components/SEO'

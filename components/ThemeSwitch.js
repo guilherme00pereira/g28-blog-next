@@ -13,9 +13,9 @@ const ThemeSwitch = () => {
 
   const toggleTheme = () => {
     const switchToggle = document.querySelector('#switch-toggle')
-    
+
     setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')
-    
+
     if (theme === 'light') {
       switchToggle.classList.remove('bg-amber-500', 'translate-x-1')
       switchToggle.classList.add('bg-sky-700', 'translate-x-4')
@@ -31,7 +31,7 @@ const ThemeSwitch = () => {
     }
   }
 
-  useEffect(() => toggleTheme(), [])
+  useEffect(() => toggleTheme())
 
   return (
     <button

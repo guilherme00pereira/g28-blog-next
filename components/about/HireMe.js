@@ -1,11 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const HireMe = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+  return <div></div>
+}
 
-export default HireMe;
+export default HireMe

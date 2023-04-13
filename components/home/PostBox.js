@@ -11,7 +11,7 @@ const PostBox = ({ post }) => {
         {images && (
           <div className="relative mr-4 flex h-[140px] min-w-[280px] cursor-pointer justify-center">
             <Image
-              className="rounded-lg"
+              className="light-border rounded-lg"
               src={images[0]}
               alt={title}
               fill
@@ -20,7 +20,7 @@ const PostBox = ({ post }) => {
             />
           </div>
         )}
-        <div className="my-6 flex flex-col xl:my-2">
+        <div className="my-6 flex h-[140px] flex-col justify-between xl:my-2">
           <div>
             <Link href={`/blog/${slug}`} passHref legacyBehavior>
               <h3 className="cursor-pointer text-2xl font-semibold leading-8 tracking-wide hover:text-slate-600 dark:text-slate-300 hover:dark:text-cyan-500 ">
@@ -28,8 +28,10 @@ const PostBox = ({ post }) => {
               </h3>
             </Link>
           </div>
-          <div className="text-gray-500 dark:text-gray-400">{summary}</div>
-          <div>
+          <div className="grow text-gray-500 dark:text-gray-400">
+            {summary.substring(0, 100)} {summary.length > 100 ? '...' : ''}
+          </div>
+          <div className="flex justify-between">
             <div className="flex flex-wrap">
               {tags.map((tag) => (
                 <Tag key={tag} text={tag} />

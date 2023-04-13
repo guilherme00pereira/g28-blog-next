@@ -31,7 +31,7 @@ const ThemeSwitch = () => {
     }
   }
 
-  useEffect(() => toggleTheme(), [])
+  useEffect(() => toggleTheme(), []) // eslint-disable-line no-use-before-define
 
   return (
     <button

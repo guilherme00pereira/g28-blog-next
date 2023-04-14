@@ -19,18 +19,18 @@ const Contact = () => {
           Get in Touch
         </h2>
       </div>
-      <div className="flex justify-start space-x-8">
+      <div className="mt-8 flex justify-start space-x-8">
         <ContactWrapper href="https://wa.me/5531990891617">
-          <SiWhatsapp color="default" size={48} />
+          <SiWhatsapp color="default" size={36} />
         </ContactWrapper>
-        <ContactWrapper href="#">
-          <SiDiscord color="default" size={48} />
-        </ContactWrapper>
+        {/*<ContactWrapper href="#">*/}
+        {/*  <SiDiscord color="default" size={36} />*/}
+        {/*</ContactWrapper>*/}
         <ContactWrapper href="https://www.linkedin.com/in/guilhermepereirasalves/">
-          <SiLinkedin color="default" size={48} />
+          <SiLinkedin color="default" size={36} />
         </ContactWrapper>
         <ContactWrapper href="mailto:guilherme00pereira@gmail.com">
-          <SiGmail color="default" size={48} />
+          <SiGmail color="default" size={36} />
         </ContactWrapper>
       </div>
     </div>

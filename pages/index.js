@@ -37,9 +37,11 @@ export default function Home({ posts }) {
         <RecentPosts posts={posts} />
         <TagsBox />
       </div>
-      <div className="my-24 flex flex-col justify-between xl:flex-row">
-        <ContactBox />
-        <HireMeBox />
+      <div className="flex justify-center">
+        <div className="flex w-10/12 flex-col justify-evenly xl:flex-row">
+          <ContactBox />
+          <HireMeBox />
+        </div>
       </div>
       {siteMetadata.newsletter.provider && (
         <div className="flex items-center justify-center pt-4">

@@ -67,6 +67,15 @@
   left: 0;
 }
 
+.line-bottom-right::before {
+  height: 3px;
+  content: "";
+  background-color: #0ea5ea;
+  position: absolute;
+  bottom: -8px;
+  right: 0;
+}
+
 .light-border {
   @apply outline outline-2 outline-slate-400 dark:outline-0;
 }

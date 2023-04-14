@@ -1,6 +1,6 @@
 {
   "name": "g28-blog",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "private": true,
   "scripts": {
     "start": "next dev",

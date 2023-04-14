@@ -28,7 +28,7 @@ const PostBox = ({ post }) => {
               </h3>
             </Link>
           </div>
-          <div className="grow text-gray-500 dark:text-gray-400">
+          <div className="grow text-gray-700 dark:text-gray-400">
             {summary.substring(0, 100)} {summary.length > 100 ? '...' : ''}
           </div>
           <div className="flex justify-between">

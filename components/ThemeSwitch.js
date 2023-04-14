@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 
 const DarkIcon = () => {
@@ -32,19 +32,20 @@ const LightIcon = () => {
 
 const ThemeSwitch = () => {
   const { theme, setTheme, resolvedTheme } = useTheme()
+  const [loaded, setLoaded] = useState(false)
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')
   }
 
-  useEffect(() => toggleTheme(), []) // eslint-disable-line no-use-before-define
+  useEffect(() => setLoaded(true) /*toggleTheme()*/, []) // eslint-disable-line no-use-before-define
 
   return (
     <button
       className="mr-12 flex h-6 w-10 items-center rounded-full bg-gray-200 shadow transition duration-300 focus:outline-none xl:mr-0"
       onClick={toggleTheme}
     >
-      {theme === 'dark' ? <DarkIcon /> : <LightIcon />}
+      {loaded && theme === 'dark' ? <DarkIcon /> : <LightIcon />}
     </button>
   )
 }

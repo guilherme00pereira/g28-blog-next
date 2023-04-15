@@ -28,7 +28,7 @@ const LayoutWrapper = ({ children }) => {
                   {siteMetadata.headerTitle}
                 </Link>
               </div>
-              <div className="ml-3 -mt-3 text-xs text-slate-800 dark:text-gray-300 ">
+              <div className="-mt-3 ml-3 text-xs text-slate-800 dark:text-gray-300 ">
                 by Guilherme Pereira
               </div>
             </div>
@@ -39,7 +39,7 @@ const LayoutWrapper = ({ children }) => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className={`py-2 px-4 font-medium ${
+                  className={`px-4 py-2 font-medium ${
                     router.pathname === link.href
                       ? activeStyle
                       : 'text-slate-700 dark:text-gray-100'

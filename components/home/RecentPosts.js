@@ -17,7 +17,7 @@ const RecentPosts = ({ posts }) => {
       </div>
       {posts.length > MAX_DISPLAY && (
         <div className="mt-2 flex justify-start text-base font-medium leading-6 xl:mt-8">
-          <div className="linear-button rounded-lg py-2 px-4 text-white">
+          <div className="linear-button rounded-lg px-4 py-2 text-white">
             <Link href="/blog" aria-label="See all posts">
               See all Posts &rarr;
             </Link>

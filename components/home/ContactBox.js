@@ -1,5 +1,5 @@
 import React from 'react'
-import { SiWhatsapp, SiDiscord, SiLinkedin, SiGmail } from '@icons-pack/react-simple-icons'
+import { SiWhatsapp, SiLinkedin, SiGmail } from '@icons-pack/react-simple-icons'
 
 const ContactWrapper = ({ href, children }) => {
   return (
@@ -23,9 +23,6 @@ const Contact = () => {
         <ContactWrapper href="https://wa.me/5531990891617">
           <SiWhatsapp color="default" size={36} />
         </ContactWrapper>
-        {/*<ContactWrapper href="#">*/}
-        {/*  <SiDiscord color="default" size={36} />*/}
-        {/*</ContactWrapper>*/}
         <ContactWrapper href="https://www.linkedin.com/in/guilhermepereirasalves/">
           <SiLinkedin color="default" size={36} />
         </ContactWrapper>

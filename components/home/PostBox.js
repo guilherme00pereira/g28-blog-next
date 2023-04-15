@@ -9,7 +9,7 @@ const PostBox = ({ post }) => {
     <div className="my-2 w-full">
       <div className="flex flex-col items-center justify-between rounded-lg p-4 md:flex-row">
         {images && (
-          <div className="relative mr-4 flex h-[140px] min-w-[280px] cursor-pointer justify-center">
+          <div className="relative mr-4 flex h-[140px] min-w-[280px] justify-center">
             <Image
               className="light-border rounded-lg"
               src={images[0]}

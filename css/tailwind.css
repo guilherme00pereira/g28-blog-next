@@ -26,16 +26,28 @@
   @apply bg-gradient-to-r from-sky-500 to-cyan-500 bg-clip-text text-transparent;
 }
 
-.services-green {
-  @apply bg-gradient-to-l from-green-600 to-green-500 text-green-100;
+.services-violet {
+  @apply bg-gradient-to-l from-violet-600 to-violet-500 text-violet-100;
+}
+
+.about-services-violet {
+  @apply bg-gradient-to-r from-violet-600 to-25% text-violet-100;
 }
 
 .services-rose {
   @apply bg-gradient-to-l from-rose-600 to-rose-500 text-rose-100;
 }
 
+.about-services-rose {
+  @apply bg-gradient-to-r from-rose-600 to-50% text-rose-100;
+}
+
 .services-blue {
   @apply bg-gradient-to-l from-blue-600 to-blue-500 text-blue-100;
+}
+
+.about-services-blue {
+  @apply bg-gradient-to-r from-blue-600 to-50% text-blue-100;
 }
 
 .linear-green {
@@ -43,7 +55,7 @@
 }
 
 .linear-button {
-  @apply bg-gradient-to-r from-sky-500 to-teal-400 hover:bg-gradient-to-l;
+  @apply bg-gradient-to-r from-sky-500 to-cyan-400 hover:bg-gradient-to-l;
 }
 
 .page-title {
@@ -65,6 +77,15 @@
   position: absolute;
   bottom: -8px;
   left: 0;
+}
+
+.line-bottom-right::before {
+  height: 3px;
+  content: "";
+  background-color: #0ea5ea;
+  position: absolute;
+  bottom: -8px;
+  right: 0;
 }
 
 .light-border {

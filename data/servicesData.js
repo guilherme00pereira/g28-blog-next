@@ -1,40 +1,43 @@
 export const webAppService = {
   title: 'Web & App Development',
-  thumb: 'web',
+  code: 'web',
   topics: [
-    'Custom website development services tailored to your specific needs and goals',
-    'Full-stack web development, including front-end and back-end development tasks',
-    'CMS integration services to allow for easy content management',
-    'Assistance with website hosting, domain registration, and website maintenance',
-    'Delivery of high-quality work on time and within budget',
+    'Proficiency in building modern, interactive web applications with robust user interfaces using JavaScript and React.js',
+    'Expertise in applying best practices to development work, including using modern tools and frameworks, following Agile methodology, and practicing continuous integration',
+    'Proficiency web and app development services, including frontend design coding and backend development and e-commerce',
+    'Commitment to delivering high-quality code on time and on budget.',
   ],
   summary:
     'Web and app development using the latest technologies and frameworks. Solutions for front-end and backend development',
-  color: 'services-green',
+  text: 'I have strong skills in web and application development using various languages and frameworks such as JavaScript, React.js, PHP, Python and C#. I apply the best software development practices to deliver optimized, secure and robust applications.',
+  homecolor: 'services-blue',
+  bgcolor: 'about-services-blue',
 }
 
 export const apiService = {
-  title: 'API Development and Integration',
-  thumb: 'api',
+  title: 'API Development, Integration and Hosting',
+  code: 'api',
   topics: [
-    'Integration of Payment APIs for e-commerce websites',
-    'Social media APIs for integration with social media platforms',
-    'Third-party APIs for software systems integration',
-    'Custom APIs for unique software needs',
+    'API development using REST, GraphQL, or other popular API standards',
+    'Experience integrating various third-party services such as payment gateways, social media platforms, and messaging services into web or mobile applications',
+    'Working with cloud hosting providers such as Amazon Web Services (AWS), Google Cloud Platform (GCP), or Microsoft Azure',
+    'Expertise in hosting solutions and server configurations, sush as Apache, Nginx, and Plesk',
   ],
   summary: 'Web and app development services',
-  color: 'services-rose',
+  homecolor: 'services-rose',
+  bgcolor: 'about-services-rose',
 }
 
 export const wordpressService = {
   title: 'WordPress Plugins and Themes',
-  thumb: 'wp',
+  code: 'wp',
   topics: [
-    'Custom WordPress plugin development to extend the functionality of your website',
-    'Custom WordPress theme development to ensure your website is unique and visually appealing',
-    'Assistance with plugin and theme installation, configuration, and troubleshooting',
+    'Proficiency in WordPress/WooCommerce development, including custom theme and plugin development',
+    'Knowledge of WordPress APIs and the ability to create custom APIs for WordPress sites',
+    'Ability to troubleshoot and debug issues that may arise on WordPress sites, including plugin conflicts and server-related issues',
     'Development of custom WordPress solutions tailored to your specific needs and requirements',
   ],
   summary: 'Web and app development services',
-  color: 'services-blue',
+  homecolor: 'services-violet',
+  bgcolor: 'about-services-violet',
 }

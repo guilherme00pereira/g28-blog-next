@@ -2,8 +2,8 @@ import { webAppService, apiService, wordpressService } from '@/data/servicesData
 
 const ServiceWrapper = ({ service }) => {
   return (
-    <div className={`m-2 basis-1/3 bg-gradient-to-l p-4 ${service.color}`}>
-      <h6 className="my-2 text-3xl">{service.title}</h6>
+    <div className={`m-2 basis-1/3 bg-gradient-to-l p-4 ${service.homecolor}`}>
+      <h3 className="my-2 text-3xl">{service.title}</h3>
       <p>{service.summary}</p>
     </div>
   )

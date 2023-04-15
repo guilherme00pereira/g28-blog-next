@@ -9,7 +9,7 @@ const PostBox = ({ post }) => {
     <div className="my-2 w-full">
       <div className="flex flex-col items-center justify-between rounded-lg p-4 md:flex-row">
         {images && (
-          <div className="relative mr-4 flex h-[140px] min-w-[280px] cursor-pointer justify-center">
+          <div className="relative mr-4 flex h-[140px] min-w-[280px] justify-center">
             <Image
               className="light-border rounded-lg"
               src={images[0]}
@@ -28,7 +28,7 @@ const PostBox = ({ post }) => {
               </h3>
             </Link>
           </div>
-          <div className="grow text-gray-500 dark:text-gray-400">
+          <div className="grow text-gray-700 dark:text-gray-400">
             {summary.substring(0, 100)} {summary.length > 100 ? '...' : ''}
           </div>
           <div className="flex justify-between">

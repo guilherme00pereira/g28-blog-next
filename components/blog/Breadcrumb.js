@@ -40,30 +40,33 @@ const ArrowIcon = () => {
 
 const BreadcrumbItem = ({ children, index, last }) => {
   if (last) {
-    return <span className="text-slate-800 dark:text-slate-400">{children}</span>
+    return <span className="text-slate-800 dark:text-slate-100">{children}</span>
   }
   return (
-    <li key={index} className="flex flex-row justify-start text-slate-400 dark:text-slate-500">
+    <li key={index} className="flex flex-row justify-start text-slate-500 dark:text-slate-300">
       {children}
     </li>
   )
 }
 
 const Breadcrumb = ({ items, pageTitle }) => {
-  const childrenWtihSeperator = items.map((item, index) => {
-    if (index !== items.length - 1) {
+  const childrenWithSeparator = items.map((item, index) => {
+    if (index === items.length - 1) {
+      return (
+        <BreadcrumbItem key={index} last>
+          {pageTitle}
+        </BreadcrumbItem>
+      )
+    } else if (index === 0) {
       return (
         <BreadcrumbItem key={index}>
           <Link href={item.href}>{item.label}</Link>
           <ArrowIcon />
         </BreadcrumbItem>
       )
+    } else {
+      return <BreadcrumbItem key={index}>{item.label} |</BreadcrumbItem>
     }
-    return (
-      <BreadcrumbItem key={index} last>
-        {pageTitle}
-      </BreadcrumbItem>
-    )
   })
   return (
     <nav className="py-3">
@@ -73,7 +76,7 @@ const Breadcrumb = ({ items, pageTitle }) => {
           <Link href="/">Home</Link>
           <ArrowIcon />
         </BreadcrumbItem>
-        {childrenWtihSeperator}
+        {childrenWithSeparator}
       </ol>
     </nav>
   )

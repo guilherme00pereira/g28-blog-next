@@ -12,7 +12,8 @@ export const projectsData = [
 export const workData = [
   {
     title: 'Engineer by Hustle',
-    description: 'In this project, I participated in the development of components using React.js and Typescript for both the web version and the Google Chrome extension, adapting layouts produced in Figma.',
+    description:
+      'In this project, I participated in the development of components using React.js and Typescript for both the web version and the Google Chrome extension, adapting layouts produced in Figma.',
     imgSrc: '/static/images/projects/ebh.webp',
     href: 'https://www.engineerbyhustle.com/',
     stack: ['react.js', 'typescript', 'firebase', 'tailwind', 'jira', 'figma'],
@@ -26,7 +27,7 @@ export const workData = [
     stack: ['react.js', 'typescript', 'next', 'wordpress', 'aws', 'github', 'figma'],
   },
   {
-    title: 'Zoop Plugin for WordPress',
+    title: 'Zoop Plugin for WooCommerce',
     description:
       'This work refers to the development of a plugin that integrates the white label Zoop payment platform with Woocommerce, through the implementation of a payment gateway and notification and validation features using WordPress cron.',
     imgSrc: '/static/images/projects/zoop.webp',
@@ -46,7 +47,7 @@ export const workData = [
     description: `Web raffle management system for managing numbers assigned to customers according to the quantity and value of their supermarket purchases. Used Laravel and Orchid to create the Dashboard and create logic for the raffle system with PHP and OOP.`,
     imgSrc: '/static/images/projects/orchid.webp',
     stack: ['php', 'laravel', 'orchid', 'mysql', 'javascript'],
-  },  
+  },
   {
     title: 'Event Ticket Sales Platform',
     description:

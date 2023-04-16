@@ -1,29 +1,88 @@
 ---
-title: "Using Composer To Autoload Classes And Functions In Wordpress"
-date: "2022-11-20"
+title: 'Using Composer To Autoload Classes And Functions In WordPress Plugin'
+date: '2022-11-20'
 tags: ['wordpress', 'composer']
-draft: true
-summary: "using composer to autoload classes and functions in wordpress"
+draft: false
+images: ['/static/images/common/composer.webp']
+summary: 'using composer to autoload classes and functions in WordPress'
 ---
 
 <TableOfContents toc={props.toc} asDisclosure={true} />
 
-## Introduction 
+## Introduction
 
-Composer is a useful PHP dependency management tool. It can be used to autoload classes and functions, removing the need for you to include them manually. In this guide, we'll show you how to install composer on WordPress so you can get started right away!
-
-## Installing
+Composer is a useful PHP dependency management tool. It can be used to autoload classes and functions, removing the need for you to include them manually. In this guide, we'll show you how to install composer on WordPress, so you can get started right away. To learn more about Composer, check out the [official documentation](https://getcomposer.org/doc/).
 
 If you don't have Composer installed on your system, follow [these instructions](https://getcomposer.org/doc/00-intro.md) according to your operating system.
 
 ## Starting Composer
 
-Composer is a useful tool for managing dependencies in PHP. It can be used to autoload classes and functions so you don't have to worry about including them yourself. In this tutorial, we'll show you how to set up composer with WordPress so that you can get started using it right away!
-
-We hope that this article has helped you to understand how to use Composer for autoloading classes and functions in your WordPress theme or plugin. If you have any questions or comments, feel free to reach out on Twitter @WPExplorer and we'll be happy to help out!
+To start using Composer, you need to create a `composer.json` file in the root of your WordPress plugin. This file will contain all the information about your project, including the dependencies you want to install. You can create this file manually, or you can use the `composer init` command to create it for you. After you've created the file, you can install dependencies using the `composer require` command.
 
 ## Loading Classes Using PSR-4
 
+For loading PHP classes using PSR-4, you need to add the following to your `composer.json` file:
 
+```json
+{
+  "autoload": {
+    "psr-4": {
+      "MyPlugin\\MyNamespace": "src/"
+    }
+  }
+}
+```
+
+This will tell Composer to load all classes in the `src` directory, and to prefix them with `MyPlugin\MyNamespace`. You can then use the classes in your code like this:
+
+```php
+
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use MyPlugin\MyClass;
+
+$myClass = new MyClass();
+
+```
+
+The require statement will load all the classes in the `src` directory, and the `use` statement will import the class you want to use. You can then create an instance of the class and use it in your code.
 
 ## Loeading Functions Using File Autoloading
+
+If you are not developing a plugin based on OOP, you can use file autoloading to load your functions. To do this, you need to add the following to your `composer.json` file:
+
+```json
+{
+  "autoload": {
+    "files": ["src/functions.php"]
+  }
+}
+```
+
+This will tell Composer to load the `functions.php` file in the `src` directory. You can then use the functions in your code like this:
+
+```php
+
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+my_function();
+
+```
+
+The require statement will load the `functions.php` file, and you can then use the functions in your code.
+
+## Conclusion
+
+In this guide, we've shown you how to use Composer to autoload classes and functions in WordPress. I've also shown you how to load classes using PSR-4 and functions using file autoloading.

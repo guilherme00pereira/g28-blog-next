@@ -63,7 +63,7 @@
 }
 
 .hover-moveup {
-  @apply transition-all ease-in-out duration-700;
+  @apply transition-all duration-700 ease-in-out;
 }
 
 .card-wrapper {
@@ -72,7 +72,7 @@
 
 .line-bottom::before {
   height: 3px;
-  content: "";
+  content: '';
   background-color: #0ea5ea;
   position: absolute;
   bottom: -8px;
@@ -81,7 +81,7 @@
 
 .line-bottom-right::before {
   height: 3px;
-  content: "";
+  content: '';
   background-color: #0ea5ea;
   position: absolute;
   bottom: -8px;

@@ -81,11 +81,11 @@ export default function PostLayout({ content, children }) {
                 {tags.map((tag) => (
                   <div
                     key={tag}
-                    className="mb-2 mr-5 mt-2 rounded-xl border border-slate-300 p-3 dark:border-slate-700 dark:shadow hover:dark:border-cyan-500 hover:dark:shadow-neon "
+                    className="mb-2 mr-5 mt-2 rounded-xl border border-slate-300 p-3 shadow hover:border-cyan-500 hover:shadow-neon dark:border-slate-700"
                   >
                     <Link
                       href={`/tags/${kebabCase(tag)}`}
-                      className="text-sm font-medium uppercase text-slate-800 dark:text-slate-300 hover:dark:text-cyan-500"
+                      className="text-sm font-medium uppercase text-slate-800 hover:text-cyan-500 dark:text-slate-300 hover:dark:text-cyan-500"
                     >
                       #{tag.split(' ').join('-')}
                     </Link>

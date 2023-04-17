@@ -1,0 +1,284 @@
+---
+title: 'The Essential Git Commands Beginners Need To Know'
+date: '2022-12-04'
+tags: ['git']
+draft: false
+images: ['/static/images/common/git.webp']
+summary: 'Example of a react component to upload, read and parse a CSV file.'
+---
+
+Git is such a powerful tool for collaboration and version control. It helps you move fast and save time by managing multiple versions of your website's code as it develops. But what does all this mean? What are "commits" and "branches"? In this post, I'll explain the most essential Git commands every beginner needs to know.
+
+<TableOfContents toc={props.toc} asDisclosure={true} />
+
+## Starting and pushing a new git repository
+
+#### git init
+
+Git init is used to initialize and create a new Git repository in the current directory. This command is used to create a new repository in the current directory. It will create a new subdirectory named .git that contains all of your necessary repository files — a Git repository skeleton. This is the most basic command in Git, and it is used to initialize a new repository.
+
+#### git status
+
+The git status command is used to see what files have changed, which files are staged and which files are not staged. It's a good idea to run this command before you commit your changes to make sure you're committing the right files.
+
+```bash
+git status
+```
+
+#### git add
+
+Git add adds the changes of a specific file or folder to your local staging area, which means they'll be included in the next commit you make. This command is used to add files from your hard drive into the repository. You can also use it to add directories, but it's important that they don't contain any other git repositories inside them. If you want to include submodules with a git checkout command, then make sure that they are checked out first before running this command.
+
+To add a specific file, you can use the following command:
+
+```bash
+git add <filename>
+```
+
+To include all files in the current directory, you can use the following command:
+
+```bash
+git add .
+```
+
+#### git commit
+
+Git commit is used to save the changes you've made to your local repository. This command is used to save the changes you've made to your local repository. It's important to note that this command only saves the changes to your local repository, not to the remote repository. To save the changes to the remote repository, you'll need to use the git push command.
+
+```bash
+git commit -m "commit message"
+```
+
+#### git push
+
+Git push is used to push your local commits to the remote repository. This command is used to push your local commits to the remote repository. It's important to note that this command only pushes the commits to the remote repository, not to the local repository. To push the commits to the local repository, you'll need to use the git commit command.
+
+```bash
+git push origin master
+```
+
+The master branch is the default branch in Git. It's the branch that you'll be working on most of the time. If you want to push your changes to a different branch, you can use the following command:
+
+```bash
+git push origin <branchname>
+```
+
+## Working with Remotes and Cloning Repositories
+
+#### git remote
+
+Git remote is used to manage your remote repositories. This command is used to manage your remote repositories. It's important to note that this command only manages the remote repositories, not the local repositories. To manage the local repositories, you'll need to use the git clone command.
+
+```bash
+
+// add remote
+git remote add origin <remote url>
+
+// remove remote
+git remote remove origin
+```
+
+#### git clone
+
+Git clone is used to clone a remote repository to your local machine. This command is used to clone a remote repository to your local machine. It's important to note that this command only clones the remote repository, not the local repository. To clone the local repository, you'll need to use the git remote command.
+
+```bash
+git clone <remote url>
+```
+
+## Working with Commits
+
+#### git log
+
+Git log is used to view the commit history of a repository. This command is used to view the commit history of a repository. It's important to note that this command only shows the commit history, not the changes that were made in each commit. To see the changes that were made in each commit, you'll need to use the git diff command.
+
+```bash
+git log
+```
+
+#### git diff
+
+Git diff is used to view the changes that were made in a commit. This command is used to view the changes that were made in a commit. It's important to note that this command only shows the changes that were made in a commit, not the commit history. To see the commit history, you'll need to use the git log command.
+
+```bash
+git diff
+```
+
+#### git reset
+
+Git reset is used to undo a commit. This command is used to undo a commit. It's important to note that this command only undoes the commit, not the changes that were made in the commit. To undo the changes that were made in the commit, you'll need to use the git checkout command.
+
+```bash
+git reset --hard HEAD~1
+```
+
+#### git checkout
+
+Git checkout is used to undo the changes that were made in a commit. This command is used to undo the changes that were made in a commit. It's important to note that this command only undoes the changes that were made in the commit, not the commit itself. To undo the commit itself, you'll need to use the git reset command.
+
+```bash
+git checkout <filename>
+```
+
+## Working with Branches
+
+#### git branch
+
+Git branch is used to create, list, rename, and delete branches. This command is used to create, list, rename, and delete branches. It's important to note that this command only creates, lists, renames, and deletes branches, not the commits that are made in the branches. To create, list, rename, and delete commits, you'll need to use the git checkout command.
+
+```bash
+// create branch
+git branch <branchname>
+
+// list branches
+git branch
+
+// rename branch
+git branch -m <oldbranchname> <newbranchname>
+
+// delete branch
+git branch -d <branchname>
+
+// delete branch remotely
+git push origin --delete <branchname>
+
+```
+
+#### git checkout branch
+
+Git checkout is used to switch between branches. This command is used to switch between branches. It's important to note that this command only switches between branches, not the commits that are made in the branches. To switch between commits, you'll need to use the git reset command.
+
+```bash
+git checkout <branchname>
+```
+
+#### git merge
+
+Git merge is used to merge branches. This command is used to merge branches. It's important to note that this command only merges branches, not the commits that are made in the branches. To merge commits, you'll need to use the git rebase command.
+
+```bash
+git merge <branchname>
+```
+
+#### git rebase
+
+Git rebase is used to rebase branches. This command is used to rebase branches. It's important to note that this command only rebases branches, not the commits that are made in the branches. To rebase commits, you'll need to use the git merge command.
+
+```bash
+git rebase <branchname>
+```
+
+## Working with Stashes
+
+#### git stash
+
+Git stash is used to stash changes. This command is used to stash changes. It's important to note that this command only stashes changes, not the commits that are made in the branches. To stash commits, you'll need to use the git stash pop command.
+
+```bash
+git stash
+```
+
+#### git stash pop
+
+Git stash pop is used to pop stashes. This command is used to pop stashes. It's important to note that this command only pops stashes, not the commits that are made in the branches. To pop commits, you'll need to use the git stash command.
+
+```bash
+git stash pop
+```
+
+## Working with Tags
+
+#### git tag
+
+Git tag is used to create, list, rename, and delete tags. This command is used to create, list, rename, and delete tags. It's important to note that this command only creates, lists, renames, and deletes tags, not the commits that are made in the branches. To create, list, rename, and delete commits, you'll need to use the git checkout command.
+
+```bash
+// create tag
+git tag <tagname>
+
+// list tags
+git tag
+
+// rename tag
+git tag -f <oldtagname> <newtagname>
+
+// delete tag
+git tag -d <tagname>
+
+// delete tag remotely
+git push origin --delete <tagname>
+
+```
+
+#### git checkout tag
+
+Git checkout is used to switch between tags. This command is used to switch between tags. It's important to note that this command only switches between tags, not the commits that are made in the branches. To switch between commits, you'll need to use the git reset command.
+
+```bash
+git checkout <tagname>
+```
+
+## Working with Staging
+
+#### git add
+
+Git add is used to add files to the staging area. This command is used to add files to the staging area. It's important to note that this command only adds files to the staging area, not the commits that are made in the branches. To add commits, you'll need to use the git commit command.
+
+```bash
+git add <filename>
+```
+
+#### git commit
+
+Git commit is used to commit files. This command is used to commit files. It's important to note that this command only commits files, not the commits that are made in the branches. To commit commits, you'll need to use the git add command.
+
+```bash
+
+// commit all files
+git commit -a -m "commit message"
+
+// commit specific files
+git commit <filename> -m "commit message"
+
+```
+
+#### git restore
+
+Git restore is used to restore files from the staging area. This command is used to restore files from the staging area. It's important to note that this command only restores files from the staging area, not the commits that are made in the branches. To restore commits, you'll need to use the git add command.
+
+```bash
+git restore <filename>
+```
+
+## Working with Remotes
+
+#### git push
+
+Git push is used to push commits to a remote repository. This command is used to push commits to a remote repository. It's important to note that this command only pushes commits to a remote repository, not the commits that are made in the branches. To push commits, you'll need to use the git add command.
+
+```bash
+git push <remote> <branch>
+```
+
+#### git pull
+
+Git pull is used to pull commits from a remote repository. This command is used to pull commits from a remote repository. It's important to note that this command only pulls commits from a remote repository, not the commits that are made in the branches. To pull commits, you'll need to use the git add command.
+
+```bash
+git pull <remote> <branch>
+```
+
+#### git remote
+
+Git remote is used to add, remove, and list remotes. This command is used to add, remove, and list remotes. It's important to note that this command only adds, removes, and lists remotes, not the commits that are made in the branches. To add, remove, and list commits, you'll need to use the git add command.
+
+```bash
+// add remote
+git remote add <remote> <url>
+
+// remove remote
+git remote remove <remote>
+
+// list remotes
+git remote -v
+```

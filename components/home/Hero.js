@@ -15,13 +15,13 @@ const Hero = () => {
         />
       </div>
       <div className="pt-6 font-semibold sm:w-2/3 sm:pt-0">
-        <p className="text-gray-400">Hi everyone!</p>
+        <p className="text-gray-700">Hi everyone!</p>
         <div className="linear-blue">
           <h1 className="text-4xl">
             My name is <br className="sm:hidden" />
             Guilherme Pereira
           </h1>
-          <h4 className="text-3xl">I'm a full stack developer</h4>
+          <h2 className="text-3xl">I'm a full stack developer</h2>
         </div>
       </div>
     </div>

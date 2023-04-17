@@ -16,7 +16,7 @@ const PostListLayout = ({ posts, title, initialDisplayPosts = [], pagination }) 
   return (
     <>
       <div>
-        <div className="flex w-full flex-col justify-between space-y-2 pt-6 pb-8 xl:flex-row xl:space-y-5">
+        <div className="flex w-full flex-col justify-between space-y-2 pb-8 pt-6 xl:flex-row xl:space-y-5">
           <SectionTitle title={title} />
           <div className="relative">
             <label>

@@ -39,7 +39,7 @@ const Card = ({ title, description, imgSrc, href, stack }) => (
             {stack.map((item, index) => (
               <span
                 key={index}
-                className="inline-block rounded-full py-1 px-2 text-xs font-semibold text-gray-500 dark:text-gray-400"
+                className="inline-block rounded-full px-2 py-1 text-xs font-semibold text-gray-500 dark:text-gray-400"
               >
                 {item}
               </span>

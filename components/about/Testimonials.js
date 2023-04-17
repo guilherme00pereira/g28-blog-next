@@ -1,5 +1,6 @@
 import { testimonialsData } from '@/data/testimonialsData'
 import Image from 'next/image'
+import Button99 from '@/components/Button99'
 
 const Testimonials = () => {
   return (
@@ -29,6 +30,7 @@ const Testimonials = () => {
           </div>
         )
       })}
+      <Button99 text="See more testimonials" />
     </div>
   )
 }

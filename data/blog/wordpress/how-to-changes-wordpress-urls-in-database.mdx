@@ -1,13 +1,14 @@
 ---
 title: "How to Change WordPress URL's in the Database"
-date: "2022-08-19"
+date: '2022-08-19'
 tags: ['wordpress', 'database']
 draft: false
 images: ['/static/images/common/wordpress.webp']
-summary: "Changing WordPress URLs in the database can be a daunting task for those who are not familiar with the inner workings of WordPress. However, it is necessary if you are moving your website from one domain to another."
+summary: 'Changing WordPress URLs in the database can be a daunting task for those who are not familiar with the inner workings of WordPress. However, it is necessary if you are moving your website from one domain to another.'
 ---
 
 Changing WordPress URLs in the database can be a daunting task for those who are not familiar with the inner workings of WordPress. However, it is necessary if you are facing the following situations:
+
 - moving your website from one domain to another;
 - copying it to a local environment;
 - changing your site's URL structure.
@@ -42,9 +43,11 @@ UPDATE wp_posts SET post_content = replace(post_content, 'oldurl.com', 'newurl.c
 
 UPDATE wp_postmeta SET meta_value = replace(meta_value,'oldurl.com','newurl.com');
 ```
-<Alert type>
-It is important to note that you should not change URLs directly in the database unless you are confident in what you are doing. Alternatively, you can use a plugin such as "Better Search Replace" to update your URLs automatically
-</Alert>
 
+<Alert type>
+  It is important to note that you should not change URLs directly in the database unless you are
+  confident in what you are doing. Alternatively, you can use a plugin such as "Better Search
+  Replace" to update your URLs automatically
+</Alert>
 
 In conclusion, changing WordPress URLs in the database requires a bit of technical knowledge, but it is essential if you want to keep your site running smoothly after a domain or URL change. By following the steps outlined above, you can ensure that your site's URLs are updated correctly and avoid any errors or broken links.

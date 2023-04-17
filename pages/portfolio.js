@@ -3,7 +3,7 @@ import { workData } from '@/data/projectsData'
 import SectionTitle from '@/components/SectionTitle'
 import PortfolioCard from '@/components/projects/PortfolioCard'
 import { PageSEO } from '@/components/SEO'
-import Link from '@/components/Link'
+import Button99 from '@/components/Button99'
 
 export default function Projects() {
   return (
@@ -45,13 +45,7 @@ export default function Projects() {
             ))}
           </div>
         </div> */}
-        <div className="flex justify-center">
-          <div className="linear-button rounded-xl py-3 px-12 text-white">
-            <Link href="https://www.99freelas.com.br/user/guilherme00pereira">
-              See more of my work
-            </Link>
-          </div>
-        </div>
+        <Button99 text="See more of my work" />
       </div>
     </>
   )

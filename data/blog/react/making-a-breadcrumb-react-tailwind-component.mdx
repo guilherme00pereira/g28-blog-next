@@ -1,0 +1,229 @@
+---
+title: 'Making a Breadcrumb Component with React and Tailwind'
+date: '2023-01-29'
+tags: ['react', 'tailwind']
+draft: true
+images: ['/static/images/react-component-to-read-and-parse-csv/react-csv-parse.webp']
+summary: 'In this article, we will learn how to make a Breadcrumb component with React and Tailwind.'
+---
+
+## Introduction
+
+In this article, we will learn how to make a Breadcrumb component with React and Tailwind. We will also learn how to use the React Context API to pass data to the component.
+
+## Prerequisites
+
+To follow along with this tutorial, you should have a basic understanding of React and Tailwind. You should also have Node.js installed on your computer.
+
+## Getting Started
+
+To get started, we will create a new React app using the create-react-app CLI. We will also install the Tailwind CSS and the PostCSS CLI.
+
+```bash
+
+npx create-react-app react-breadcrumb
+
+cd react-breadcrumb
+
+npm install tailwindcss postcss-cli autoprefixer
+
+```
+
+## Setting up Tailwind CSS
+
+To set up Tailwind CSS, we will create a new file called tailwind.config.js in the root directory of the project. We will then add the following code to the file.
+
+```js
+module.exports = {
+  purge: [],
+
+  darkMode: false, // or 'media' or 'class'
+
+  theme: {
+    extend: {},
+  },
+
+  variants: {
+    extend: {},
+  },
+
+  plugins: [],
+}
+```
+
+Next, we will create a new file called postcss.config.js in the root directory of the project. We will then add the following code to the file.
+
+```js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+
+    autoprefixer: {},
+  },
+}
+```
+
+Next, we will create a new file called tailwind.css in the src directory of the project. We will then add the following code to the file.
+
+```css
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+```
+
+Finally, we will add the following code to the index.js file in the src directory of the project.
+
+```js
+import './tailwind.css'
+```
+
+## Creating the Breadcrumb Component
+
+To create the Breadcrumb component, we will create a new file called Breadcrumb.js in the src directory of the project. We will then add the following code to the file.
+
+```js
+import React from 'react'
+
+const Breadcrumb = () => {
+  return (
+    <div className="flex items-center space-x-2">
+      <a href="#" className="text-gray-500 hover:text-gray-700">
+        Home
+      </a>
+
+      <span className="text-gray-400">/</span>
+
+      <a href="#" className="text-gray-500 hover:text-gray-700">
+        Products
+      </a>
+
+      <span className="text-gray-400">/</span>
+
+      <a href="#" className="text-gray-500 hover:text-gray-700">
+        Electronics
+      </a>
+
+      <span className="text-gray-400">/</span>
+
+      <a href="#" className="text-gray-500 hover:text-gray-700">
+        Laptops
+      </a>
+    </div>
+  )
+}
+
+export default Breadcrumb
+```
+
+## Using the Breadcrumb Component
+
+To use the Breadcrumb component, we will add the following code to the App.js file in the src directory of the project.
+
+```js
+import Breadcrumb from './Breadcrumb'
+
+function App() {
+  return (
+    <div className="App">
+      <Breadcrumb />
+    </div>
+  )
+}
+
+export default App
+```
+
+## Adding the React Context API
+
+To add the React Context API, we will create a new file called BreadcrumbContext.js in the src directory of the project. We will then add the following code to the file.
+
+```js
+import React from 'react'
+
+const BreadcrumbContext = React.createContext()
+
+export default BreadcrumbContext
+```
+
+Next, we will add the following code to the App.js file in the src directory of the project.
+
+```js
+import BreadcrumbContext from './BreadcrumbContext'
+
+function App() {
+  return (
+    <div className="App">
+      <BreadcrumbContext.Provider value={{}}>
+        <Breadcrumb />
+      </BreadcrumbContext.Provider>
+    </div>
+  )
+}
+
+export default App
+```
+
+## Passing Data to the Breadcrumb Component
+
+To pass data to the Breadcrumb component, we will add the following code to the App.js file in the src directory of the project.
+
+```js
+import BreadcrumbContext from './BreadcrumbContext'
+
+function App() {
+  return (
+    <div className="App">
+      <BreadcrumbContext.Provider
+        value={{
+          items: [
+            { title: 'Home', url: '/home' },
+
+            { title: 'Products', url: '/products' },
+
+            { title: 'Electronics', url: '/products/electronics' },
+
+            { title: 'Laptops', url: '/products/electronics/laptops' },
+          ],
+        }}
+      >
+        <Breadcrumb />
+      </BreadcrumbContext.Provider>
+    </div>
+  )
+}
+
+export default App
+```
+
+## Rendering the Breadcrumb Items
+
+To render the Breadcrumb items, we will add the following code to the Breadcrumb.js file in the src directory of the project.
+
+```js
+
+import React, {useContext} from 'react'
+
+import BreadcrumbContext from './BreadcrumbContext'
+
+const Breadcrumb = () => {
+
+const {items} = useContext(BreadcrumbContext)
+
+return (
+
+<div className="flex items-center space-x-2">
+
+{items.map((item, index) => (
+
+<React.Fragment key={index}>
+
+
+
+
+
+
+
+
+```

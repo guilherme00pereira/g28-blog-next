@@ -1,0 +1,166 @@
+---
+title: 'Reading a CSV File with Pandas'
+date: '2023-01-18'
+tags: ['python', 'pandas']
+draft: false
+images: ['/static/images/common/pandas_python.webp']
+summary: 'In Python, the Pandas library is commonly used for reading and manipulating data from CSV files'
+---
+
+<TableOfContents toc={props.toc} asDisclosure={true} />
+
+## Introduction
+
+CSV (Comma Separated Values) files are a popular data format used for storing and exchanging tabular data. In Python, the Pandas library is commonly used for reading and manipulating data from CSV files.
+
+To better visualize the data, you can install the Pandas library and use the Jupyter Notebook to run the code examples in this article.
+
+```bash
+
+pip install pandas jupyterLab
+
+```
+
+## Reading a CSV File
+
+The Pandas library provides the read_csv() function for reading CSV files. The function returns a Pandas DataFrame object, which is a two-dimensional data structure that can be used to store tabular data.
+
+The following example shows how to read a CSV file into a Pandas DataFrame object.
+
+```python
+
+import pandas as pd
+
+df = pd.read_csv('data.csv')
+
+```
+
+The read_csv() function accepts a number of optional parameters that can be used to customize the way the CSV file is read. For example, the following example shows how to read a CSV file that uses a semicolon as a delimiter.
+
+```python
+
+import pandas as pd
+
+df = pd.read_csv('data.csv', sep=';')
+
+```
+
+To get the column names of a DataFrame object, use the columns property.
+
+```python
+
+print(df.columns)
+
+```
+
+To get the number of rows and columns of a DataFrame object, use the shape property.
+
+```python
+
+print(df.shape)
+
+```
+
+To query a DataFrame object, use the loc property. The following example shows how to query the DataFrame object to get the value of the first row and first column.
+
+```python
+
+print(df.loc[0,0])
+
+```
+
+You can also use the `query()` function to query a DataFrame object. The following example shows how to query the DataFrame object to get the value of the first row and first column.
+
+```python
+
+print(df.query('index == 0 and column == 0'))
+
+```
+
+To get the first n rows of a DataFrame object, use the head() function. The following example shows how to get the first 5 rows of the DataFrame object.
+
+```python
+
+print(df.head())
+
+```
+
+To get the last n rows of a DataFrame object, use the tail() function. The following example shows how to get the last 5 rows of the DataFrame object.
+
+```python
+
+print(df.tail())
+
+```
+
+To get the data types of the columns of a DataFrame object, use the dtypes property.
+
+```python
+
+print(df.dtypes)
+
+```
+
+To get the number of non-null values in each column of a DataFrame object, use the count() function.
+
+```python
+
+print(df.count())
+
+```
+
+To get the number of unique values in each column of a DataFrame object, use the nunique() function.
+
+```python
+
+print(df.nunique())
+
+```
+
+To get the number of missing values in each column of a DataFrame object, use the isnull() function.
+
+```python
+
+print(df.isnull().sum())
+
+```
+
+To select some of the columns of a DataFrame object, use the following syntax.
+
+```python
+
+df = df[['column1', 'column2']]
+
+```
+
+## Writing a CSV File
+
+After filtering and manipulating the data, you can write the returned data to a CSV file.
+
+The Pandas library provides the to_csv() function for writing a DataFrame object to a CSV file. The following example shows how to write a DataFrame object to a CSV file.
+
+```python
+
+import pandas as pd
+
+df = pd.read_csv('data.csv')
+
+df.to_csv('data.csv')
+
+```
+
+The to_csv() function accepts a number of optional parameters that can be used to customize the way the CSV file is written. For example, the following example shows how to write a DataFrame object to a CSV file that uses a semicolon as a delimiter.
+
+```python
+
+import pandas as pd
+
+df = pd.read_csv('data.csv')
+
+df.to_csv('data.csv', sep=';')
+
+```
+
+## Conclusion
+
+In summary, reading and writing CSV files with Python and Pandas is a simple and effective way to work with tabular data. With its powerful data manipulation capabilities and ease of use, Pandas is a popular library for data analysis and data science tasks.

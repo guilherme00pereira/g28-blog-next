@@ -14,7 +14,7 @@ import TestimonialsBox from '@/components/home/TestimonialsBox'
 import HireMeBox from '@/components/home/HireMeBox'
 
 export const getStaticProps = async () => {
-  const sortedPosts = sortedBlogPost(allBlogs)
+  const sortedPosts = sortedBlogPost(allBlogs) //.find((p) => p.feature === true) ?? []
   const posts = allCoreContent(sortedPosts)
   return {
     props: {

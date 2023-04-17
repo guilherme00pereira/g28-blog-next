@@ -7,7 +7,7 @@ const RecentPosts = ({ posts }) => {
   return (
     <div className="flex basis-9/12 flex-col">
       <h2 className="linear-blue line-bottom relative mb-8 text-3xl font-bold before:w-[120px]">
-        Recent Posts
+        Featured Posts
       </h2>
       <div className=" divide-y-2 divide-solid divide-slate-300 dark:divide-slate-700">
         {!posts.length && 'No posts found.'}

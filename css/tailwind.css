@@ -22,6 +22,14 @@
   @apply my-5;
 }
 
+#postContent h2 {
+  @apply text-red-600 dark:text-red-400 tracking-wide
+}
+
+#postContent h3 {
+  @apply text-amber-600 dark:text-amber-300
+}
+
 .linear-blue {
   @apply bg-gradient-to-r from-sky-500 to-cyan-500 bg-clip-text text-transparent;
 }

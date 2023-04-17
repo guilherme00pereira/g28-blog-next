@@ -92,6 +92,9 @@ export const Blog = defineDocumentType(() => ({
     banner: {
       type: 'string',
     },
+    feature: {
+      type: 'boolean',
+    },
   },
   computedFields,
 }))

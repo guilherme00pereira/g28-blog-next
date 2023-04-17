@@ -10,7 +10,17 @@ summary: 'This article will show you how to run Python scripts from the command 
 
 This article will show you how to run Python scripts from the command line. This is useful if you want to run a Python script from a cron job or from a shell script. You can also use this to run Python scripts from a Makefile.
 
-To run a Python script from the command line, you need to use the `python` command. The `python` command takes the name of the Python script as an argument. For example, to run the `hello.py` script, you would run the following command:
+To run a Python script from the command line, you need to use the `python` command. The `python` command takes the name of the Python script as an argument. 
+
+To exemplify, let's create a simple Python script called `hello.py`:
+
+```python
+
+print("Hello, World!")
+
+```
+
+To run the `hello.py` script, you would run the following command:
 
 ```bash
 
@@ -18,12 +28,104 @@ python hello.py
 
 ```
 
-The `python` command will run the Python script and print the output to the terminal. If the Python script does not have a `print` statement, then nothing will be printed to the terminal.
-
-If you want to run a Python script from the command line and redirect the output to a file, you can use the `>` operator. For example, to run the `hello.py` script and redirect the output to a file called `output.txt`, you would run the following command:
+The output of the `hello.py` script would be:
 
 ```bash
 
-python hello.py > output.txt
+Hello, World!
 
 ```
+
+## Run Python Scripts from Command Line with Arguments
+
+You can also pass arguments to Python scripts from the command line. To do this, you need to use the `-a` or `--arg` flags.
+
+To exemplify, let's create a simple Python script called `add.py`:
+
+```python
+
+import sys
+
+print(int(sys.argv[1]) + int(sys.argv[2]))
+
+```
+
+To run the `add.py` script, you would run the following command:
+
+```bash
+
+python add.py -a 1 -a 2
+
+```
+
+The output of the `add.py` script would be:
+
+```bash
+
+3
+
+```
+
+## Run Python Scripts from Command Line with Flags
+
+You can also pass flags to Python scripts from the command line. To do this, you need to use the `-f` or `--flag` flags.
+
+To exemplify, let's create a simple Python script called `flag.py`:
+
+```python
+
+import sys
+
+if '--flag' in sys.argv:
+    print('Flag is set')
+else:
+    print('Flag is not set')
+
+```
+
+To run the `flag.py` script, you would run the following command:
+
+```bash
+
+python flag.py -f
+
+```
+
+The output of the `flag.py` script would be:
+
+```bash
+
+Flag is set
+
+```
+
+## Run Python Scripts from Command Line with Environment Variables
+
+You can also pass environment variables to Python scripts from the command line. To do this, you need to use the `-e` or `--env` flags.
+
+To exemplify, let's create a simple Python script called `env.py`:
+
+```python
+
+import os
+
+print(os.environ['MY_ENV_VAR'])
+
+```
+
+To run the `env.py` script, you would run the following command:
+
+```bash
+
+MY_ENV_VAR=hello python env.py -e MY_ENV_VAR
+
+```
+
+The output of the `env.py` script would be:
+
+```bash
+
+hello
+
+```
+

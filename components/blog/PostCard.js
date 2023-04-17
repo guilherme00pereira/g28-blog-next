@@ -25,7 +25,7 @@ const PostCard = ({ post }) => {
               </div>
             </Link>
           )}
-          <div className="mt-2 flex flex-col">
+          <div className="mt-2 flex h-[160px] flex-col">
             <div className="flex w-full flex-row justify-between">
               <dl>
                 <dt className="sr-only">Published on</dt>
@@ -35,7 +35,7 @@ const PostCard = ({ post }) => {
               </dl>
               <div className="text-slate-800 dark:text-slate-400">{readingTime.text}</div>
             </div>
-            <div className="space-y-5 xl:col-span-3">
+            <div className="grow space-y-5 xl:col-span-3">
               <div className="space-y-6">
                 <div>
                   <Link href={`/blog/${slug}`} passHref legacyBehavior>

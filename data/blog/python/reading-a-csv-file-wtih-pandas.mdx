@@ -32,14 +32,13 @@ The following example shows how to read a CSV file into a Pandas DataFrame objec
 import pandas as pd
 
 df = pd.read_csv('data.csv')
+print(df)
 
 ```
 
 The read_csv() function accepts a number of optional parameters that can be used to customize the way the CSV file is read. For example, the following example shows how to read a CSV file that uses a semicolon as a delimiter.
 
 ```python
-
-import pandas as pd
 
 df = pd.read_csv('data.csv', sep=';')
 

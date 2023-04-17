@@ -59,12 +59,10 @@ module.exports = {
             },
             h1: {
               fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
               color: theme('colors.slate.800'),
             },
             h2: {
               fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
               color: theme('colors.slate.800'),
             },
             h3: {
@@ -127,12 +125,10 @@ module.exports = {
             },
             h1: {
               fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
               color: theme('colors.slate.100'),
             },
             h2: {
               fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
               color: theme('colors.slate.100'),
             },
             h3: {

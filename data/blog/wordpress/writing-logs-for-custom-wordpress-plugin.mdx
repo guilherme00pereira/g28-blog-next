@@ -13,22 +13,50 @@ When developing a WordPress plugin, we frequently need to record events, actions
 
 ## The plugin hierarchy
 
-The first step will be to create the class that will represent the object that will register the logs. This class will follow the `Singleton Design Pattern`, containing the getInstance() method to have access to a single instance of the Logger object throughout the plugin.
+To exemplify the use of the Logger class, I will create a plugin that will have a menu page to display the log files. The basic plugin structure will be as I did in this <a href="/blog/wordpress/using-composer-in-a-wordpress-plugin">article about using Composer in a WordPress Plugin</a>. So, this plugin will have the following hierarchy:
 
-## The Logger class
+```bash
+
+├── assets
+│   ├── css
+│   │   └── admin.css
+│   └── js
+│       └── admin.js
+├── logs
+├── src
+│   ├── Controller.php
+│   ├── Logger.php
+│   └── Plugin.php
+├── templates
+│   └── admin-page.php
+├── composer.json
+├── g28-wordpress-custom-logs.php
+└── README.md
+
+```
+
+## Creating the Classes
+
+### The Logger Class
+
+The first step will be to create the class that will represent the object that will register the logs. This class will follow the `Singleton Design Pattern`, containing the `getInstance()` method to have access to a single instance of the Logger object throughout the plugin.
 
 ```php
 
 <?php
-namespace G28\MyPlugin;
+
+namespace G28\CustomLogger;
+
 class Logger
 {
     protected static $_instance = null;
+
     public function __construct()
     {
         $this->filename   = "log_" . date("Ymd") . ".txt";
         $this->filepath   = Plugin::getDir() . 'logs/' . $this->actualFilename;
     }
+
     public static function getInstance(): ?Logger {
         if ( is_null( self::$_instance ) ) {
             self::$_instance = new self();
@@ -39,7 +67,7 @@ class Logger
 
 ```
 
-In the code above I have included 2 properties in this class: filename and filepath. In filename we will add a filename representing the day date.
+In the code above I have included 2 properties in this class: `filename` and `filepath`. In filename we will add a filename representing the day date.
 Thus, whenever we call the object of the class to save a record, it will be saved in the file that will identify the date on which it occurred.
 
 I'll also add the add() method, adding the message we want to write to the end of the file:
@@ -47,7 +75,7 @@ I'll also add the add() method, adding the message we want to write to the end o
 ```php
 
 public function add( string $origin, string $message ) {
-        date_default_timezone_set('America/Sao_Paulo');
+        date_default_timezone_set('<your_timezone>');
         $timestamp    = date('d/m/Y h:i:s A');
         $output = "[ $timestamp ] $origin - $message" . PHP_EOL;
         file_put_contents( $this->filepath, $output, FILE_APPEND);
@@ -55,7 +83,295 @@ public function add( string $origin, string $message ) {
 
 ```
 
-In the first line, I define the timezone to which I want the registration time to be compatible with my location, in this case Brazil.
 In the second line I am formatting the date and time and, in the third line, I create the string that will be recorded in the file, with the time,
 the origin indicating which class/method called the Logger object for registration and the message received by the method, in addition to from a line break to the end.
-In the last line I call the file_put_contents method to write the data to the file.
+In the last line I call the file_put_contents method to write appending the data to the file.
+
+### The Controller Class
+
+Next, i will create a Controller Class that will be responsible for rendering the plugin menu page to show the log files.
+
+```php
+
+<?php
+
+namespace G28\CustomLogs;
+
+
+class Controller
+{
+    public function __construct()
+    {
+        add_action('admin_menu', array($this, 'addMenuPage' ));
+        add_action( 'admin_enqueue_scripts', [ $this, 'registerStylesAndScripts'] );
+        add_action( 'wp_ajax_ajaxGetLog', [ $this, 'ajaxGetLog' ] );
+    }
+
+    public function addMenuPage()
+	{
+		add_menu_page(
+			'G28 Custom Logs Plugin',
+			'G28 Custom Logs Plugin',
+			'manage_options',
+			'custom-logs',
+			array( $this, 'renderMenuPage' ),
+            'dashicons-edit',
+            30
+		);
+	}
+
+    public function renderMenuPage()
+	{
+        if ( ! current_user_can( 'manage_options' ) ) {
+            return;
+        }
+		ob_start();
+        include sprintf( "%sadmin-page.php", Plugin::getTemplateDir() );
+        $html = ob_get_clean();
+        echo $html;
+	}
+
+}
+    
+```
+
+In the code above I have added the `addMenuPage()` method that will add the menu page to the WordPress admin menu. In the `renderMenuPage()` method I will include the template file that will render the page.
+
+## The Admin Page Template
+
+The template file `templates\admin-page.php` will be responsible for rendering the page. Insert the following code on it.
+
+```php
+
+<?php
+
+use G28\CustomLogs\Logger;
+
+$files          = logger::getInstance()->getLogFiles();
+if( !empty( $files ) ) {
+    [ $currentFile, $logContent ] = Logger::getInstance()->getLogFileContent( $files[0] );
+}
+
+
+?>
+<div class="wrap">
+    <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+    <div class="log-container">
+        <div class="log-select-wrapper">
+            <?php if( !empty( $files ) ) { ?>
+            <label for="logFiles">Log Files: </label>
+            <select id="logFiles" name="logFiles">
+                <?php foreach ($files as $file) { ?>
+                    <option value="<?php echo $file?>"><?php echo $file ?></option>
+                <?php } ?>
+            </select>
+            <span id="loadingLogs" style="display: none; padding-left: 15px;">
+                <img src="<?php echo esc_url( get_admin_url() . 'images/spinner.gif' ); ?>"  alt="loading"/>
+            </span>
+        </div>
+
+        <div id="logFileContent" class="log-content">
+            <?php echo $logContent ?>
+        </div>
+        <?php } else { ?>
+            <p>No log files found.</p>
+        <?php } ?>
+    </div>
+</div>
+
+```
+
+In the code above I have added a select element that will contain the log files present in the log directory and a div that will contain the content of the selected file. The `getLogFiles()` method will return an array with the names of the files present in the log directory to populate the select element. The `getLogFileContent()` method will return an array with the name of the first file and it content.
+
+### The Javascript File
+
+Next, I will be to create the javascript file that will be responsible for making the ajax request to get the content of the selected file. Place the following code in the `admin.js` file:
+
+```js
+
+(function ($) {
+
+	$(document).ready(function(){
+		$('#logFiles').change( function (e) {
+			$('#loadingLogs').show();
+			let params = {
+				action: ajaxobj.action_getLog,
+				nonce: ajaxobj.eucap_nonce,
+				filename: JSON.stringify(e.target.value)
+			}
+			$.get(ajaxobj.ajax_url, params, function(res){
+				const div = $('#logFileContent');
+				div.html(res.message[1]);
+				$('#loadingLogs').hide();
+			}, 'json');
+		});
+	})
+
+})(jQuery);
+
+```
+
+In the code above I have added a listener to the change event of the select element. When the event is triggered, I will make an ajax request to the `ajaxGetLog()` method that will return the content of the selected file. I will then add the content to the div that will contain the log file content. 
+
+### Styling the Admin Page
+
+The last step will be to style the page. I will create a file called `admin.css` in the `assets/css` directory and add the following code:
+
+```css
+
+.log-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+}
+
+.log-content {
+    margin: 0;
+    padding: 2rem;
+    background-color: white;
+    border: 1px solid #DCDCDE;
+}
+
+.log-select-wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5em 2rem;
+    align-items: center;
+}
+
+.log-select-wrapper select {
+    min-width: 250px;
+}
+
+.log-select-wrapper label {
+    font-weight: 600;
+    padding-right: 1rem;
+}
+
+```
+
+### Registering the Styles and Scripts
+
+Now, I will register the styles and scripts in the `Controller` class:
+
+```php
+
+public function registerStylesAndScripts()
+	{
+		wp_register_style( Plugin::getAssetsPrefix() . 'admin_style', Plugin::getAssetsUrl() . 'css/admin.css' );
+		wp_register_script(
+            Plugin::getAssetsPrefix() . 'admin-scripts',
+            Plugin::getAssetsUrl() . 'js/admin.js',
+            array( 'jquery', 'jquery-ui-sortable' ),
+            null,
+            true
+        );
+
+		wp_localize_script( Plugin::getAssetsPrefix() . 'admin_script', 'ajaxobj', [
+			'ajax_url'        	    => admin_url( 'admin-ajax.php' ),
+			'eucap_nonce'		    => wp_create_nonce( 'eucap_nonce' ),
+            'action_getLog'         => 'ajaxGetLog',
+		]);
+	}
+
+```
+
+In the code above I have added the `registerStylesAndScripts()` method that will register the styles and scripts. I have also added the `wp_localize_script()` function that will add the ajax url and the nonce to the javascript file.
+
+And then, enqueue the styles and scripts in the `renderMenuPage()` method:
+
+```php
+
+public function renderMenuPage()
+	{
+        if ( ! current_user_can( 'manage_options' ) ) {
+            return;
+        }
+		wp_enqueue_style(Plugin::getAssetsPrefix() . 'admin_style');
+		wp_enqueue_script( Plugin::getAssetsPrefix() . 'admin_scripts' );
+		ob_start();
+        include sprintf( "%sadmin-page.php", Plugin::getTemplateDir() );
+        $html = ob_get_clean();
+        echo $html;
+	}
+
+```
+
+## Testing  the Log Functionality
+
+Now, I will test the log functionality. To accomplish this, I will make available and endpoint that will log a message. I will create a file called `ApiEndpoints.php` int the src directory and add the following code:
+
+```php
+
+<?php
+
+namespace G28\CustomLogs;
+
+use WP_REST_Controller;
+use WP_REST_Server;
+use WP_REST_Response;
+
+class ApiEndpoints extends WP_REST_Controller
+{
+    public function __construct()
+    {
+        register_rest_route( 'custom-logs', '/ping', array(
+            'methods'       => WP_REST_Server::READABLE,
+            'callback'      => array( $this, 'ping' )
+        ));
+    }
+}
+
+```
+
+In the `startup.php` file, add this action to register the ApiEndpoints class:
+
+```php
+
+add_action( 'rest_api_init', function (){
+    new ApiEndpoints();
+});
+
+```
+
+In the code above I have added a constructor that will register the `ping` endpoint in the [WordPress REST API](https://developer.wordpress.org/rest-api/). I will now add the `ping()` method:
+
+```php
+
+public function ping()
+{
+    Logger::getInstance()->add('api', 'Ping endpoint called');
+    return new WP_REST_Response( array(
+        'status' => 'success',
+        'message' => 'Ping endpoint called'
+    ), 200 );
+}
+
+```
+
+In the code above I have added the `ping()` method that will log a message and return a response. Let's call this endpoint from the browser using the url `http://localhost/wp-json/custom-logs/v1/ping`. You should see the following response:
+
+```json
+
+{
+    "status": "success",
+    "message": "Ping endpoint called"
+}
+
+```
+
+Now, let's go to the admin page and select the log file that has been created. You should see the following content:
+
+<ImageCard>
+  <Image
+    className="rounded-lg"
+    src="/static/images/writing-logs-for-custom-wordpress-plugin/g28-wp-custom-log-admin-page.webp"
+    alt="Log Admin Page"
+    width={900}
+    height={361}
+  />
+</ImageCard>
+
+## Conclusion
+
+In this tutorial, I have shown you how to create a custom log file for your WordPress plugin. I have also shown you how to create an admin page that will allow you to view the content of the log file. I hope you have found this tutorial useful.

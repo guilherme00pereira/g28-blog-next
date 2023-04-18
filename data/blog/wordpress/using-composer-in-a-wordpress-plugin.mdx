@@ -1,0 +1,305 @@
+---
+title: 'Using Composer in a WordPress Plugin'
+date: '2022-09-20'
+tags: ['wordpress', 'composer']
+draft: false
+feature: true
+images: ['/static/images/common/composer.webp']
+summary: 'using composer to autoload classes and functions in a WordPress plugin'
+---
+
+<TableOfContents toc={props.toc} asDisclosure={true} />
+
+## Introduction
+
+Composer is a useful PHP dependency management tool. It can be used to autoload classes and functions, removing the need for you to include them manually. In this guide, we'll show you how to install composer on WordPress, so you can get started right away. To learn more about Composer, check out the [official documentation](https://getcomposer.org/doc/).
+
+If you don't have Composer installed on your system, follow [these instructions](https://getcomposer.org/doc/00-intro.md) according to your operating system.
+
+## Starting Composer
+
+To start using Composer, you need to create a `composer.json` file in the root of your WordPress plugin. This file will contain all the information about your project, including the dependencies you want to install. You can create this file manually, or you can use the `composer init` command to create it for you. After you've created the file, you can install dependencies using the `composer require` command.
+
+### Loading Classes Using PSR-4
+
+For loading PHP classes using PSR-4, you need to add the following to your `composer.json` file:
+
+```json
+{
+  "autoload": {
+    "psr-4": {
+      "MyPlugin\\MyNamespace": "src/"
+    }
+  }
+}
+```
+
+This will tell Composer to load all classes in the `src` directory, and to prefix them with `MyPlugin\MyNamespace`. You can then use the classes in your code like this:
+
+```php
+
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use MyPlugin\MyClass;
+
+$myClass = new MyClass();
+
+```
+
+The require statement will load all the classes in the `src` directory, and the `use` statement will import the class you want to use. You can then create an instance of the class and use it in your code.
+
+### Loading Functions Using File Autoloading
+
+If you are not developing a plugin based on OOP, you can use file autoloading to load your functions. To do this, you need to add the following to your `composer.json` file:
+
+```json
+{
+  "autoload": {
+    "files": ["src/functions.php"]
+  }
+}
+```
+
+This will tell Composer to load the `functions.php` file in the `src` directory. You can then use the functions in your code like this:
+
+```php
+
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+my_function();
+
+```
+
+The require statement will load the `functions.php` file, and you can then use the functions in your code.
+
+## Structuring a Plugin Boilerplate to User PHP Classes with Composer
+
+If you are developing a plugin using PHP classes, you can use the following boilerplate to get started. Let's say you want to create a plugin called `My Plugin`. You can create a directory called `my-plugin` in the `wp-content/plugins` directory. Then, you can create the following files and directories inside the `my-plugin` directory:
+
+```bash
+
+// create a directory called my-plugin
+mkdir my-plugin && cd my-plugin
+
+// create the plugin base file
+touch my-plugin.php
+
+// create the composer.json file
+touch composer.json
+
+// create the source directory and the startup.php file
+mkdir src
+touch src/startup.php
+
+```
+
+Next, add the following code to the composer.json file:
+
+```json
+{
+  "autoload": {
+    "psr-4": {
+      "G28\\MyPlugin\\": "src/"
+    },
+    "files": [
+      "src/startup.php"
+    ]
+  }
+}
+```
+
+This will tell Composer to load all classes in the `src` directory, and to prefix them with `G28\MyPlugin`. It will also load the `startup.php` file in the `src` directory. Add the following code to the `my-plugin.php` file:
+
+```php
+
+<?php
+
+/**
+ * Plugin Name: My Plugin
+ * Description: My Plugin Description
+ * Version: 1.0.0
+ * 
+ * @package MyPlugin
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use function G28\MyPlugin\runPlugin;
+
+runPlugin( __FILE__ );
+
+```
+
+This will load the `startup.php` file, and then run the `runPlugin` function. Add the following code to the `startup.php` file:
+
+```php
+
+<?php
+
+namespace G28\MyPlugin;
+
+if( !function_exists( __NAMESPACE__ . 'runPlugin') )
+{
+    function runPlugin( $root )
+    {
+        add_action( 'plugins_loaded', function () use ( $root ) {
+          Plugin::getInstance( $root );
+            // call your plugin classes here
+        } );
+        add_action( 'rest_api_init', function (){
+            // add your class that manages custom rest api routes here
+        });
+    }
+}
+
+```
+
+The Plugin class is a singleton class that will be used to manage the plugin's properties and make them available to the other classes in the project.. Add the following code to the `Plugin.php` file:
+
+```php
+
+<?php
+
+namespace G28\CustomLogs;
+
+class Plugin {
+
+    protected static ?Plugin $_instance = null;
+
+    /**
+     * @var string
+     */
+    private static string $url;
+
+    /**
+     * @var string
+     */
+    private static string $dir;
+
+    /**
+     * @var string
+     */
+    private static string $plugin_base;
+
+    /**
+     * @var string
+     */
+    private static string $slug;
+
+    /**
+     * @var string
+     */
+    private static string $text_domain;
+
+    /**
+     * @var string
+     */
+    private static string $assets_prefix;
+
+    /**
+     * @var string
+     */
+    private static string $assets_url;
+
+    /**
+     * @var string
+     */
+    private static string $template_dir;
+
+    public function __construct( $root ) {
+        self::$url              = plugin_dir_url( $root );
+        self::$dir              = plugin_dir_path( $root );
+        self::$plugin_base      = plugin_basename( $root );
+        self::$template_dir     = self::$dir . 'templates/';
+        self::$slug             = trim( dirname( self::$plugin_base ), '/' );
+        self::$assets_url       = self::$url . 'assets/';
+        self::$text_domain      = self::$slug;
+        self::$assets_prefix    = 'g28_myplugin_';
+    }
+
+    public static function getInstance( $root ): ?Plugin {
+        if ( is_null( self::$_instance ) ) {
+            self::$_instance = new self( $root );
+        }
+
+        return self::$_instance;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getUrl(): string {
+        return self::$url;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getDir(): string {
+        return self::$dir;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getPluginBase(): string {
+        return self::$plugin_base;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getTemplateDir(): string {
+        return self::$template_dir;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getSlug(): string {
+        return self::$slug;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getTextDomain(): string {
+        return self::$text_domain;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getAssetsPrefix(): string {
+        return self::$assets_prefix;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getAssetsUrl(): string {
+        return self::$assets_url;
+    }
+}
+
+```
+
+## Conclusion
+
+In this guide, we've shown you how to use Composer to autoload classes and functions in WordPress. I've also shown you how to load classes using PSR-4 and functions using file autoloading and a basic plugin boilerplate.

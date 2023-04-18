@@ -32,6 +32,10 @@ import {
   SiShopify,
   SiTrello,
   SiNextdotjs,
+  SiMysql,
+  SiMariadb,
+  SiPostgresql,
+  SiFirebase,
 } from '@icons-pack/react-simple-icons'
 import Brand from '@/components/stack/Brand'
 import StackSection from '@/components/stack/StackSection'
@@ -39,7 +43,7 @@ import { useTheme } from 'next-themes'
 
 const Stack = () => {
   const { theme } = useTheme()
-  const color = theme === 'light' ? 'black' : 'white'
+  const color = theme === 'light' ? '#1e293b' : '#cbd5e1'
 
   return (
     <div className="container flex w-full flex-col items-center justify-center">
@@ -116,6 +120,20 @@ const Stack = () => {
           </Brand>
           <Brand title="Shopify" progress="70">
             <SiShopify color="default" size={48} />
+          </Brand>
+        </StackSection>
+        <StackSection title="Database">
+          <Brand title="MySQL" progress="90">
+            <SiMysql color="default" size={48} />
+          </Brand>
+          <Brand title="MariaDB" progress="90">
+            <SiMariadb color={color} size={48} />
+          </Brand>
+          <Brand title="PostgreSQL" progress="80">
+            <SiPostgresql color="default" size={48} />
+          </Brand>
+          <Brand title="Firebase" progress="75">
+            <SiFirebase color="default" size={48} />
           </Brand>
         </StackSection>
         <StackSection title="Tools">

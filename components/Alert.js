@@ -1,4 +1,5 @@
 import React from 'react'
+import Github from '@/components/social-icons/github.svg'
 
 const AlertIcon = () => {
   return (
@@ -39,24 +40,34 @@ const InformationIcon = () => {
 }
 
 const Alert = ({ type, children }) => {
-  if (type) {
+  if (type === 'alert') {
     return (
-      <div className="flex items-center justify-between border border-yellow-600 bg-yellow-100 text-yellow-600 dark:bg-amber-300 dark:text-amber-800">
+      <div className="flex items-center justify-start border border-yellow-600 bg-yellow-100 text-yellow-600 dark:bg-amber-300 dark:text-amber-800">
         <div className="ml-4 w-8">
           <AlertIcon />
         </div>
         <div className="mx-4 text-base">{children}</div>
       </div>
     )
-  }
-  return (
-    <div className="flex flex-col justify-start border border-blue-900 bg-blue-100 text-blue-600">
-      <div className="ml-4 w-8">
-        <InformationIcon />
+  } else if (type === 'github') {
+    return (
+      <div className="flex items-center justify-start border border-neutral-900 bg-neutral-100 text-neutral-600 dark:bg-neutral-300">
+        <div className="ml-4 w-8">
+          <Github className="h-5 w-5 fill-current text-gray-700" />
+        </div>
+        <div className="mx-4 text-base">{children}</div>
       </div>
-      <div className="mx-4 text-base">{children}</div>
-    </div>
-  )
+    )
+  } else {
+    return (
+      <div className="flex items-center justify-start border border-blue-900 bg-blue-100 text-blue-600">
+        <div className="ml-4 w-8">
+          <InformationIcon />
+        </div>
+        <div className="mx-4 text-base">{children}</div>
+      </div>
+    )
+  }
 }
 
 export default Alert

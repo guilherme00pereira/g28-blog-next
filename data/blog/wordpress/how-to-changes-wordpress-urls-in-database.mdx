@@ -45,7 +45,7 @@ UPDATE wp_posts SET post_content = replace(post_content, 'oldurl.com', 'newurl.c
 UPDATE wp_postmeta SET meta_value = replace(meta_value,'oldurl.com','newurl.com');
 ```
 
-<Alert type>
+<Alert type="alert">
   It is important to note that you should not change URLs directly in the database unless you are
   confident in what you are doing. Alternatively, you can use a plugin such as "Better Search
   Replace" to update your URLs automatically

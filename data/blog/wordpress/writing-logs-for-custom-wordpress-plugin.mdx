@@ -132,7 +132,7 @@ class Controller
 	}
 
 }
-    
+
 ```
 
 In the code above I have added the `addMenuPage()` method that will add the menu page to the WordPress admin menu. In the `renderMenuPage()` method I will include the template file that will render the page.
@@ -188,66 +188,65 @@ In the code above I have added a select element that will contain the log files 
 Next, I will be to create the javascript file that will be responsible for making the ajax request to get the content of the selected file. Place the following code in the `admin.js` file:
 
 ```js
-
-(function ($) {
-
-	$(document).ready(function(){
-		$('#logFiles').change( function (e) {
-			$('#loadingLogs').show();
-			let params = {
-				action: ajaxobj.action_getLog,
-				nonce: ajaxobj.eucap_nonce,
-				filename: JSON.stringify(e.target.value)
-			}
-			$.get(ajaxobj.ajax_url, params, function(res){
-				const div = $('#logFileContent');
-				div.html(res.message[1]);
-				$('#loadingLogs').hide();
-			}, 'json');
-		});
-	})
-
-})(jQuery);
-
+;(function ($) {
+  $(document).ready(function () {
+    $('#logFiles').change(function (e) {
+      $('#loadingLogs').show()
+      let params = {
+        action: ajaxobj.action_getLog,
+        nonce: ajaxobj.eucap_nonce,
+        filename: JSON.stringify(e.target.value),
+      }
+      $.get(
+        ajaxobj.ajax_url,
+        params,
+        function (res) {
+          const div = $('#logFileContent')
+          div.html(res.message[1])
+          $('#loadingLogs').hide()
+        },
+        'json'
+      )
+    })
+  })
+})(jQuery)
 ```
 
-In the code above I have added a listener to the change event of the select element. When the event is triggered, I will make an ajax request to the `ajaxGetLog()` method that will return the content of the selected file. I will then add the content to the div that will contain the log file content. 
+In the code above I have added a listener to the change event of the select element. When the event is triggered, I will make an ajax request to the `ajaxGetLog()` method that will return the content of the selected file. I will then add the content to the div that will contain the log file content.
 
 ### Styling the Admin Page
 
 The last step will be to style the page. I will create a file called `admin.css` in the `assets/css` directory and add the following code:
 
 ```css
-
 .log-container {
-    display: flex;
-    flex-direction: column;
-    margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
 }
 
 .log-content {
-    margin: 0;
-    padding: 2rem;
-    background-color: white;
-    border: 1px solid #DCDCDE;
+  margin: 0;
+  padding: 2rem;
+  background-color: white;
+  border: 1px solid #dcdcde;
 }
 
 .log-select-wrapper {
-    display: flex;
-    flex-direction: row;
-    padding: 0.5em 2rem;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 0.5em 2rem;
+  align-items: center;
 }
 
 .log-select-wrapper select {
-    min-width: 250px;
+  min-width: 250px;
 }
 
 .log-select-wrapper label {
-    font-weight: 600;
-    padding-right: 1rem;
+  font-weight: 600;
+  padding-right: 1rem;
 }
-
 ```
 
 ### Registering the Styles and Scripts
@@ -297,7 +296,7 @@ public function renderMenuPage()
 
 ```
 
-## Testing  the Log Functionality
+## Testing the Log Functionality
 
 Now, I will test the log functionality. To accomplish this, I will make available and endpoint that will log a message. I will create a file called `ApiEndpoints.php` int the src directory and add the following code:
 
@@ -352,12 +351,10 @@ public function ping()
 In the code above I have added the `ping()` method that will log a message and return a response. Let's call this endpoint from the browser using the url `http://localhost/wp-json/custom-logs/v1/ping`. You should see the following response:
 
 ```json
-
 {
-    "status": "success",
-    "message": "Ping endpoint called"
+  "status": "success",
+  "message": "Ping endpoint called"
 }
-
 ```
 
 Now, let's go to the admin page and select the log file that has been created. You should see the following content:
@@ -375,3 +372,10 @@ Now, let's go to the admin page and select the log file that has been created. Y
 ## Conclusion
 
 In this tutorial, I have shown you how to create a custom log file for your WordPress plugin. I have also shown you how to create an admin page that will allow you to view the content of the log file. I hope you have found this tutorial useful.
+
+<Alert type="github">
+  Check the repository for the full code of the plugin on
+  <a href="https://github.com/G28Articles/g28-wordpress-custom-logs" target="_blank">
+    Github
+  </a>
+</Alert>

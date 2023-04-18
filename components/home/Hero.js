@@ -15,7 +15,7 @@ const Hero = () => {
         />
       </div>
       <div className="pt-6 font-semibold sm:w-2/3 sm:pt-0">
-        <p className="text-gray-700">Hi everyone!</p>
+        <p className="text-gray-700 dark:text-gray-200">Hi everyone!</p>
         <div className="linear-blue">
           <h1 className="text-4xl">
             My name is <br className="sm:hidden" />

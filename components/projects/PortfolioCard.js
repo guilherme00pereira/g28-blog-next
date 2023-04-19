@@ -23,7 +23,7 @@ const Card = ({ title, description, imgSrc, href, stack }) => (
             height={290}
           />
         ))}
-      <div className="p-6">
+      <div className="flex min-h-[320px] flex-col p-6">
         <h2 className="mb-3 text-2xl font-semibold leading-8 tracking-wider">
           {href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
@@ -33,7 +33,9 @@ const Card = ({ title, description, imgSrc, href, stack }) => (
             title
           )}
         </h2>
-        <div className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</div>
+        <div className="prose mb-3 max-w-none grow text-gray-500 dark:text-gray-400">
+          {description}
+        </div>
         {stack && (
           <div>
             {stack.map((item, index) => (

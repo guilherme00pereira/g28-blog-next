@@ -1,0 +1,100 @@
+---
+title: 'Making a Breadcrumb React Component for Next.js'
+date: '2023-01-29'
+tags: ['react', 'nextjs']
+draft: false
+images: ['/static/images/common/next-react.webp']
+summary: 'In this article, we will learn how to make a Breadcrumb component with React to a Next.js project.'
+---
+
+In this article, we will learn how to make a Breadcrumb component with React to use in a Next.js project.
+
+## The React Component
+
+To get the breadcrumb items to render on a page, I need to get the path from the url and then map over the items to create the breadcrumb. I will use the `useRouter` hook from Next.js to get the path inside de useEffect hook.
+
+```jsx
+
+import { useRouter } from 'next/router'
+
+useEffect(() => {
+    const pathWithoutQuery = router.asPath.split('?')[0]
+    let pathArray = pathWithoutQuery.split('/')
+    pathArray.shift()
+    pathArray = pathArray.filter((path) => path !== '')
+    const breadcrumbs = pathArray.map((path, index) => {
+      const href = '/' + pathArray.slice(0, index + 1).join('/')
+      return {
+        href,
+        label: path.charAt(0).toUpperCase() + path.slice(1),
+      }
+    })
+    setBreadcrumbs(breadcrumbs)
+  }, [router.asPath])
+
+```
+
+Then, I will pass this data to a Breadcrumb component whit the page title, like this:
+
+```jsx
+
+<Breadcrumb items={breadcrumbs} pageTitle={title} />
+
+```
+
+Now, let's create a new file and name it `Breadcrumb.js`. In this file, I will create the main funciton of the component called Breadcrumb. This function will receive the items and the page title as props and will check if the item is the last one to render the page title instead of a link to a section, category or something like that. Also, an ArrowIcon to separate the items:
+
+```jsx
+
+import Link from 'next/link'
+
+const ArrowIcon = () => {
+  return (
+    <span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="h-7 w-4"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>
+    </span>
+  )
+}
+
+const Breadcrumb = ({ items, pageTitle }) => {
+  const childrenWithSeparator = items.map((item, index) => {
+    if (index === items.length - 1) {
+      return (
+        <span>
+          {pageTitle}
+        </span>
+      )
+    } else {
+      return (
+        <li key={index}>
+          <Link href={item.href}>{item.label}</Link>
+          <ArrowIcon />
+        </li>
+      )
+    }
+  })
+  return (
+    <nav>
+      <ol>
+        {childrenWithSeparator}
+      </ol>
+    </nav>
+  )
+}
+
+export default Breadcrumb
+
+```
+
+
+
+

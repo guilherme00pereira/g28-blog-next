@@ -1,115 +1,210 @@
 ---
 title: 'React Component to Read And Parse a CSV File'
-date: '2023-01-18'
+date: '2023-01-07'
 tags: ['react']
-draft: true
+draft: false
 images: ['/static/images/react-component-to-read-and-parse-csv/react-csv-parse.webp']
 summary: 'Example of a React component to upload, read and parse a CSV file.'
 ---
 
-<ImageCard>
-  <Image
-    className="h-auto w-auto rounded-lg"
-    src="/static/images/react-component-to-read-and-parse-csv/react-parse-csv-01.webp"
-    alt="React Parse CSV Screen"
-    width={700}
-    height={284}
-  />
-</ImageCard>
+In this article, we will look at how to create a React component that can upload, read and parse a CSV file. We will use the papaparse and react-dropzone libraries to achieve this.
 
-Uploading and parsing a CSV file with a React component can be achieved using the papaparse and react-dropzone libraries.
+<Alert type="tools">
+<div className="text-slate-800 ml-4 mt-4 text-lg">Tools used:</div>
+<ol className="not-prose mb-4">
+   <li><a href="https://vitejs.dev/" target="_blank">Vite</a></li>
+   <li><a href="https://www.papaparse.com/" target="_blank">Papaparse</a></li>
+   <li><a href="https://react-dropzone.js.org/" target="_blank">React Dropzone</a></li> 
+   <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a></li>  
+</ol>
+</Alert>
 
-First, install both libraries by running the following command in your terminal:
+## Preparing the React Project
 
-Next, import the libraries in your React component:
+To get started, create a new React project by running the following command in your terminal:
+
+```bash
+
+npm create vite@latest react-component-read-csv --template react
+
+```
+
+Next, navigate to the project directory and start the development server:
+
+```bash
+
+cd react-component-read-csv
+
+npm run dev
+
+```
+
+### Installing the Libraries
+
+To install the papaparse and react-dropzone libraries, run the following command in your terminal:
+
+```bash
+
+npm install papaparse react-dropzone
+
+```
+
+## Creating the React Component
+
+Now that we have our React project ready, let's create our code in the App.jsx file. First, I will import the libraries we need:
 
 ```jsx
-import { useState } from 'react'
-import { useDropzone } from 'react-dropzone'
-import Papa from 'papaparse'
-import './App.css'
+
+import { useState } from "react";
+import { useDropzone } from "react-dropzone";
+import Papa from "papaparse";
+import './App.css';
 
 function App() {
-  const [data, setData] = useState([])
-  const [file, setFile] = useState(null)
 
-  const onDrop = (acceptedFiles) => {
-    setFile(acceptedFiles[0])
-    const text = document.getElementById('dropText')
+}
+
+export default App;
+
+```
+
+Next, I will create a those variables that will receive the file and hold the data from the CSV file:
+
+```jsx
+
+const [data, setData] = useState([]);
+const [file, setFile] = useState(null);
+
+```
+
+Next, configure the react-dropzone library to accept only CSV files:
+
+```jsx
+
+const onDrop = acceptedFiles => {
+    setFile(acceptedFiles[0]);
+    const text = document.getElementById("dropText")
     text.innerText = acceptedFiles[0].name
-  }
+  };
 
-  const { getRootProps, getInputProps } = useDropzone({ onDrop })
+const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
-  const handleUpload = () => {
-    Papa.parse(file, {
-      header: false,
-      download: true,
-      skipEmptyLines: true,
-      complete: (results) => {
-        setData(results.data)
-      },
-      error: (err) => {
-        const text = document.getElementById('erroText')
-        text.innerText = err
-      },
-    })
-  }
+```
 
-  const renderRow = (row, header) => {
-    return row.map((column) => {
-      return header ? (
-        <th scope="col" className="px-8 py-4">
-          {column}
-        </th>
-      ) : (
-        <td className="px-8 py-4">{column}</td>
-      )
-    })
-  }
+Next, I will return the HTML code for the component:
 
-  return (
+```jsx
+
+return (
     <div className="container mx-auto">
-      <div className="m-5 flex flex-col items-center justify-center">
-        <h1 className="mb-10 text-4xl">React Read and Parse CSV Files</h1>
+      <div className="flex flex-col items-center justify-center m-5">
+        <h1 className="text-4xl mb-10">React Read and Parse CSV Files</h1>
         <div className="upload-box" {...getRootProps()}>
           <input {...getInputProps()} />
           <p id="dropText">Drag 'n' drop a CSV file here, or click to select a file</p>
         </div>
         <div>
-          {file && (
-            <button className="button" onClick={handleUpload}>
-              Read File
-            </button>
-          )}
+          {file && <button className="button" onClick={handleUpload}>Read File</button>}
           <p id="erroText"></p>
         </div>
-        {data.length > 0 && (
-          <div className="relative mt-5 overflow-x-auto">
-            <table className="w-full table-auto text-left text-sm text-slate-500 dark:text-slate-400">
-              <thead className="bg-slate-200 text-xs uppercase text-slate-700 dark:bg-slate-700 dark:text-slate-400">
-                <tr key="0">{renderRow(data[0], true)}</tr>
+        {data.length > 0 &&
+          <div className="mt-5 relative overflow-x-auto">
+            <table className="table-auto w-full text-sm text-left text-slate-500 dark:text-slate-400">
+              <thead className="text-xs text-slate-700 uppercase bg-slate-200 dark:bg-slate-700 dark:text-slate-400">
+                <tr key="0">
+                  {renderRow(data[0], true)}
+                </tr>
               </thead>
               <tbody>
-                {data.map(
-                  (item, index) => index !== 0 && <tr key={index}>{renderRow(item, false)}</tr>
-                )}
+                {data.map((item, index) => (
+                  index !== 0 &&
+                  <tr key={index}>
+                    {renderRow(item, false)}
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
-        )}
+        }
       </div>
     </div>
   )
-}
 
-export default App
-```
+  ```	
 
-In your component, you can use the useDropzone hook from the react-dropzone library to handle file drops and the papaparse library to parse the dropped CSV file.
+  Now, I will create the function that will handle the upload of the CSV file and the function that will render the data from the CSV file:
 
-Here is an example of a basic React component that can handle file drops and parse the CSV file using the papaparse library:
+  ```jsx 
 
-In this example, the onDrop function is called whenever a file is dropped on the dropzone. The papaparse library is then used to parse the dropped file and the resulting data is stored in the component's state. The component then renders a table containing the parsed data.
+   const handleUpload = () => {
+    Papa.parse(file, {
+      header: false,
+      download: true,
+      skipEmptyLines: true,
+      complete: results => {
+        setData(results.data)
+      },
+      error: err => {
+        const text = document.getElementById("erroText")
+        text.innerText = err
+      }
+    })
+  }
 
-Note that this is a very basic example and you will likely need to customize it to fit the requirements of your application.
+  const renderRow = (row, header) => {
+    return row.map(column => {
+      return header ? 
+        <th scope="col" className="px-8 py-4">{column}</th> 
+        : 
+        <td className="px-8 py-4">{column}</td>
+    })
+  }
+
+  ```
+
+  ## Final Result
+
+In the browser, access the project and you will see the page with the rendered component.
+
+<ImageCard>
+  <Image
+    className="rounded-lg"
+    src="/static/images/react-component-to-read-and-parse-csv/react-parse-csv-01.webp"
+    alt="Initial Screen"
+    width={700}
+    height={284}
+  />
+</ImageCard>
+
+Drag and drop a CSV file into the dropzone area and click on Read File button.
+
+<ImageCard>
+  <Image
+    className="rounded-lg"
+    src="/static/images/react-component-to-read-and-parse-csv/react-parse-csv-02.webp"
+    alt="Dropzone"
+    width={700}
+    height={284}
+  />
+</ImageCard>
+
+The csv data will be rendered in a table.
+
+<ImageCard>
+  <Image
+    className="rounded-lg"
+    src="/static/images/react-component-to-read-and-parse-csv/react-parse-csv-03.webp"
+    alt="Rendered Table"
+    width={700}
+    height={284}
+  />
+</ImageCard>
+
+## Conclusion
+
+In this tutorial, we learned how to create a React component to read and parse CSV files. We used the papaparse and react-dropzone libraries to achieve this. I hope you enjoyed this tutorial and learned something new.
+
+
+<Alert type="github">
+  Check the repository for the full code of the plugin on <a href="https://github.com/G28Articles/react-component-read-csv" target="_blank">Github</a>
+</Alert>

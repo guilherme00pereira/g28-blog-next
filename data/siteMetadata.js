@@ -8,8 +8,8 @@ const siteMetadata = {
   description: 'A blog created by Guilherme Pereira',
   language: 'en-us',
   theme: 'dark', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://g28.com.br',
+  siteRepo: '',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/perfil.webp',
   socialBanner: '/static/images/twitter-card.png',

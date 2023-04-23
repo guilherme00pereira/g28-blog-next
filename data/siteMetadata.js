@@ -24,6 +24,11 @@ const siteMetadata = {
     whatsapp: 'https://wa.me/5531990891617',
     linkedin: 'https://www.linkedin.com/in/guilhermepereirasalves/',
   },
+  featuredPosts: [
+    'writing-logs-for-custom-wordpress-plugin',
+    'making-a-breadcrumb-react-component',
+    'using-composer-in-a-wordpress-plugin',
+  ],
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.

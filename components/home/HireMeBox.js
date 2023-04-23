@@ -6,7 +6,7 @@ import Link from '@/components/Link'
 
 const HireMeBox = () => {
   return (
-    <div className="flex basis-1/3 flex-col items-end justify-evenly">
+    <div className="my-8 flex basis-1/3 flex-col items-end justify-evenly md:my-0">
       <div>
         <h2 className="linear-blue line-bottom-right relative mb-8 text-3xl font-bold before:w-[72px]">
           Hire Me

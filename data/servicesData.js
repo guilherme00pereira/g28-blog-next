@@ -15,15 +15,16 @@ export const webAppService = {
 }
 
 export const apiService = {
-  title: 'API Development, Integration and Hosting',
+  title: 'API Development and Hosting Solutions',
   code: 'api',
   topics: [
     'API development using REST, GraphQL, or other popular API standards',
     'Experience integrating various third-party services such as payment gateways, social media platforms, and messaging services into web or mobile applications',
     'Working with cloud hosting providers such as Amazon Web Services (AWS), Google Cloud Platform (GCP), or Microsoft Azure',
-    'Expertise in hosting solutions and server configurations, sush as Apache, Nginx, and Plesk',
+    'Expertise in hosting solutions and server configurations, such as Apache, Nginx, and Plesk',
   ],
-  summary: 'Web and app development services',
+  summary:
+    'API development using REST, GraphQL. Hosting server config., such as Apache, Nginx, and Plesk',
   homecolor: 'services-rose',
   bgcolor: 'about-services-rose',
 }
@@ -37,7 +38,8 @@ export const wordpressService = {
     'Ability to troubleshoot and debug issues that may arise on WordPress sites, including plugin conflicts and server-related issues',
     'Development of custom WordPress solutions tailored to your specific needs and requirements',
   ],
-  summary: 'Web and app development services',
+  summary:
+    'Proficiency in WordPress/WooCommerce development, including custom theme and plugin development',
   homecolor: 'services-violet',
   bgcolor: 'about-services-violet',
 }

@@ -30,7 +30,7 @@ const ServiceIcon = ({ topic }) => {
 const ServiceWrapper = ({ service }) => {
   return (
     <div className="card-wrapper m-4 flex w-full items-center justify-center p-0.5">
-      <div className={`flex h-[360px] w-full justify-between space-x-12 ${service.homecolor}`}>
+      <div className={`flex h-full md:h-[360px] w-full justify-between space-x-12 ${service.homecolor}`}>
         <div className="m-4 flex flex-col">
           <h6 className="my-2 text-3xl">{service.title}</h6>
           <ol className="my-2">
@@ -40,7 +40,7 @@ const ServiceWrapper = ({ service }) => {
           </ol>
           {/*{service.text}*/}
         </div>
-        <div className="">
+        <div className="invisible md:visible">
           <div className="relative flex h-[360px] w-[360px] overflow-hidden opacity-90">
             <Image
               className=""

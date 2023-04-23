@@ -13,8 +13,8 @@ import {
 } from '@icons-pack/react-simple-icons'
 import { useTheme } from 'next-themes'
 
-const StackWrapper = ({ children }) => {
-  return <div className="px-4">{children}</div>
+const StackWrapper = ({ children, hide }) => {
+  return <div className={`px-4 ${hide ? 'invisible md:visible' : ''}`}>{children}</div>
 }
 
 const StackBox = () => {
@@ -26,7 +26,7 @@ const StackBox = () => {
       <div className="linear-blue line-bottom relative text-2xl font-bold before:w-[84px]">
         My Stack
       </div>
-      <div className="flex h-[360px] flex-wrap items-center justify-center xl:w-[240px]">
+      <div className="mt-8 flex h-[200px] flex-wrap items-center justify-center md:mt-4 md:h-[360px] xl:w-[240px]">
         <StackWrapper>
           <SiPhp color="default" size={48} />
         </StackWrapper>
@@ -51,7 +51,7 @@ const StackBox = () => {
         <StackWrapper>
           <SiLaravel color="default" size={48} />
         </StackWrapper>
-        <StackWrapper>
+        <StackWrapper hide>
           <SiVuedotjs color="default" size={48} />
         </StackWrapper>
       </div>

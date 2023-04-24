@@ -105,7 +105,7 @@ const Stack = () => {
             <SiDjango color={djangoColor} size={48} />
           </Brand>
           <Brand title="Flutter" progress="50">
-            <SiFlutter color='default' size={48} />
+            <SiFlutter color="default" size={48} />
           </Brand>
         </StackSection>
         <StackSection title="Web Development">

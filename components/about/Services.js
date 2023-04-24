@@ -30,7 +30,9 @@ const ServiceIcon = ({ topic }) => {
 const ServiceWrapper = ({ service }) => {
   return (
     <div className="card-wrapper m-4 flex w-full items-center justify-center p-0.5">
-      <div className={`flex h-full md:h-[360px] w-full justify-between space-x-12 ${service.homecolor}`}>
+      <div
+        className={`flex h-full w-full justify-between space-x-12 md:h-[360px] ${service.homecolor}`}
+      >
         <div className="m-4 flex flex-col">
           <h6 className="my-2 text-3xl">{service.title}</h6>
           <ol className="my-2">

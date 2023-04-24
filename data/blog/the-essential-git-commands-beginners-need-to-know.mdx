@@ -78,6 +78,14 @@ git remote add origin <remote url>
 git remote remove origin
 ```
 
+To update locally a list of the available remote repositories, you'll need to use the following command
+
+```bash
+
+git remote update origin
+
+```
+
 ### git clone
 
 Git clone is used to clone a remote repository to your local machine.
@@ -132,6 +140,9 @@ git branch <branchname>
 
 // list branches
 git branch
+
+// list local and remote branches
+git branch -a 
 
 // rename branch
 git branch -m <oldbranchname> <newbranchname>

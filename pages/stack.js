@@ -36,6 +36,8 @@ import {
   SiMariadb,
   SiPostgresql,
   SiFirebase,
+  SiDjango,
+  SiFlutter,
 } from '@icons-pack/react-simple-icons'
 import Brand from '@/components/stack/Brand'
 import StackSection from '@/components/stack/StackSection'
@@ -44,12 +46,13 @@ import { useTheme } from 'next-themes'
 const Stack = () => {
   const { theme } = useTheme()
   const color = theme === 'light' ? '#1e293b' : '#cbd5e1'
+  const djangoColor = theme === 'light' ? 'default' : '#339933'
 
   return (
     <div className="container flex w-full flex-col items-center justify-center">
       <SectionTitle title="Stack" />
       <div className="pt-8 text-center text-xl leading-7 text-gray-500 dark:text-gray-400">
-        <h3>Here is the tech stack that i am currently working on or have been working with</h3>
+        <h3>Here is the tech stack that I am currently working on or have been working with</h3>
       </div>
       <div className="flex w-full flex-col items-center justify-center">
         <StackSection title="Languages">
@@ -97,6 +100,12 @@ const Stack = () => {
           </Brand>
           <Brand title=".NET" progress="50">
             <SiDotnet color="default" size={48} />
+          </Brand>
+          <Brand title="Django" progress="75">
+            <SiDjango color={djangoColor} size={48} />
+          </Brand>
+          <Brand title="Flutter" progress="50">
+            <SiFlutter color='default' size={48} />
           </Brand>
         </StackSection>
         <StackSection title="Web Development">

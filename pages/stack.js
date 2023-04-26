@@ -38,6 +38,8 @@ import {
   SiFirebase,
   SiDjango,
   SiFlutter,
+  SiCodeigniter,
+  SiVercel,
 } from '@icons-pack/react-simple-icons'
 import Brand from '@/components/stack/Brand'
 import StackSection from '@/components/stack/StackSection'
@@ -85,6 +87,9 @@ const Stack = () => {
         <StackSection title="Frameworks">
           <Brand title="Laravel" progress="80">
             <SiLaravel color="default" size={48} />
+          </Brand>
+          <Brand title="Codeigniter" progress="60">
+            <SiCodeigniter color="default" size={48} />
           </Brand>
           <Brand title="React.js" progress="90">
             <SiReact color="default" size={48} />
@@ -160,6 +165,9 @@ const Stack = () => {
           </Brand>
         </StackSection>
         <StackSection title="Hosting">
+          <Brand title="Vercel">
+            <SiVercel color={color} size={48} />
+          </Brand>
           <Brand title="Amazon AWS">
             <SiAmazonaws color="#EC7211" size={48} />
           </Brand>

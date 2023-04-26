@@ -24,6 +24,10 @@ class MyDocument extends Document {
           <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
           <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
           <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+          <meta
+            name="google-site-verification"
+            content="RAIeY70q7BWmpd09dcApSZh4BUdw_I0HKTbB-JFI_Co"
+          />
         </Head>
         <body className="bg-slate-100 text-slate-900 antialiased dark:bg-slate-900 dark:text-white">
           <Main />

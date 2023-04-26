@@ -1,5 +1,5 @@
 import Image from '../Image'
-import ProfilePicture from '../../public/static/images/perfil.webp'
+import ProfilePicture from '../../public/static/images/perfil_redes.webp'
 
 const Hero = () => {
   return (

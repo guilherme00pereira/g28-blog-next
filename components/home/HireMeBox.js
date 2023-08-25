@@ -23,14 +23,6 @@ const HireMeBox = () => {
             <Image src={Upwork} alt="Upwork" width="58" height="58" />
           </Link>
         </div>
-        <div className="light-border overflow-hidden rounded-xl">
-          <Link
-            href="https://www.workana.com/freelancer/b876787917c31fa45574281522de0f5f"
-            target="_blank"
-          >
-            <Image src={Workana} alt="Workana" width="58" height="58" />
-          </Link>
-        </div>
       </div>
     </div>
   )

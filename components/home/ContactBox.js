@@ -23,7 +23,7 @@ const Contact = () => {
         <ContactWrapper href="https://wa.me/5531990891617">
           <SiWhatsapp color="default" size={36} />
         </ContactWrapper>
-        <ContactWrapper href="https://www.linkedin.com/in/guilhermepereirasalves/">
+        <ContactWrapper href="https://www.linkedin.com/in/g28-guilherme-pereira/">
           <SiLinkedin color="default" size={36} />
         </ContactWrapper>
         <ContactWrapper href="mailto:guilherme00pereira@gmail.com">

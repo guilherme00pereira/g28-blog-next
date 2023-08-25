@@ -41,7 +41,7 @@ export default function About() {
             </p>
           </div>
         </div>
-        <SectionTitle title="My Services" subtitle />
+        <SectionTitle title="Hire My Services" subtitle />
         <Services />
         <SectionTitle title="Testimonials" subtitle />
         <Testimonials />
